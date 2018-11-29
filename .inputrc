@@ -43,10 +43,6 @@ set completion-ignore-case on
 # Treat '-' and '_' equivalently when performing completion matching
 set completion-map-case on
 
-# Cycle through competions with Tab and Shift+Tab
-Tab:menu-complete
-"\e[Z":menu-complete-backward
-
 # Match hidden files without explicitly prefixing them with '.'
 # NOTE: It's a default value but some distros disable this feature which is
 # annoying as hell

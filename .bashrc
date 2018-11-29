@@ -1,5 +1,6 @@
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+# Load "modules"
+source "$HOME"/.shell/functions.sh
+source "$HOME"/.shell/aliases.sh
