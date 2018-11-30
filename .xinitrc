@@ -4,6 +4,9 @@ test -f ~/.Xresources && xrdb -merge ~/.Xresources
 # Load Xmodmap (overlay modification of keyboard layout)
 test -f ~/.Xmodmap && xmodmap ~/.Xmodmap
 
+# Start ssh-agent
+eval $(ssh-agent)
+
 # Set a desktop background
 test -f ~/.fehbg && ~/.fehbg &
 
