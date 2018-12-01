@@ -8,3 +8,6 @@ shopt -s histappend
 # Stop that nano bullshit
 export EDITOR=vim
 export VISUAL=vim
+
+# Fix for man-db errors
+export MAN_DISABLE_SECCOMP=1

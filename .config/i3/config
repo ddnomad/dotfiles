@@ -1,6 +1,12 @@
 # Set Alt as a main modifier
 set $mod Mod1
 
+# Lock screen
+bindsym Mod4+l exec lock_screen
+
+# Suspend
+bindsym Mod4+s exec systemctl suspend
+
 # Set title bars border to 1px which practically disables them
 # NOTE: Borders will still be visible in tabbed layout
 for_window [class="^.*"] border pixel 1
