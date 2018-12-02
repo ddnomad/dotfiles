@@ -7,6 +7,9 @@ bindsym Mod4+l exec lock_screen
 # Suspend
 bindsym Mod4+s exec systemctl suspend
 
+# Start the bar
+exec_always --no-startup-id start_polybar
+
 # Set title bars border to 1px which practically disables them
 # NOTE: Borders will still be visible in tabbed layout
 for_window [class="^.*"] border pixel 1
@@ -46,7 +49,6 @@ client.background       $base07
 # is used in the bar {} block below.
 font pango:Hack Nerd Font 9
 
-# TODO: WTF
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -100,16 +102,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 term"
-set $ws2 "2 www"
-set $ws3 "3 code"
-set $ws4 "4 chat"
-set $ws5 "5 tune"
-set $ws6 "6 game"
-set $ws7 "7 casino"
-set $ws8 "8 watch"
-set $ws9 "9 tor"
-set $ws10 "10 accs"
+set $ws1 " term"
+set $ws2 " www"
+set $ws3 " code"
+set $ws4 " chat"
+set $ws5 " tune"
+set $ws6 " game"
+set $ws7 " casino"
+set $ws8 " watch"
+set $ws9 " tor"
+set $ws10 " accs"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -144,46 +146,39 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
+	# Return to a normal mode
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-  position top
-  i3bar_command i3bar -t
-  status_command i3status
-  colors {
-    background #00000000
-    separator #00000000
+    i3bar_command i3bar -t
+    position top
+    colors {
+        background #00000000
 
-    # State             Border  BG      Text
-    focused_workspace   $base05 $base0D $base00
-    active_workspace    $base05 $base03 $base00
-    inactive_workspace  $base03 $base01 $base05
-    urgent_workspace    $base08 $base08 $base00
-    binding_mode        $base00 $base0A $base00
-  }
+        focused_workspace #00000000 #00000000 #D8D8D8
+        active_workspace #00000000 #00000000 #585858
+        inactive_workspace #00000000 #00000000 #585858
+        urgent_workspace #00000000 #00000000 #BA8BAF
+    }
+    status_command /usr/share/bumblebee-status/bumblebee-status \
+        -m \
+            spotify disk cpu memory brightness pacman \
+            publicip nic battery datetime \
+        -p \
+            disk.format="{percent:1.1f}%" \
+            memory.format="{percent:1.1f}%" \
+            pacman.sum="True" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
+            nic.format="{ssid}" \
+            battery.device="BAT0,BAT1" \
+            datetime.format="%a %w %b %X" \
+        -t base16-default-dark-dd
 }

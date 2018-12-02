@@ -7,7 +7,7 @@ URxvt.scrollBar: false
 
 ! Make terminal windows transparent
 URxvt*transparent: true
-URxvt*shading: 30
+URxvt*shading: 40 
 
 ! Add padding to terminal windows content as it looks ugly with 1px i3wm
 ! borders otherwise
