@@ -58,8 +58,14 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# start dmenu
+bindsym $mod+d exec dmenu_run \
+    -i -p "run:" \
+    -fn "Hack Nerd Font-9" \
+    -nb "#000000" \
+    -nf "#D8D8D8" \
+    -sb "#86C1B9" \
+    -sf "#181818"
 
 # change focus
 bindsym $mod+h focus left
@@ -102,16 +108,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 " term"
-set $ws2 " www"
-set $ws3 " code"
-set $ws4 " chat"
-set $ws5 " tune"
-set $ws6 " game"
-set $ws7 " casino"
-set $ws8 " watch"
-set $ws9 " tor"
-set $ws10 " accs"
+set $ws1 "1:  term"
+set $ws2 "2:  www"
+set $ws3 "3:  code"
+set $ws4 "4:  chat"
+set $ws5 "5:  tune"
+set $ws6 "6:  game"
+set $ws7 "7:  casino"
+set $ws8 "8:  watch"
+set $ws9 "9:  tor"
+set $ws10 "10:  accs"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
