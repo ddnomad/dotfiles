@@ -7,6 +7,10 @@ bindsym Mod4+l exec lock_screen
 # Suspend
 bindsym Mod4+s exec systemctl suspend
 
+# Make screenshot
+bindsym --release $mod+F12 exec \
+    "make_screenshot -s /home/ddnomad/pictures/screenshots/"
+
 # Start the bar
 exec_always --no-startup-id start_polybar
 
