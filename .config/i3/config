@@ -2,7 +2,7 @@
 set $mod Mod1
 
 # Lock screen
-bindsym Mod4+l exec lock_screen
+bindsym Mod4+l exec /usr/bin/lock_screen
 
 # Suspend
 bindsym Mod4+s exec systemctl suspend

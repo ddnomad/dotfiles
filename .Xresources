@@ -2,8 +2,16 @@
 URxvt.font: xft:Hack Nerd Font:size=9
 URxvt.letterSpace: -1
 
+! Fading options (fade contents of inactive window)
+URxvt.fading: 20
+URxvt.fadeColor: #000000
+
 ! Disable scrollbar cause it is ugly
 URxvt.scrollBar: false
+
+! Cursor tweaks
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
 
 ! Make terminal windows transparent
 URxvt*transparent: true
