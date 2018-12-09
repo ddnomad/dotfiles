@@ -43,3 +43,6 @@ set number relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Use terminal cursor styling
+set guicursor=

@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
+#
+###############################################################################
+# Title:       make_screenshot
+# Description: Make screenshots of different stuff
+# Usage:       Copy to /usr/bin or other only root accessible place in path
+#              and bind to a shortcut in the WM.
+# Version:     0.0.1
+###############################################################################
 
-# screenshots stuff
-# TODO: docs
 
+# FIXME: FIX THE SCRIPT
+# TODO: Screenshots of the whole screen
+# TODO: Screenshots of a specific window
 function help_and_exit {
     if [ -n "${1}" ]; then
         echo "${1}"

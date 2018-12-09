@@ -10,7 +10,7 @@ test -f ~/.Xmodmap && xmodmap ~/.Xmodmap
 xinput --set-int-prop 11 "libinput Natural Scrolling Enabled" 8 1
 
 # Reduce keyboard repeat delay
-xset r rate 200 25
+xset r rate 300 25
 
 # Start ssh-agent
 eval $(ssh-agent)
