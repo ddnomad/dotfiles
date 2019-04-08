@@ -1,6 +1,9 @@
 # Arch Dotfiles
 No comments just yet. Still WIP pretty much.
 
+# Note 2 Self
+[YADM](https://github.com/TheLocehiliosan/yadm) is used for dotfiles management.
+
 # Gotchas
 * In order to force nerd-fonts to display properly a specific fork of
 `rxvt-unicode` should be installed. Specifically: `rxvt-unicode-wcwidthcallback`

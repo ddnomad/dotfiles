@@ -10,11 +10,15 @@
 set -euo pipefail
 
 
+readonly LOCK_SCREEN_MSG=''
+readonly LOCK_SCREEN_FONT='Hack Nerd Font'
+
+
 ###############################################################################
 # Main function handling execution pipeline
 ###############################################################################
 function main {
-    i3lock-next "" "Hack Nerd Font" &
+    i3lock-next "${LOCK_SCREEN_MSG}" "${LOCK_SCREEN_FONT}" &
 }
 
 
