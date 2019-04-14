@@ -3,8 +3,7 @@
 ###############################################################################
 # Title:       lock_screen
 # Description: Lock screen using a locker of my choice
-# Usage:       Copy to /usr/bin or other only root accessible place in path
-#              and bind to a shortcut in the WM.
+# Usage:       Add to PATH and bind to a shortcut in the WM
 # Version:     0.0.1
 ###############################################################################
 set -euo pipefail

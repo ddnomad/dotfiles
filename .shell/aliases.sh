@@ -3,6 +3,7 @@ alias top='htop'
 alias pgp='gpg'
 
 # A lot of shades of ls
+# FIXME: Unreadable colors when writable by everybody
 alias l='ls --color'
 alias ls='ls --color'
 alias sl='ls --color'

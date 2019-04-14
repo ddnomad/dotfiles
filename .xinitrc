@@ -15,7 +15,6 @@ xset r rate 300 25
 # Start ssh-agent
 eval $(ssh-agent)
 
-
 # Set a desktop background
 test -f ~/.fehbg && ~/.fehbg &
 
