@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+###############################################################################
+# Title:       qmk
+# Description: QMK firmware make targets wrapper
+# Usage:       Copy to /usr/bin or other location writable only by privileged
+#              users and allow execution by unprivileged users via sudo.
+# Version:     0.0.1
+###############################################################################
+set -euo pipefail
+
+
+###############################################################################
+# Main function handling execution pipeline
+###############################################################################
+function main {
+    true
+    cat stuff |* ls
+}
+
+###############################################################################
+# Main flow
+###############################################################################
+main

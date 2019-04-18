@@ -1,0 +1,8 @@
+[options]
+font = Hack Nerd Font 9
+cursor_shape = underline
+scrollback_lines = -1
+
+[colors]
+background = rgba(0, 0, 0, 0.8)
+cursor = #e8e8e8

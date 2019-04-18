@@ -40,13 +40,19 @@ syntax on
 let base16colorspace=256
 source ~/.vimrc_background
 
-" Workaround for theming bs to reenable transparency
+" Workaround for highlight to reenable transparency
 hi Normal guibg=none ctermbg=none
 hi NonText guibg=none ctermbg=none
 hi LineNr guibg=none ctermbg=none
 hi CursorLineNr guibg=none ctermbg=none
 hi StatusLine guibg=none ctermbg=none
 hi SignColumn guibg=none ctermbg=none
+
+" Workaround for Neomake highlight bg/fg being low contrast
+hi NeomakeError cterm=underline ctermfg=9 ctermbg=none
+hi NeomakeWarning cterm=underline ctermfg=3 ctermbg=none
+hi NeomakeInfo cterm=underline ctermfg=4 ctermbg=none
+hi NeomakeMessage cterm=underline ctermfg=4 ctermbg=none
 
 " Allow to copy/paste from the main clipboard buffer
 set clipboard=unnamedplus
@@ -73,8 +79,10 @@ set showbreak=↳\ \ \
 set cpo+=n
 
 " Airline plugin settings
-let g:airline_selection_c='%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 let g:airline_theme='base16'
+let g:airline_symbols={}
+let g:airline_symbols.linenr=''
+let g:airline_symbols.maxlinenr=''
 
 " IndentLine plugin settings
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
