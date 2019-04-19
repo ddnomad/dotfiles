@@ -1,0 +1,247 @@
+#!/usr/bin/env bash
+#
+###############################################################################
+# Title:       qmk
+# Description: QMK firmware make targets wrapper
+# Usage:       Copy to /usr/bin or other location writable only by privileged
+#              users and allow execution by unprivileged users via sudo.
+# Version:     0.0.1
+###############################################################################
+set -euo pipefail
+
+readonly MIN_REQV_ARGS_NUM=1
+readonly REQV_REPO_NAME='qmk_firmware.git'
+
+readonly INFO_NAME="$(basename "$0")"
+readonly INFO_DIR="$(pwd)"
+
+readonly MSG_COMMON_PREFIX='+++++'
+readonly MSG_ERROR_PREFIX=' [!] Error: '
+readonly MSG_WARN_PREFIX=' [@] Warning: '
+readonly MSG_INFO_PREFIX=' [i] Info: '
+readonly MSG_SUB_PREFIX='+++++ '
+readonly MSG_SUB_LIST_PREFIX='[*] '
+
+readonly MSG_ERROR_COLOR='\033[0;31m'
+readonly MSG_WARN_COLOR='\033[0;33m'
+readonly MSG_INFO_COLOR=''
+readonly MSG_SUB_COLOR=''
+readonly MSG_SUB_LIST_COLOR=''
+readonly MSG_CLEAR_COLOR='\033[0m'
+
+readonly MSG_HELP="$(cat <<EOF
+Usage: ${INFO_NAME} [OPTIONS] [COMMAND] [COMMAND OPTIONS] args
+
+Build and flash QMK firmware without giving a taget user full sudo
+permissions.
+
+This script is intended to be used as a sandboxed wrapper around QMK
+make targets which can be executed by a non-privileged user.
+
+NOTE: This approach still allows for an arbitrary code execution by
+modifying code inside QMK repository itself. Thus this script is
+intended to be more of a "security through obscrurity" measure.
+
+Move this script to a location that is in PATH but is writable only by
+privileged users. Then add something similar to /etc/sudoers:
+
+$USER ALL=/usr/bin/${INFO_NAME}
+
+OPTIONS
+    -h   --help    Print this message and exit
+
+COMMANDS
+    build    Build firmware for a keyboard
+    flash    Build and flash firmware for a keyboard
+
+ARGS :build
+    Same as QMK make arguments. Example format:
+
+    <keyboard>:<keymap>
+
+    See https://docs.qmk.fm/#/newbs_building_firmware for details.
+
+ARGS :flash
+    Same as QMK make arguments. Example format:
+
+    <keyboard>:<keymap>:<bootloader>
+
+    See https://docs.qmk.fm/#/newbs_flashing for details.
+EOF
+)"
+
+
+###############################################################################
+# Print message to STDOUT
+#
+# Arguments:
+#   0: Message type [err,warn,info,sub,sublist]
+#   1: Whether to terminate script execution
+#   2: Message string
+###############################################################################
+function print_msg {
+    if test "$#" -lt 3; then
+        print_msg 'err' true \
+            "Not enough arguments for a function call: ${FUNCNAME[0]} $*"
+    fi
+
+    local msg_type
+    local terminate
+    local exit_code
+    local msg_str
+    local fmt_msg_str
+
+    msg_type="$1"
+    terminate="$2"
+    exit_code=0
+    msg_str="$3"
+    fmt_msg_str="${MSG_COMMON_PREFIX}"
+
+    case "${msg_type}" in
+        err )
+            fmt_msg_str="${MSG_ERROR_COLOR}${fmt_msg_str}${MSG_ERROR_PREFIX}"
+            exit_code=1
+            ;;
+        warn )
+            fmt_msg_str="${MSG_WARN_COLOR}${fmt_msg_str}${MSG_WARN_PREFIX}"
+            ;;
+        info )
+            fmt_msg_str="${MSG_INFO_COLOR}${fmt_msg_str}${MSG_INFO_PREFIX}"
+            ;;
+        sub )
+            fmt_msg_str="${MSG_SUB_COLOR}${fmt_msg_str}${MSG_SUB_PREFIX}"
+            ;;
+        sublist )
+            fmt_msg_str="${MSG_SUB_LIST_COLOR}${fmt_msg_str}"
+            fmt_msg_str="${fmt_msg_str}${MSG_SUB_PREFIX}${MSG_SUB_LIST_PREFIX}"
+            ;;
+    esac
+
+    fmt_msg_str="${fmt_msg_str}${msg_str}${MSG_CLEAR_COLOR}"
+    echo -e "${fmt_msg_str}"
+
+    if test "${terminate}" = true; then
+        exit "${exit_code}"
+    fi
+}
+
+
+###############################################################################
+# Parse CLI arguments and flags
+###############################################################################
+function parse_cli_args {
+    if test "$#" -lt "${MIN_REQV_ARGS_NUM}"; then
+        print_msg 'err' true \
+            "Insufficient number of arguments. See --help for usage."
+    fi
+
+    while true; do
+        if test "$#" -lt 1; then
+            break
+        fi
+
+        local arg
+        arg="$1"
+
+        case "${arg}" in
+            -h | --help )
+                echo "${MSG_HELP}"
+                exit 0
+                ;;
+            build )
+                shift
+                run_build "$@"
+                return
+                ;;
+            flash )
+                shift
+                run_flash "$@"
+                return
+                ;;
+        esac
+
+        shift
+    done
+}
+
+###############################################################################
+# Run QMK firmware build make target
+###############################################################################
+function check_repo_location {
+    print_msg 'info' false \
+        'Checking that current directory is QMK repository'
+
+    local git_remote
+    git_remote="$(\
+        git remote -v | \
+        sed -n 's@^origin\s\(.*\)\s.*@\1@p' | \
+        sort | uniq || :
+    )"
+
+    print_msg 'sublist' false "Current directory: ${INFO_DIR}"
+    print_msg 'sublist' false "Detected origin: ${git_remote}"
+
+    if test "${git_remote}" = ''; then
+        print_msg 'err' true \
+            'Current directory is not QMK repository'
+    fi
+
+    local gh_user
+    local gh_repo
+    gh_user="$(echo "${git_remote}" | cut -d':' -f2 | cut -d'/' -f1)"
+    gh_repo="$(echo "${git_remote}" | cut -d':' -f2 | cut -d'/' -f2)" 
+
+    print_msg 'sublist' false "Github user: ${gh_user}"
+    print_msg 'sublist' false "Github repository: ${gh_repo}"
+
+    if test "${gh_user}" != "${USER}"; then
+        print_msg 'warn' false \
+            'Current username is different from GH repository owner'
+    fi
+
+    if test "${gh_repo}" != "${REQV_REPO_NAME}"; then
+        local errmsg
+        errmsg="Git remote repository does not match a"
+        errmsg="${errmsg} required value: ${REQV_REPO_NAME}"
+
+        print_msg 'err' true "${errmsg}"
+    fi
+
+    print_msg 'info' false 'Check OK'
+}
+
+###############################################################################
+# Run QMK firmware build make target
+###############################################################################
+function run_build {
+    if test "$#" -ne 1; then
+        print_msg 'err' true \
+            "Insufficient number of arguments. See --help for usage."
+    fi
+
+    check_repo_location
+    print_msg 'info' false 'Running QMK build target'
+    make "$1"
+}
+
+###############################################################################
+# Run QMK firmware build & flash make target
+###############################################################################
+function run_flash {
+    # XXX: No flash specific checks implemented so far
+    run_build "$1"
+}
+
+
+###############################################################################
+# Handle execution pipeline
+###############################################################################
+function main {
+    parse_cli_args "$@"
+}
+
+
+###############################################################################
+# Main flow
+###############################################################################
+main "$@"
