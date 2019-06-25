@@ -4,9 +4,9 @@ alias pgp='gpg'
 
 # A lot of shades of ls
 # FIXME: Unreadable colors when writable by everybody
-alias l='ls --color'
-alias ls='ls --color'
-alias sl='ls --color'
+alias l='ls --color --group-directories-first'
+alias ls='ls --color --group-directories-first'
+alias sl='ls --color --group-directories-first'
 
 # Useful for viewing the latest screenshot
 tfeh='feh "$(ls -tr | tail -1)" & disown'
