@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Generate a random string of a specified length
+###############################################################################
+function generate {
+    tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w "$1" | head -n 1 || :
+}
+
+generate "$@"

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+###############################################################################
+# Title:       revpics
+# Description: Revise pics in each dir with feh and decide whether to delete
+# Usage:       Add to PATH and use it
+# Version:     0.0.1
+###############################################################################
+set -euo pipefail
+
+
+readonly CURRENT_DIR="$(pwd)"
+
+
+function main {
+    for file in "${CURRENT_DIR}"/*; do
+        # Get a file name and check whether it is a directory
+        dir_name="$(basename -- "${file}")"
+        if ! test -d "./${dir_name}"; then
+            continue
+        fi
+
+        # Open the directory contents in feh
+        echo "> Reviewing a directory: ${dir_name}"
+        feh -F "./${dir_name}"
+
+        # Check whether the user wishes to delete it
+        local user_decision
+        read -p '??? Delete the folder (Y/n): ' -n 1 -r user_decision
+        echo
+
+        if test "${user_decision}" == 'Y'; then
+            rm -r "./${dir_name}"
+            echo '+ Directory deleted'
+        fi
+
+        # Block untill user proceeds
+        read -p '> Press any key to continue ' -r
+    done
+}
+
+
+main
