@@ -13,6 +13,12 @@ readonly CURRENT_DIR="$(pwd)"
 
 
 function main {
+    if test -f "./.processed"; then
+        echo '+ Already processed'
+        echo '! Remove ./.processed to override'
+        exit 0
+    fi
+
     for file in "${CURRENT_DIR}"/*; do
         # Get a file name and check whether it is a directory
         dir_name="$(basename -- "${file}")"
@@ -22,6 +28,11 @@ function main {
 
         # Open the directory contents in feh
         echo "> Reviewing a directory: ${dir_name}"
+        if test -f "./${dir_name}/.approved"; then
+            echo '+ Already reviewed'
+            continue
+        fi
+
         feh -F "./${dir_name}"
 
         # Check whether the user wishes to delete it
@@ -32,11 +43,25 @@ function main {
         if test "${user_decision}" == 'Y'; then
             rm -r "./${dir_name}"
             echo '+ Directory deleted'
+        else
+            touch "./${dir_name}/.approved"
+            echo '+ Marked as approved'
         fi
 
         # Block untill user proceeds
         read -p '> Press any key to continue ' -r
     done
+
+    # Mark the whole parent dir as processed
+    local user_decision
+    read -p '??? Mark parent as processed (Y/n): ' -n 1 -r user_decision
+    echo
+
+    if test "${user_decision}" == 'Y'; then
+        touch ./processed
+    fi
+
+    echo '> DONE!'
 }
 
 
