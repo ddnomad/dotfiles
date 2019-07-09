@@ -58,7 +58,7 @@ function main {
     echo
 
     if test "${user_decision}" == 'Y'; then
-        touch ./processed
+        touch ./.processed
     fi
 
     echo '> DONE!'
