@@ -13,7 +13,15 @@ readonly CURRENT_DIR="$(pwd)"
 
 
 function main {
-    if test -f "./.processed"; then
+    local view_only=false
+    if test "$#" -eq 2; then
+        if test "$1" = '-v'; then
+            shift
+            view_only="$1"
+        fi
+    fi
+
+    if ! test "$view_only" = true && test -f "./.processed"; then
         echo '+ Already processed'
         echo '! Remove ./.processed to override'
         exit 0
@@ -28,24 +36,28 @@ function main {
 
         # Open the directory contents in feh
         echo "> Reviewing a directory: ${dir_name}"
-        if test -f "./${dir_name}/.approved"; then
-            echo '+ Already reviewed'
-            continue
+        if ! test "${view_only}" = true; then
+            if test -f "./${dir_name}/.approved"; then
+                echo '+ Already reviewed'
+                continue
+            fi
         fi
 
         feh -F "./${dir_name}"
 
         # Check whether the user wishes to delete it
-        local user_decision
-        read -p '??? Delete the folder (Y/n): ' -n 1 -r user_decision
-        echo
+        if ! test "${view_only}" = true; then
+            local user_decision
+            read -p '??? Delete the folder (Y/n): ' -n 1 -r user_decision
+            echo
 
-        if test "${user_decision}" == 'Y'; then
-            rm -r "./${dir_name}"
-            echo '+ Directory deleted'
-        else
-            touch "./${dir_name}/.approved"
-            echo '+ Marked as approved'
+            if test "${user_decision}" == 'Y'; then
+                rm -r "./${dir_name}"
+                echo '+ Directory deleted'
+            else
+                touch "./${dir_name}/.approved"
+                echo '+ Marked as approved'
+            fi
         fi
 
         # Block untill user proceeds
@@ -54,16 +66,18 @@ function main {
     done
 
     # Mark the whole parent dir as processed
-    local user_decision
-    read -p '??? Mark parent as processed (Y/n): ' -n 1 -r user_decision
-    echo
+    if ! test "${view_only}" = true; then
+        local user_decision
+        read -p '??? Mark parent as processed (Y/n): ' -n 1 -r user_decision
+        echo
 
-    if test "${user_decision}" == 'Y'; then
-        touch ./.processed
+        if test "${user_decision}" == 'Y'; then
+            touch ./.processed
+        fi
     fi
 
     echo '> DONE!'
 }
 
 
-main
+main "$@"

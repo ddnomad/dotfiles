@@ -1,5 +1,5 @@
 alias less='less -r'
-alias top='htop'
+alias top='glances'
 alias pgp='gpg'
 
 # A lot of shades of ls
@@ -9,7 +9,7 @@ alias ls='ls --color --group-directories-first'
 alias sl='ls --color --group-directories-first'
 
 # Useful for viewing the latest screenshot
-tfeh='feh "$(ls -tr | tail -1)" & disown'
+alias tfeh='feh "$(ls -tr | tail -1)" & disown'
 
 # Because rsyncmasterrace
 alias cp='rsync -ah --progress'
