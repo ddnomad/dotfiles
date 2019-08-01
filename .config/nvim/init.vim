@@ -98,10 +98,22 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " Neomake plugin settings
 autocmd! BufWritePost,BufEnter * Neomake
+
 let g:neomake_error_sign={'text': "\uf00d", 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign ={'text': "\uf12a", 'texthl': 'NeomakeWarningSign'}
 let g:neomake_info_sign ={'text': "\uf129", 'texthl': 'NeomakeInfoSign'}
 let g:neomake_message_sign ={'text': "\uf129", 'texthl': 'NeomakeMessageSign'}
+
+let g:neomake_python_python_exe='/usr/bin/python3'
+let g:neomake_python_enabled_makers=[
+    \'python',
+    \'pylama',
+    \'flake8',
+    \'pyflakes',
+    \'pycodestyle',
+    \'pydocstyle',
+    \'pylint'
+\]
 
 " Additional F layer mappings
 map <F2> :NERDTreeToggle<CR>
