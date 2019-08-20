@@ -1,18 +1,24 @@
+# shellcheck disable=SC1090
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
 # Load "modules"
-source "$HOME"/.shell/functions.sh
-source "$HOME"/.shell/aliases.sh
-source "$HOME"/.bash/settings.bash
-source "$HOME"/.bash/prompt.bash
+source ~/.bash/prompt.bash
+source ~/.bash/settings.bash
+source ~/.shell/aliases.sh
+
+# Source functions
+for func in ~/.bash/functions/*; do
+    # shellcheck disable=SC1090
+    test -f "${func}" && source "${func}"
+done
 
 # PATH additions
 PATH=$HOME/scripts:$PATH
 
 # Base16 Shell integration
 # NOTE: Not exactly secure thing to use
-BASE16_SHELL="$HOME/.config/base16-shell/"
+BASE16_SHELL=~/.config/base16-shell/
 test -n "$PS1" && \
   test -s "$BASE16_SHELL/profile_helper.sh" && \
   eval "$("$BASE16_SHELL/profile_helper.sh")"

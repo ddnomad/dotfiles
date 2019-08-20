@@ -12,3 +12,6 @@ export VISUAL=vim
 
 # Fix for man-db errors
 export MAN_DISABLE_SECCOMP=1
+
+# Used by ~/scripts/dev to determine a development projects base directory
+export DEV_ROOT=~/development
