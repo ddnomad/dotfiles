@@ -1,11 +1,11 @@
 # Set Alt as a main modifier
-set $mod Mod1
+set $mod Mod4
 
 # Lock screen
-bindsym Mod4+l exec /usr/bin/lock_screen
+bindsym Mod1+l exec /usr/bin/lock_screen
 
 # Suspend
-bindsym Mod4+s exec systemctl suspend
+bindsym Mod1+s exec systemctl suspend
 
 # Make screenshot
 bindsym --release $mod+F12 exec \

@@ -51,6 +51,7 @@ set clipboard=unnamedplus
 
 " Just much better way to move around
 set number relativenumber
+set cursorline
 
 " Default indentation
 set tabstop=4

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # monitor constants
-INT=eDP-1
-EXT=HDMI-1
+INT=eDP1
+EXT=HDMI1
 
 # grep monitors
 # xrandr | grep -o -P "^eDP.*?\s"
