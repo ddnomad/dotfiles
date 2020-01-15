@@ -6,8 +6,8 @@ let g:dein_plugin_dir = expand('~/.config/nvim/dein_plugins')
 
 " Clone Dein if not already
 if empty(glob(g:dein_dir))
-  exec 'silent !mkdir -p '.g:dein_dir
-  exec '!git clone https://github.com/Shougo/dein.vim.git '.g:dein_dir
+    exec 'silent !mkdir -p '.g:dein_dir
+    exec '!git clone https://github.com/Shougo/dein.vim.git '.g:dein_dir
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,23 +15,31 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath^='.g:dein_dir
 if dein#load_state(g:dein_plugin_dir)
-  call dein#begin(g:dein_plugin_dir)
-  call dein#add(g:dein_dir)
+    call dein#begin(g:dein_plugin_dir)
+    call dein#add(g:dein_dir)
 
-  " Plugins block start
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('chriskempson/base16-vim')
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('neomake/neomake')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('Yggdroot/indentLine')
-  " Plugins block end
+    " Plugins block start
+    call dein#add('chriskempson/base16-vim')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('neomake/neomake')
+    call dein#add('ryanoasis/vim-devicons')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('Yggdroot/indentLine')
+    call dein#add('iamcco/markdown-preview.nvim', {
+        \'on_ft': [
+            \'markdown',
+            \'pandoc.markdown',
+            \'rmd'
+        \],
+        \'build': 'cd app & yarn install'
+    \})
+    " Plugins block end
 
-  call dein#end()
-  call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -120,6 +128,7 @@ let g:airline_symbols.maxlinenr = ''
 " IndentLine plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_conceallevel = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake plugin settings
