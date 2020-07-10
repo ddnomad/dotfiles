@@ -150,3 +150,8 @@ let g:neomake_python_enabled_makers=[
     \'pydocstyle',
     \'pylint'
 \]
+
+let g:neomake_javascript_enabled_makers=[
+    \'eslint',
+    \'stylelint'
+\]
