@@ -1,0 +1,31 @@
+###############################################################################
+# i3wm configuration for VMWare guest machines
+###############################################################################
+exec feg --no-fehbg --bg-tile /home/pictures/wallpapers/lain_02_edited.jpg
+
+# Start VMWare Tools (FIXME: Should detect whether it's running in VM)
+exec --no-startup-id vmware-user-suid-wrapper
+
+bar {
+    i3bar_command i3bar -t
+    position top
+    colors {
+        background #00000000
+
+        focused_workspace #00000000 #00000000 #D8D8D8
+        active_workspace #00000000 #00000000 #585858
+        inactive_workspace #00000000 #00000000 #585858
+        urgent_workspace #00000000 #00000000 #BA8BAF
+    }
+    status_command /usr/share/bumblebee-status/bumblebee-status \
+        -m \
+            disk cpu memory pacman publicip nic datetime \
+        -p \
+            disk.format="{percent:1.1f}%" \
+            memory.format="{percent:1.1f}%" \
+            pacman.sum="True" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
+            nic.format="{ssid}" \
+            datetime.format="%a %w %b %X" \
+        -t base16-default-dark-dd
+}

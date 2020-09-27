@@ -1,3 +1,7 @@
+###############################################################################
+# Base (shared) i3wm configuration
+###############################################################################
+
 # Set Alt as a main modifier
 set $mod Mod1
 
@@ -174,29 +178,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-bar {
-    i3bar_command i3bar -t
-    position top
-    colors {
-        background #00000000
-
-        focused_workspace #00000000 #00000000 #D8D8D8
-        active_workspace #00000000 #00000000 #585858
-        inactive_workspace #00000000 #00000000 #585858
-        urgent_workspace #00000000 #00000000 #BA8BAF
-    }
-    status_command /usr/share/bumblebee-status/bumblebee-status \
-        -m \
-            spotify disk cpu memory amixer brightness \
-            pacman publicip nic battery datetime \
-        -p \
-            disk.format="{percent:1.1f}%" \
-            memory.format="{percent:1.1f}%" \
-            pacman.sum="True" \
-            nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
-            nic.format="{ssid}" \
-            battery.device="BAT0,BAT1" \
-            datetime.format="%a %w %b %X" \
-        -t base16-default-dark-dd
-}
