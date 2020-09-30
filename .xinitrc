@@ -24,17 +24,10 @@ test -f ~/.fehbg && ~/.fehbg &
 unclutter &
 
 # Start up a compositor to avoid nasty i3 tearing & make stuff transparent
-compton -cb
+picom -cb
 
 # Dynamically create a i3wm configuration based on a host type (VM or bare metal)
-I3WM_CONFIG_BASE=~/.config/i3
-
-cat "${I3WM_CONFIG_BASE}"/config.base > "${I3WM_CONFIG_BASE}"/config
-if vmware-checkvm; then
-    cat "${I3WM_CONFIG_BASE}"/config.vmware >> "${I3WM_CONFIG_BASE}"/config
-else
-    cat "${I3WM_CONFIG_BASE}"/config.baremetal >> "${I3WM_CONFIG_BASE}"/config
-fi
+~/scripts/i3wm_genconfig
 
 # Start i3wm
 exec i3

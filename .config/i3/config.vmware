@@ -24,8 +24,8 @@ bar {
             disk.format="{percent:1.1f}%" \
             memory.format="{percent:1.1f}%" \
             pacman.sum="True" \
-            nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth,ens33" \
             nic.format="{ssid}" \
-            datetime.format="%a %w %b %X" \
+            datetime.format="%a %d %b %X" \
         -t base16-default-dark-dd
 }

@@ -15,3 +15,6 @@ export MAN_DISABLE_SECCOMP=1
 
 # Used by ~/scripts/dev to determine a development projects base directory
 export DEV_ROOT=~/development
+
+# Terminal settings for SSH/Tmux
+export TERM=xterm

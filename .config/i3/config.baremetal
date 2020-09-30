@@ -25,6 +25,6 @@ bar {
             nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
             nic.format="{ssid}" \
             battery.device="BAT0,BAT1" \
-            datetime.format="%a %w %b %X" \
+            datetime.format="%a %d %b %X" \
         -t base16-default-dark-dd
 }
