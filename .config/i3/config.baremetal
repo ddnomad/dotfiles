@@ -1,7 +1,7 @@
 ###############################################################################
 # i3wm configuration for bare metal hosts
 ###############################################################################
-exec feg --no-fehbg --bg-scale /home/pictures/wallpapers/lain_02_edited.jpg
+exec --no-startup-id feh --no-fehbg --bg-scale /home/ddnomad/pictures/wallpapers/lain_02_edited.jpg
 
 bar {
     i3bar_command i3bar -t

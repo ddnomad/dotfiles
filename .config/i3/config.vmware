@@ -1,7 +1,7 @@
 ###############################################################################
 # i3wm configuration for VMWare guest machines
 ###############################################################################
-exec feg --no-fehbg --bg-tile /home/pictures/wallpapers/lain_02_edited.jpg
+exec --no-startup-id feh --no-fehbg --bg-tile /home/ddnomad/pictures/wallpapers/lain_02_edited.jpg
 
 # Start VMWare Tools (FIXME: Should detect whether it's running in VM)
 exec --no-startup-id vmware-user-suid-wrapper
