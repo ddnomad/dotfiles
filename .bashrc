@@ -6,15 +6,13 @@
 source ~/.bash/prompt.bash
 source ~/.bash/settings.bash
 source ~/.shell/aliases.sh
+source ~/.shell/env.sh
 
 # Source functions
 for func in ~/.bash/functions/*; do
     # shellcheck disable=SC1090
     test -f "${func}" && source "${func}"
 done
-
-# PATH additions
-PATH=$HOME/scripts:$PATH
 
 # Base16 Shell integration
 # NOTE: Not exactly secure thing to use

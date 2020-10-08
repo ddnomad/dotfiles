@@ -25,6 +25,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('dominikduda/vim_current_word')
     call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('farmergreg/vim-lastplace')
 
     call dein#add('iamcco/markdown-preview.nvim', {
         \'on_ft': [
