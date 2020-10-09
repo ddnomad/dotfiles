@@ -117,8 +117,8 @@ set signcolumn=yes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific fixes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do not expand tab in Golang files
-autocmd FileType go setlocal noexpandtab
+" Do not expand tab in Golang and Rust files
+autocmd FileType go,rust setlocal noexpandtab
 
 " Disable indentLine for markdown files to prevent concealing of chars
 autocmd FileType json,markdown let b:indentLine_enabled=0
@@ -229,7 +229,7 @@ let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + [
 let g:neomake_go_enabled_makers= ['go', 'gometalinter', 'golint']
 let g:neomake_javascript_enabled_makers= ['eslint', 'stylelint']
 let g:neomake_typescript_enabled_makers= ['tsc', 'tslint', 'eslint']
-let g:neomake_rust_enabled_makers=['cargo', 'cargotest']
+let g:neomake_rust_enabled_makers=['cargo', 'cargotest', 'rustc']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
