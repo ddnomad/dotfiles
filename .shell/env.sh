@@ -8,4 +8,5 @@ export DEV_ROOT=~/development
 export RUST_SRC_PATH=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
 
 # PATH additions
-PATH="${HOME}"/scripts:"${HOME}"/.cargo/bin:${PATH}
+PATH="${HOME}"/.cargo/bin:${PATH}
+PATH="${HOME}"/scripts:"${HOME}"/scripts/i3wm:${PATH}

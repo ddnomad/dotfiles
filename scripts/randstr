@@ -2,9 +2,10 @@
 
 ###############################################################################
 # Generate a random string of a specified length
+# XXX: Technically not cryptographically sound.
 ###############################################################################
-function generate {
+function main {
     tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w "$1" | head -n 1 || :
 }
 
-generate "$@"
+main "$@"
