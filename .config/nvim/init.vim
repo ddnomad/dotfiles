@@ -41,6 +41,8 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
 
+    " TODO: Switch to COC? (lol)
+    " https://github.com/neoclide/coc.nvim
     call dein#add('ncm2/float-preview.nvim')
     call dein#add('ncm2/ncm2')
     call dein#add('ncm2/ncm2-bufword')
@@ -48,15 +50,27 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('ncm2/ncm2-path')
     call dein#add('ncm2/ncm2-racer')
     call dein#add('filipekiss/ncm2-look.vim')
+    " TODO: Add more?
+    " https://github.com/ncm2/ncm2/wiki
+    "
+    " TODO: Check how to integrate rust-analyser and
+    " whether it works properly
 
     call dein#add('neomake/neomake')
 
-    " FIXME: The fuck is that and why do I need that?
+    " FIXME: This is a dependency of language server
+    " support for NCM2. Do I need it at all?
     "call dein#add('neovim/nvim-lsp')
 
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
-    call dein#add('roxma/nvim-yarp')
+
+    " FIXME: This should not be needed (dependency of
+    " ncm2 when using vim8 but not neovim). Re-generate
+    " plugins bundle and see whether anything breaks.
+    " If all good - remove.
+    "call dein#add('roxma/nvim-yarp')
+
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('scrooloose/nerdtree')
     call dein#add('tmhedberg/SimpylFold')
