@@ -1,0 +1,241 @@
+---
+window:
+  # Window dimensions
+  dimensions:
+    columns: 240
+    lines: 80
+
+  # Spread additional padding evenly around the terminal content
+  dynamic_padding: false
+
+  padding:
+    x: 12
+    y: 25
+
+  # Window decorations
+  decorations: transparent
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer
+  history: 40000
+
+font:
+  # Normal font face
+  normal:
+    family: Hack Nerd Font
+    # See: https://github.com/ddnomad/dotfiles.mac/issues/3
+    #family: FiraCode Nerd Font
+
+  # Point size
+  size: 14.0
+
+# Base16 Default Dark 256
+# Scheme by Chris Kempson (http://chriskempson.com)
+# Adaptation by Aaron Williamson (https://github.com/aaron-williamson)
+colors:
+  # Default colors
+  primary:
+    background: '0x181818'
+    foreground: '0xd8d8d8'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x181818'
+    cursor: '0xd8d8d8'
+
+  # Normal colors
+  normal:
+    black:   '0x181818'
+    red:     '0xab4642'
+    green:   '0xa1b56c'
+    yellow:  '0xf7ca88'
+    blue:    '0x7cafc2'
+    magenta: '0xba8baf'
+    cyan:    '0x86c1b9'
+    white:   '0xd8d8d8'
+
+  # Bright colors
+  bright:
+    black:   '0x585858'
+    red:     '0xab4642'
+    green:   '0xa1b56c'
+    yellow:  '0xf7ca88'
+    blue:    '0x7cafc2'
+    magenta: '0xba8baf'
+    cyan:    '0x86c1b9'
+    white:   '0xf8f8f8'
+
+  indexed_colors:
+    - index: 16
+      color: '0xdc9656'
+    - index: 17
+      color: '0xa16946'
+    - index: 18
+      color: '0x282828'
+    - index: 19
+      color: '0x383838'
+    - index: 20
+      color: '0xb8b8b8'
+    - index: 21
+      color: '0xe8e8e8'
+
+bell:
+  duration: 0
+
+selection:
+  save_to_clipboard: true
+
+# FIXME: Change to 'Underline' as soon as cursor blinking supports lands (if
+# ever). See https://github.com/alacritty/alacritty/issues/302.
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+shell:
+  program: /usr/local/bin/bash
+  args:
+    - --login
+    - -c
+    - tmux -u attach || tmux -u -f ~/.config/tmux/tmux.conf
+
+live_config_reload: true
+
+mouse:
+  hide_when_typing: true
+
+mouse_bindings:
+  - mouse: Middle
+    action: PasteSelection
+
+# Full list of available key codes:
+# https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+key_bindings:
+  - key: Key0
+    mods: Command
+    action: ResetFontSize
+  - key: Equals
+    mods: Command
+    action: IncreaseFontSize
+  - key: Add
+    mods: Command
+    action: IncreaseFontSize
+  - key: Minus
+    mods: Command
+    action: DecreaseFontSize
+  - key: V
+    mods: Command
+    action: Paste
+  - key: C
+    mods: Command
+    action: Copy
+  - key: Q
+    mods: Command
+    action: Quit
+  - key: Paste
+    action: Paste
+  - key: Copy
+    action: Copy
+  - key: L
+    mods: Control
+    action: ClearLogNotice
+  - key: L
+    mods: Control
+    chars: "\x0c"
+
+  # Tmux bridge bindings
+  - key: J
+    mods: Command
+    chars: "\x01\x6a"
+  - key: K
+    mods: Command
+    chars: "\x01\x6b"
+  - key: H
+    mods: Command
+    chars: "\x01\x68"
+  - key: L
+    mods: Command
+    chars: "\x01\x6c"
+
+  - key: J
+    mods: Command|Shift
+    chars: "\x01\x4a"
+  - key: K
+    mods: Command|Shift
+    chars: "\x01\x4b"
+  - key: H
+    mods: Command|Shift
+    chars: "\x01\x48"
+  - key: L
+    mods: Command|Shift
+    chars: "\x01\x4c"
+
+  - key: Key0
+    mods: Command
+    chars: "\x01\x30"
+  - key: Key1
+    mods: Command
+    chars: "\x01\x31"
+  - key: Key2
+    mods: Command
+    chars: "\x01\x32"
+  - key: Key3
+    mods: Command
+    chars: "\x01\x33"
+  - key: Key4
+    mods: Command
+    chars: "\x01\x34"
+  - key: Key5
+    mods: Command
+    chars: "\x01\x35"
+  - key: Key6
+    mods: Command
+    chars: "\x01\x36"
+  - key: Key7
+    mods: Command
+    chars: "\x01\x37"
+  - key: Key8
+    mods: Command
+    chars: "\x01\x38"
+  - key: Key9
+    mods: Command
+    chars: "\x01\x39"
+
+  - key: T
+    mods: Command
+    chars: "\x01\x74"
+  - key: T
+    mods: Command|Shift
+    chars: "\x01\x54"
+
+  # Disabled bindings
+  - key: F
+    mods: Command|Control
+    action: None
+  - key: H
+    mods: Command
+    action: None
+  - key: K
+    mods: Command
+    action: None
+  - key: M
+    mods: Command
+    action: None
+  - key: W
+    mods: Command
+    action: None
+  - key: PageUp
+    mods: Shift
+    mode: ~Alt
+    action: None
+  - key: PageDown
+    mods: Shift
+    mode: ~Alt
+    action: None
+  - key: Home
+    mods: Shift
+    mode: ~Alt
+    action: None
+  - key: End
+    mods: Shift
+    mode: ~Alt
+    action: None
