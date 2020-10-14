@@ -12,7 +12,9 @@ OS/environments:
 
 + [Arch Linux](https://www.archlinux.org/) host machines (laptops / desktops)
 + [Arch Linux](https://www.archlinux.org/) guest VMs (VMWare Workstation/Fusion)
-+ [MacOS](https://www.apple.com/macos) laptops / desktops
++ [MacOS](https://www.apple.com/macos) host machines (laptops / desktops)
++ [WSL v2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) environment
+  on Windows 10 (low priority)
 
 Currently the support is best effort and issues are fixed irregularly (mostly
 as I switch between different machines for work / personal matters).

@@ -1,4 +1,5 @@
 # Include distro defaults
+# TODO: Check whether it is present on MacOS
 $include /etc/inputrc
 
 # Enable vi mode

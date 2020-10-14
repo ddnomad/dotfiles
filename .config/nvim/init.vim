@@ -95,10 +95,13 @@ syntax on
 
 " Color scheme
 let base16colorspace=256
-source ~/.vimrc_background
+colorscheme base16-default-dark
 
 " Allow to copy/paste from the main clipboard buffer
 set clipboard=unnamedplus
+
+" TODO: Needed to support MacOS
+"set clipboard=unnamed
 
 " Just much better way to move around
 set number relativenumber
@@ -153,6 +156,7 @@ map <F5> :IndentGuidesToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
+" TODO: Only apply when on Arch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 hi Normal guibg=none ctermbg=none
 hi NonText guibg=none ctermbg=none

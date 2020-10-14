@@ -1,5 +1,5 @@
-# shellcheck disable=SC1090
 # If not running interactively, do nothing
+# shellcheck disable=SC1090
 [[ $- != *i* ]] && return
 
 # Load "modules"
