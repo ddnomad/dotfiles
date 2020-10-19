@@ -17,7 +17,7 @@ depsearch() {
     dependency="$1"
 
     local base_dir
-    base_dir="${HOME}/Development"
+    base_dir="${HOME}/development"
 
     local fname
     find "${base_dir}" -type f -name Pipfile | while read -r fname; do

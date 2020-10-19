@@ -14,6 +14,7 @@ endif
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath^='.g:dein_dir
+
 if dein#load_state(g:dein_plugin_dir)
     call dein#begin(g:dein_plugin_dir)
     call dein#add(g:dein_dir)
@@ -41,8 +42,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
 
-    " TODO: Switch to COC? (lol)
-    " https://github.com/neoclide/coc.nvim
+    call dein#add('roxma/nvim-yarp')
     call dein#add('ncm2/float-preview.nvim')
     call dein#add('ncm2/ncm2')
     call dein#add('ncm2/ncm2-bufword')
@@ -50,27 +50,14 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('ncm2/ncm2-path')
     call dein#add('ncm2/ncm2-racer')
     call dein#add('filipekiss/ncm2-look.vim')
-    " TODO: Add more?
-    " https://github.com/ncm2/ncm2/wiki
-    "
-    " TODO: Check how to integrate rust-analyser and
-    " whether it works properly
+    call dein#add('autozimu/LanguageClient-neovim', {
+        \'rev': 'next',
+        \'build': 'bash install.sh',
+    \})
 
     call dein#add('neomake/neomake')
-
-    " FIXME: This is a dependency of language server
-    " support for NCM2. Do I need it at all?
-    "call dein#add('neovim/nvim-lsp')
-
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
-
-    " FIXME: This should not be needed (dependency of
-    " ncm2 when using vim8 but not neovim). Re-generate
-    " plugins bundle and see whether anything breaks.
-    " If all good - remove.
-    "call dein#add('roxma/nvim-yarp')
-
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('scrooloose/nerdtree')
     call dein#add('tmhedberg/SimpylFold')
@@ -127,6 +114,10 @@ set guifont=
 " Explicitly disable modeline for security reasons
 " More info: https://security.stackexchange.com/a/157739/90606
 set nomodeline
+
+" Hide files that have edits when opening a file in the same buffer
+" NOTE: This is required for LanguageClient-neovim to work correctly.
+set hidden
 
 " Prevent vim jumping when linting marks appear/disappear in a sign column
 set signcolumn=yes
@@ -220,14 +211,59 @@ let g:ncm2#total_popup_limit = 10
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Languageclient-neovim settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:LanguageClient_changeThrottle = 1
+let g:LanguageClient_echoProjectRoot = 0
+let g:LanguageClient_useVirtualText = "Diagnostics"
+
+let g:LanguageClient_serverCommands = {
+    \'rust': ['rust-analyzer']
+\}
+
+let g:LanguageClient_virtualTextPrefix = '❯ '
+let g:LanguageClient_diagnosticsDisplay = {
+    \1: {
+        \"name": "Error",
+        \"texthl": "NeomakeError",
+        \"signText": "\uf00d",
+        \"signTexthl": "NeomakeErrorSign",
+        \"virtualTexthl": "NeomakeError",
+    \},
+    \2: {
+        \"name": "Warning",
+        \"texthl": "NeomakeWarning",
+        \"signText": "\uf12a",
+        \"signTexthl": "NeomakeWarningSign",
+        \"virtualTexthl": "NeomakeWarning",
+    \},
+    \3: {
+        \"name": "Information",
+        \"texthl": "NeomakeInfo",
+        \"signText": "\uf129",
+        \"signTexthl": "NeomakeInfoSign",
+        \"virtualTexthl": "NeomakeInfo",
+    \},
+    \4: {
+        \"name": "Hint",
+        \"texthl": "NeomakeMessage",
+        \"signText": "\uf129",
+        \"signTexthl": "NeomakeMessageSign",
+        \"virtualTexthl": "NeomakeMessage",
+    \},
+\}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call neomake#configure#automake('nrwi', 100)
 
-let g:neomake_error_sign={'text': "\uf00d", 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign ={'text': "\uf12a", 'texthl': 'NeomakeWarningSign'}
-let g:neomake_info_sign ={'text': "\uf129", 'texthl': 'NeomakeInfoSign'}
-let g:neomake_message_sign ={'text': "\uf129", 'texthl': 'NeomakeMessageSign'}
+let g:neomake_virtualtext_prefix = '❯ '
+
+let g:neomake_error_sign = {'text': "\uf00d", 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': "\uf12a", 'texthl': 'NeomakeWarningSign'}
+let g:neomake_info_sign = {'text': "\uf129", 'texthl': 'NeomakeInfoSign'}
+let g:neomake_message_sign = {'text': "\uf129", 'texthl': 'NeomakeMessageSign'}
 
 let g:neomake_python_python_exe='/usr/bin/python3'
 let g:neomake_python_enabled_makers=[
