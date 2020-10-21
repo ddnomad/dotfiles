@@ -213,9 +213,9 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languageclient-neovim settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_changeThrottle = 1
+let g:LanguageClient_diagnosticsEnable = 1
 let g:LanguageClient_echoProjectRoot = 0
-let g:LanguageClient_useVirtualText = "Diagnostics"
+let g:LanguageClient_useVirtualText = "No"
 
 let g:LanguageClient_serverCommands = {
     \'rust': ['rust-analyzer']
@@ -283,7 +283,11 @@ let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + [
 let g:neomake_go_enabled_makers= ['go', 'gometalinter', 'golint']
 let g:neomake_javascript_enabled_makers= ['eslint', 'stylelint']
 let g:neomake_typescript_enabled_makers= ['tsc', 'tslint', 'eslint']
-let g:neomake_rust_enabled_makers=['cargo', 'cargotest', 'rustc']
+
+" FIXME: Removed rustc because it duplicates stuff that 'cargo' does in
+" proper projects. Though now one-off files are not linted with neither cargo
+" nor rustc which is inconvenient.
+let g:neomake_rust_enabled_makers=['cargo', 'cargotest']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
