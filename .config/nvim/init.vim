@@ -213,6 +213,7 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languageclient-neovim settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:LanguageClient_changeThrottle = 1
 let g:LanguageClient_diagnosticsEnable = 1
 let g:LanguageClient_echoProjectRoot = 0
 let g:LanguageClient_useVirtualText = "No"
