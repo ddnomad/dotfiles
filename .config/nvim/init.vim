@@ -24,6 +24,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('chr4/nginx.vim')
     call dein#add('chriskempson/base16-vim')
     call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('dense-analysis/ale')
     call dein#add('dominikduda/vim_current_word')
     call dein#add('editorconfig/editorconfig-vim')
     call dein#add('farmergreg/vim-lastplace')
@@ -41,21 +42,6 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('honza/dockerfile.vim')
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
-
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('ncm2/float-preview.nvim')
-    call dein#add('ncm2/ncm2')
-    call dein#add('ncm2/ncm2-bufword')
-    call dein#add('ncm2/ncm2-jedi')
-    call dein#add('ncm2/ncm2-path')
-    call dein#add('ncm2/ncm2-racer')
-    call dein#add('filipekiss/ncm2-look.vim')
-    call dein#add('autozimu/LanguageClient-neovim', {
-        \'rev': 'next',
-        \'build': 'bash install.sh',
-    \})
-
-    call dein#add('neomake/neomake')
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
     call dein#add('ryanoasis/vim-devicons')
@@ -63,6 +49,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('tmhedberg/SimpylFold')
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-markdown')
+    call dein#add('Valloric/ListToggle')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('Yggdroot/indentLine')
@@ -156,10 +143,13 @@ hi CursorLineNr guibg=none ctermbg=none
 hi StatusLine guibg=none ctermbg=none
 hi SignColumn guibg=none ctermbg=none
 
-hi NeomakeError cterm=underline ctermfg=9 ctermbg=none
-hi NeomakeWarning cterm=underline ctermfg=3 ctermbg=none
-hi NeomakeInfo cterm=underline ctermfg=4 ctermbg=none
-hi NeomakeMessage cterm=underline ctermfg=4 ctermbg=none
+hi ALEErrorSign ctermfg=9 ctermbg=none
+hi ALEWarningSign ctermfg=3 ctermbg=none
+hi ALEInfoSign ctermfg=4 ctermbg=none
+
+hi ALEError cterm=underline ctermfg=9 ctermbg=none
+hi ALEWarning cterm=underline ctermfg=3 ctermbg=none
+hi ALEInfo cterm=underline ctermfg=4 ctermbg=none
 
 hi GitGutterAdd guibg=none ctermbg=none
 hi GitGutterChange guibg=none ctermbg=none
@@ -169,7 +159,7 @@ hi GitGutterChangeDelete guibg=none ctermbg=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='base16'
+let g:airline_theme = 'base16'
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -177,11 +167,57 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
 let g:airline_symbols={}
-let g:airline_symbols.maxlinenr=''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.linenr = "\ufa70"
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.readonly = "\uf023"
+
+let g:airline#extensions#ale#error_symbol = "\uf00d "
+let g:airline#extensions#ale#warning_symbol = "\uf12a "
+let g:airline#extensions#ale#open_lnum_symbol = '['
+let g:airline#extensions#ale#close_lnum_symbol = ']'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ALE plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_disable_lsp = 1
+let g:ale_cursor_detail = 0
+let g:ale_virtualtext_cursor = 1
+let g:ale_close_preview_on_insert = 1
+let g:ale_lint_delay = 100
+
+let g:ale_linter_aliases = {
+    \'bash': 'sh',
+    \'zsh': 'sh',
+\}
+
+let g:ale_linters = {
+    \'python': [
+        \'python',
+        \'pylama',
+        \'flake8',
+        \'pyflakes',
+        \'pycodestyle',
+        \'pydocstyle',
+        \'pylint'
+    \],
+    \'rust': ['cargo', 'cargotest', 'rustc'],
+    \'sh': ['bashate', 'shell', 'shellcheck']
+\}
+
+let g:ale_python_pylint_options = '--load-plugins pylint_flask'
+
+let g:ale_virtualtext_prefix = '❯ '
+let g:ale_sign_error = "\uf00d"
+let g:ale_sign_warning = "\uf12a"
+let g:ale_sign_info = "\u129"
+
+" TODO: Would be lovely to toggle this with the same key. Currently to close
+" a window it is necessary to press `q`. Keep an eye on ALE updates to see
+" whether NeoVim floating windows support was implemented (or
+" ALEToggleDetail).
+nmap <Tab> <Plug>(ale_detail)
+nmap <c-j> <Plug>(ale_next_wrap)
+nmap <c-k> <Plug>(ale_previous_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float Preview plugin settings
@@ -201,96 +237,6 @@ map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NCM2 plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-let g:ncm2#total_popup_limit = 10
-
-" Close completion popup and also start a new line when pressing Enter
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Languageclient-neovim settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_changeThrottle = 1
-let g:LanguageClient_diagnosticsEnable = 1
-let g:LanguageClient_echoProjectRoot = 0
-let g:LanguageClient_useVirtualText = "No"
-
-let g:LanguageClient_serverCommands = {
-    \'rust': ['rust-analyzer']
-\}
-
-let g:LanguageClient_virtualTextPrefix = '❯ '
-let g:LanguageClient_diagnosticsDisplay = {
-    \1: {
-        \"name": "Error",
-        \"texthl": "NeomakeError",
-        \"signText": "\uf00d",
-        \"signTexthl": "NeomakeErrorSign",
-        \"virtualTexthl": "NeomakeError",
-    \},
-    \2: {
-        \"name": "Warning",
-        \"texthl": "NeomakeWarning",
-        \"signText": "\uf12a",
-        \"signTexthl": "NeomakeWarningSign",
-        \"virtualTexthl": "NeomakeWarning",
-    \},
-    \3: {
-        \"name": "Information",
-        \"texthl": "NeomakeInfo",
-        \"signText": "\uf129",
-        \"signTexthl": "NeomakeInfoSign",
-        \"virtualTexthl": "NeomakeInfo",
-    \},
-    \4: {
-        \"name": "Hint",
-        \"texthl": "NeomakeMessage",
-        \"signText": "\uf129",
-        \"signTexthl": "NeomakeMessageSign",
-        \"virtualTexthl": "NeomakeMessage",
-    \},
-\}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neomake plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call neomake#configure#automake('nrwi', 100)
-
-let g:neomake_virtualtext_prefix = '❯ '
-
-let g:neomake_error_sign = {'text': "\uf00d", 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': "\uf12a", 'texthl': 'NeomakeWarningSign'}
-let g:neomake_info_sign = {'text': "\uf129", 'texthl': 'NeomakeInfoSign'}
-let g:neomake_message_sign = {'text': "\uf129", 'texthl': 'NeomakeMessageSign'}
-
-let g:neomake_python_python_exe='/usr/bin/python3'
-let g:neomake_python_enabled_makers=[
-    \'python',
-    \'pylama',
-    \'flake8',
-    \'pyflakes',
-    \'pycodestyle',
-    \'pydocstyle',
-    \'pylint'
-\]
-let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args + [
-    \'--load-plugins',
-    \'pylint_flask'
-\]
-
-let g:neomake_go_enabled_makers= ['go', 'gometalinter', 'golint']
-let g:neomake_javascript_enabled_makers= ['eslint', 'stylelint']
-let g:neomake_typescript_enabled_makers= ['tsc', 'tslint', 'eslint']
-
-" FIXME: Removed rustc because it duplicates stuff that 'cargo' does in
-" proper projects. Though now one-off files are not linted with neither cargo
-" nor rustc which is inconvenient.
-let g:neomake_rust_enabled_makers=['cargo', 'cargotest']
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SimpylFold_fold_docstring = 0
@@ -301,3 +247,9 @@ let g:SimpylFold_fold_import = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_current_word#highlight_current_word = 0
 hi CurrentWordTwins gui=italic
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ListToggle plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lt_location_list_toggle_map = '<c-l>'
+let g:lt_height = 12
