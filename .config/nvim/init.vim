@@ -42,6 +42,12 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('honza/dockerfile.vim')
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
+
+    call dein#add('neoclide/coc.nvim', {
+        \'merged': 0,
+        \'build': 'yarn install --frozen-lockfile'
+    \})
+
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
     call dein#add('ryanoasis/vim-devicons')
@@ -187,7 +193,7 @@ let g:ale_lint_delay = 100
 
 let g:ale_linter_aliases = {
     \'bash': 'sh',
-    \'zsh': 'sh',
+    \'zsh': 'sh'
 \}
 
 let g:ale_linters = {
