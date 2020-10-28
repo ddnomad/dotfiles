@@ -27,5 +27,5 @@ as I switch between different machines for work / personal matters).
 `unclutter`, its fork should be installed `unclutter-xfixes-git`
 
 ## Documentation
-* [NeoVim Usage Notes](./docs/neovim_usage_notes.md)
-* [NeoVim Profiling](./docs/neovim_profiling.md)
+* [NeoVim Usage Notes](.docs/neovim_usage_notes.md)
+* [NeoVim Profiling](.docs/neovim_profiling.md)
