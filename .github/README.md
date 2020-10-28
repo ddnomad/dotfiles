@@ -28,3 +28,4 @@ as I switch between different machines for work / personal matters).
 
 ## Documentation
 * [NeoVim Usage Notes](./docs/neovim_usage_notes.md)
+* [NeoVim Profiling](./docs/neovim_profiling.md)

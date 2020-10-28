@@ -125,6 +125,9 @@ set hidden
 " Prevent vim jumping when linting marks appear/disappear in a sign column
 set signcolumn=yes
 
+" Leader configuration
+let mapleader="["
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific fixes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -143,10 +146,13 @@ autocmd BufRead,BufNewFile *.conf set filetype=texmf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcut mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F2> :NERDTreeToggle<CR>
-map <F3> :set spell!<CR>
-map <F4> :noh<CR>
-map <F5> :IndentGuidesToggle<CR>
+map <silent> <Tab> :NERDTreeToggle<CR>
+map <silent> <F3> :set spell!<CR>
+map <silent> <F4> :noh<CR>
+
+" Switching between buffers
+map <silent> <c-j> :bn<cr>
+map <silent> <c-k> :bp<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
@@ -192,6 +198,27 @@ let g:airline#extensions#ale#warning_symbol = "\uf12a "
 let g:airline#extensions#ale#open_lnum_symbol = '['
 let g:airline#extensions#ale#close_lnum_symbol = ']'
 
+let g:airline#extensions#tabline#left_sep = ""
+let g:airline#extensions#tabline#left_alt_sep = ""
+let g:airline#extensions#tabline#right_sep = ""
+let g:airline#extensions#tabline#right_alt_sep = ""
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#show_close_button = 0
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,13 +254,7 @@ let g:ale_sign_error = "\uf00d"
 let g:ale_sign_warning = "\uf12a"
 let g:ale_sign_info = "\u129"
 
-" TODO: Would be lovely to toggle this with the same key. Currently to close
-" a window it is necessary to press `q`. Keep an eye on ALE updates to see
-" whether NeoVim floating windows support was implemented (or
-" ALEToggleDetail).
-nmap <Tab> <Plug>(ale_detail)
-nmap <c-j> <Plug>(ale_next_wrap)
-nmap <c-k> <Plug>(ale_previous_wrap)
+nmap q <Plug>(ale_detail)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float Preview plugin settings
@@ -244,7 +265,6 @@ let g:float_preview#docked = 1
 " IndentLine plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_conceallevel = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " is.vim plugin settings (and integration with Anzu)

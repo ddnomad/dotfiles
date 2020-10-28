@@ -1,7 +1,11 @@
+NeoVim Usage Notes
+==================
 > This was partially moved from `dotfiles.mac` repository `README.md`. Mostly
 > needed to remember what "new" plugins / features were added so  I can get
 > used to them.
 
+Plugins You Don't Use
+---------------------
 - Added [vim-commentary](https://github.com/tpope/vim-commentary). Use it with
   `gc` (toggle comment line), selection + `gc` (toggle comment a selected block
   ).
@@ -14,3 +18,7 @@
 - Added [SimpylFold](https://github.com/tmhedberg/SimpylFold). Use `zc` to
   fold all, `zi` to unfold all, `za` to toggle fold of a selected fold,
   `zA` to toggle fold and all nested folds.
+
+Shortcuts You Forgot
+--------------------
+- `bd` to close buffer
