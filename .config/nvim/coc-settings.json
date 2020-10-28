@@ -1,0 +1,12 @@
+{
+    "codeLens.enable": true,
+    "codeLens.separator": "❯",
+    "codeLens.subseparator": " | ",
+
+    "diagnostic.displayByAle": true,
+    "diagnostic.refreshAfterSave": true,
+    "diagnostic.refreshOnInsertMode": true,
+
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+    "python.jediEnabled": false
+}

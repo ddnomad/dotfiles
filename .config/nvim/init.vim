@@ -42,9 +42,19 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('honza/dockerfile.vim')
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
+    call dein#add('kevinoid/vim-jsonc')
 
     call dein#add('neoclide/coc.nvim', {
         \'merged': 0,
+        \'build': 'yarn install --frozen-lockfile'
+    \})
+    call dein#add('neoclide/coc-json', {
+        \'build': 'yarn install --frozen-lockfile'
+    \})
+    call dein#add('fannheyward/coc-rust-analyzer', {
+        \'build': 'yarn install --frozen-lockfile'
+    \})
+    call dein#add('neoclide/coc-python', {
         \'build': 'yarn install --frozen-lockfile'
     \})
 
