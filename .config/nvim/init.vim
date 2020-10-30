@@ -101,7 +101,7 @@ set cursorline
 set nofoldenable
 
 " Non-printable characters styling
-set list listchars=tab:▸\ ,trail:·,eol:¬
+set list listchars=tab:\|\ ,trail:·,eol:¬
 set showbreak=↳\ \ \ 
 set cpo+=n
 
@@ -172,6 +172,9 @@ hi ALEInfoSign ctermfg=4 ctermbg=none
 hi ALEError cterm=underline ctermfg=9 ctermbg=none
 hi ALEWarning cterm=underline ctermfg=3 ctermbg=none
 hi ALEInfo cterm=underline ctermfg=4 ctermbg=none
+
+hi CocCodeLens ctermfg=8 ctermbg=none
+hi CocRustChainingHint ctermfg=8 ctermbg=none
 
 hi GitGutterAdd guibg=none ctermbg=none
 hi GitGutterChange guibg=none ctermbg=none
