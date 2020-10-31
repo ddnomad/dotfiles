@@ -251,6 +251,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_python_pylint_options = '--load-plugins pylint_flask'
+let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_virtualtext_prefix = '❯ '
 let g:ale_sign_error = "\uf00d"
