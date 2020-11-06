@@ -8,6 +8,7 @@
     "diagnostic.refreshOnInsertMode": true,
 
     "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.chainingHintsSeparator": "❯ ",
     "rust-analyzer.lens.enable": true,
     "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
     "python.jediEnabled": false
