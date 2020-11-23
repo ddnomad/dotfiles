@@ -134,6 +134,9 @@ let mapleader="["
 " Do not expand tab in Golang and Rust files
 autocmd FileType go,rust setlocal noexpandtab
 
+" Indent with 4 spaces for JSON/YAML
+autocmd FileType json,yaml setlocal shiftwidth=2 tabstop=2
+
 " Disable indentLine for markdown files to prevent concealing of chars
 autocmd FileType json,markdown let b:indentLine_enabled=0
 
