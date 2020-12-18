@@ -250,7 +250,7 @@ let g:ale_linters = {
         \'pylint'
     \],
     \'rust': ['cargo', 'cargotest', 'rustc'],
-    \'sh': ['bashate', 'shell', 'shellcheck']
+    \'sh': ['shell', 'shellcheck']
 \}
 
 let g:ale_python_pylint_options = '--load-plugins pylint_flask'
