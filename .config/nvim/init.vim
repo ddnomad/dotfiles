@@ -126,7 +126,7 @@ set hidden
 set signcolumn=yes
 
 " Leader configuration
-let mapleader="["
+let mapleader=";"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific fixes
@@ -154,8 +154,9 @@ map <silent> <F3> :set spell!<CR>
 map <silent> <F4> :noh<CR>
 
 " Switching between buffers
-map <silent> <c-j> :bn<cr>
-map <silent> <c-k> :bp<cr>
+" NOTE: Also <leader>-<number> can be used (see airline configuration)
+map <silent> <c-j> :bn<CR>
+map <silent> <c-k> :bp<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
