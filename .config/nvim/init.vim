@@ -51,6 +51,9 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('neoclide/coc-json', {
         \'build': 'yarn install --frozen-lockfile'
     \})
+    call dein#add('josa42/coc-lua', {
+        \'build': 'yarn install --frozen-lockfile'
+    \})
     call dein#add('fannheyward/coc-rust-analyzer', {
         \'build': 'yarn install --frozen-lockfile'
     \})
