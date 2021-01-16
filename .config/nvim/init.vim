@@ -241,6 +241,10 @@ let g:ale_linter_aliases = {
 \}
 
 let g:ale_linters = {
+    \'lua': [
+        \'luac',
+        \'luacheck'
+    \],
     \'python': [
         \'python',
         \'pylama',
