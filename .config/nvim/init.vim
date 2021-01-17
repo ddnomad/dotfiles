@@ -236,7 +236,7 @@ let g:ale_disable_lsp = 1
 let g:ale_cursor_detail = 0
 let g:ale_virtualtext_cursor = 1
 let g:ale_close_preview_on_insert = 1
-let g:ale_lint_delay = 100
+let g:ale_lint_delay = 200
 
 let g:ale_linter_aliases = {
     \'bash': 'sh',
@@ -255,13 +255,17 @@ let g:ale_linters = {
         \'pyflakes',
         \'pycodestyle',
         \'pydocstyle',
-        \'pylint'
+        \'pylint',
+        \'mypy'
     \],
     \'rust': ['cargo', 'cargotest', 'rustc'],
     \'sh': ['shell', 'shellcheck']
 \}
 
+let g:ale_python_mypy_auto_pipenv = 1
+let g:ale_python_pylint_auto_pipenv = 1
 let g:ale_python_pylint_options = '--load-plugins pylint_flask'
+
 let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_virtualtext_prefix = '❯ '
