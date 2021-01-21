@@ -57,7 +57,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('fannheyward/coc-rust-analyzer', {
         \'build': 'yarn install --frozen-lockfile'
     \})
-    call dein#add('neoclide/coc-python', {
+    call dein#add('fannheyward/coc-pyright', {
         \'build': 'yarn install --frozen-lockfile'
     \})
 
@@ -65,6 +65,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('RobRoseKnows/lark-vim')
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('scrooloose/nerdtree')
+    call dein#add('terryma/vim-multiple-cursors')
     call dein#add('tmhedberg/SimpylFold')
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-markdown')
@@ -73,6 +74,15 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('Yggdroot/indentLine')
     " Plugins block end
+
+    " TODO
+    " https://github.com/wellle/targets.vim
+    " https://github.com/numirias/semshi
+    " https://github.com/wellle/context.vim
+    " https://github.com/wellle/tmux-complete.vim
+    " https://awesomeopensource.com/project/camspiers/lens.vim
+    "
+    " https://awesomeopensource.com/projects/neovim-plugin
 
   call dein#end()
   call dein#save_state()
@@ -152,14 +162,19 @@ autocmd BufRead,BufNewFile *.conf set filetype=texmf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcut mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <silent> <Tab> :NERDTreeToggle<CR>
 map <silent> <F3> :set spell!<CR>
 map <silent> <F4> :noh<CR>
 
 " Switching between buffers
 " NOTE: Also <leader>-<number> can be used (see airline configuration)
-map <silent> <c-j> :bn<CR>
-map <silent> <c-k> :bp<CR>
+map <c-j> :bn<CR>
+map <c-k> :bp<CR>
+
+" Switching between splits
+map <C-H> <C-W>h
+" map <C-J> <C-W>j
+" map <C-K> <C-W>k
+map <C-L> <C-W>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
@@ -255,8 +270,7 @@ let g:ale_linters = {
         \'pyflakes',
         \'pycodestyle',
         \'pydocstyle',
-        \'pylint',
-        \'mypy'
+        \'pylint'
     \],
     \'rust': ['cargo', 'cargotest', 'rustc'],
     \'sh': ['shell', 'shellcheck']
@@ -276,6 +290,11 @@ let g:ale_sign_info = "\u129"
 nmap q <Plug>(ale_detail)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float Preview plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:float_preview#docked = 1
@@ -292,6 +311,11 @@ map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <silent> <Tab> :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SimpylFold_fold_docstring = 0
@@ -306,5 +330,5 @@ hi CurrentWordTwins gui=italic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ListToggle plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lt_location_list_toggle_map = '<c-l>'
+" let g:lt_location_list_toggle_map = '<c-l>'
 let g:lt_height = 12
