@@ -28,39 +28,18 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('dominikduda/vim_current_word')
     call dein#add('editorconfig/editorconfig-vim')
     call dein#add('farmergreg/vim-lastplace')
-
-    call dein#add('iamcco/markdown-preview.nvim', {
-        \'on_ft': [
-            \'markdown',
-            \'pandoc.markdown',
-            \'rmd'
-        \],
-        \'build': 'cd app & yarn install'
-    \})
-
+    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'cd app & yarn install'})
     call dein#add('haya14busa/is.vim')
     call dein#add('honza/dockerfile.vim')
     call dein#add('jeffkreeftmeijer/vim-numbertoggle')
     call dein#add('lepture/vim-jinja')
     call dein#add('kevinoid/vim-jsonc')
-
-    call dein#add('neoclide/coc.nvim', {
-        \'merged': 0,
-        \'build': 'yarn install --frozen-lockfile'
-    \})
-    call dein#add('neoclide/coc-json', {
-        \'build': 'yarn install --frozen-lockfile'
-    \})
-    call dein#add('josa42/coc-lua', {
-        \'build': 'yarn install --frozen-lockfile'
-    \})
-    call dein#add('fannheyward/coc-rust-analyzer', {
-        \'build': 'yarn install --frozen-lockfile'
-    \})
-    call dein#add('fannheyward/coc-pyright', {
-        \'build': 'yarn install --frozen-lockfile'
-    \})
-
+    call dein#add('neoclide/coc-json', {'build': 'yarn install --frozen-lockfile'})
+    call dein#add('neoclide/coc.nvim', {'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+    "call dein#add('neoclide/coc-python', {'build': 'yarn install --frozen-lockfile'})
+    call dein#add('fannheyward/coc-pyright', {'build': 'yarn install --frozen-lockfile'})
+    call dein#add('josa42/coc-lua', {'build': 'yarn install --frozen-lockfile'})
+    call dein#add('fannheyward/coc-rust-analyzer', {'build': 'yarn install --frozen-lockfile'})
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
     call dein#add('ryanoasis/vim-devicons')
@@ -229,9 +208,12 @@ let g:airline#extensions#tabline#right_sep = ""
 let g:airline#extensions#tabline#right_alt_sep = ""
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':p:.'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline#extensions#tabline#show_close_button = 0
 
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -290,9 +272,14 @@ let g:ale_sign_info = "\u129"
 nmap q <Plug>(ale_detail)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> gd <Plug>(coc-definition)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODO
+map <silent> <leader><leader> :CtrlPBuffer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float Preview plugin settings

@@ -12,7 +12,5 @@
     "rust-analyzer.inlayHints.chainingHints": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "❯ ",
     "rust-analyzer.lens.enable": true,
-    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
-
-    "python.linting.enabled": true
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
 }
