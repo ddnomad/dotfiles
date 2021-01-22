@@ -151,9 +151,10 @@ map <c-k> :bp<CR>
 
 " Switching between splits
 map <C-H> <C-W>h
-" map <C-J> <C-W>j
-" map <C-K> <C-W>k
 map <C-L> <C-W>l
+
+" Close current buffer
+map <silent> <C-Q> :bd<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
@@ -249,7 +250,6 @@ let g:ale_linters = {
         \'python',
         \'pylama',
         \'flake8',
-        \'pyflakes',
         \'pycodestyle',
         \'pydocstyle',
         \'pylint'

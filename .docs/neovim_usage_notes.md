@@ -14,7 +14,7 @@ Plugins You Don't Use
 
 Shortcuts You Forgot
 --------------------
-- `bd` - Close buffer
+- `<C-Q>` - Close a current buffer
 - `gd` - Jump to definition with `coc.nvim`
 - `;;` - Search for a buffer with `CtrlP`
 - `;NUM` - Switch to buffer with number `NUM`
