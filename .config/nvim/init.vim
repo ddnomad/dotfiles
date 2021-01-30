@@ -242,6 +242,9 @@ let g:ale_linter_aliases = {
 \}
 
 let g:ale_linters = {
+    \'dockerfile': [
+        \'hadolint'
+    \],
     \'lua': [
         \'luac',
         \'luacheck'

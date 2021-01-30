@@ -168,10 +168,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym l resize grow width 5 px or 5 ppt
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 4 px or 4 ppt
+        bindsym h resize shrink width 4 px or 4 ppt
+        bindsym k resize grow height 4 px or 4 ppt
+        bindsym j resize shrink height 4 px or 4 ppt
 
 	# Return to a normal mode
         bindsym Escape mode "default"
