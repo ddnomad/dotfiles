@@ -42,6 +42,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('RobRoseKnows/lark-vim')
     call dein#add('ryanoasis/vim-devicons')
+    call dein#add('sheerun/vim-polyglot')
     call dein#add('scrooloose/nerdtree')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('tmhedberg/SimpylFold')
@@ -50,18 +51,19 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('Valloric/ListToggle')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
-    call dein#add('vim-python/python-syntax')
     call dein#add('Yggdroot/indentLine')
     " Plugins block end
 
     " TODO
     " https://github.com/wellle/targets.vim
-    " https://github.com/numirias/semshi
     " https://github.com/wellle/context.vim
     " https://github.com/wellle/tmux-complete.vim
     " https://awesomeopensource.com/project/camspiers/lens.vim
     "
     " https://awesomeopensource.com/projects/neovim-plugin
+    "
+    " XXX
+    " https://github.com/numirias/semshi - Nice idea but fucks with my colorscheme too much.
 
   call dein#end()
   call dein#save_state()
@@ -304,12 +306,6 @@ map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 " NERDTree plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <Tab> :NERDTreeToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" python-syntax plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:python_highlight_all = 1
-let g:python_version_2 = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
