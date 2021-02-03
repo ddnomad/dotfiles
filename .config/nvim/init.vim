@@ -36,7 +36,6 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('kevinoid/vim-jsonc')
     call dein#add('neoclide/coc-json', {'build': 'yarn install --frozen-lockfile'})
     call dein#add('neoclide/coc.nvim', {'merged': 0, 'build': 'yarn install --frozen-lockfile'})
-    "call dein#add('neoclide/coc-python', {'build': 'yarn install --frozen-lockfile'})
     call dein#add('fannheyward/coc-pyright', {'build': 'yarn install --frozen-lockfile'})
     call dein#add('josa42/coc-lua', {'build': 'yarn install --frozen-lockfile'})
     call dein#add('fannheyward/coc-rust-analyzer', {'build': 'yarn install --frozen-lockfile'})
@@ -51,6 +50,7 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('Valloric/ListToggle')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('vim-python/python-syntax')
     call dein#add('Yggdroot/indentLine')
     " Plugins block end
 
@@ -304,6 +304,12 @@ map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 " NERDTree plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <Tab> :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" python-syntax plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:python_highlight_all = 1
+let g:python_version_2 = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SimpylFold plugin settings
