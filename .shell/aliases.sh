@@ -1,3 +1,5 @@
+alias diff='diff -y --color=always --suppress-common-lines'
+
 alias less='less -r'
 alias top='glances'
 alias pgp='gpg'

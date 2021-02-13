@@ -12,6 +12,9 @@ export RUST_SRC_PATH=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/r
 PATH="${HOME}"/.cargo/bin:${PATH}
 PATH="${HOME}"/scripts:"${HOME}"/scripts/i3wm:${PATH}
 
+# XXX: Important for Pipenv
+export PIPENV_MAX_DEPTH=10
+
 # FIXME: Transferred from MacOS dots
 #export LC_ALL=en_US.UTF-8
 #export LANG=en_US.UTF-8
