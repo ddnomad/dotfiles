@@ -148,8 +148,8 @@ map <silent> <F4> :noh<CR>
 
 " Switching between buffers
 " NOTE: Also <leader>-<number> can be used (see airline configuration)
-map <c-j> :bn<CR>
-map <c-k> :bp<CR>
+map <silent> <c-j> :bn<CR>
+map <silent> <c-k> :bp<CR>
 
 " Switching between splits
 map <C-H> <C-W>h
