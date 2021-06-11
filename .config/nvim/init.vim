@@ -48,6 +48,8 @@ if dein#load_state(g:dein_plugin_dir)
     call dein#add('tmhedberg/SimpylFold')
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-markdown')
+    call dein#add('tpope/vim-repeat')
+    call dein#add('tpope/vim-surround')
     call dein#add('Valloric/ListToggle')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -247,6 +249,10 @@ let g:ale_linters = {
     \'dockerfile': [
         \'hadolint'
     \],
+    \'javascript': [
+        \'eslint',
+        \'standard',
+    \],
     \'lua': [
         \'luac',
         \'luacheck'
@@ -260,7 +266,8 @@ let g:ale_linters = {
         \'pylint'
     \],
     \'rust': ['cargo', 'cargotest', 'rustc'],
-    \'sh': ['shell', 'shellcheck']
+    \'sh': ['shell', 'shellcheck'],
+    \'sql': ['sqlint'],
 \}
 
 let g:ale_python_mypy_auto_pipenv = 1
