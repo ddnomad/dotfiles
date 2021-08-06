@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-readonly INFO_SCRIPT_NAME="$(basename "$0")"
+readonly INFO_SCRIPT_NAME="$(basename -- "$0")"
 readonly INFO_DEV_ROOT="$(env | grep DEV_ROOT | cut -f2 -d'=')"
 
 readonly MSG_PREF_ERR='---(X) ERR: '
