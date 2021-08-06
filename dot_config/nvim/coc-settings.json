@@ -1,0 +1,16 @@
+{
+    "codeLens.enable": true,
+    "codeLens.separator": "❯",
+    "codeLens.subseparator": " | ",
+
+    "diagnostic.displayByAle": true,
+    "diagnostic.refreshAfterSave": true,
+    "diagnostic.refreshOnInsertMode": true,
+
+    "Lua.diagnostics.globals": ["ngx"],
+
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.chainingHintsSeparator": "❯ ",
+    "rust-analyzer.lens.enable": true,
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
+}

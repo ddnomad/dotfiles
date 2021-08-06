@@ -1,0 +1,30 @@
+###############################################################################
+# i3wm configuration for bare metal hosts
+###############################################################################
+exec --no-startup-id feh --no-fehbg --bg-scale /home/ddnomad/pictures/wallpapers/lain_02_edited.jpg
+
+bar {
+    i3bar_command i3bar -t
+    position top
+    colors {
+        background #00000000
+
+        focused_workspace #00000000 #00000000 #D8D8D8
+        active_workspace #00000000 #00000000 #585858
+        inactive_workspace #00000000 #00000000 #585858
+        urgent_workspace #00000000 #00000000 #BA8BAF
+    }
+    status_command /usr/share/bumblebee-status/bumblebee-status \
+        -m \
+            spotify disk cpu memory amixer brightness \
+            pacman publicip nic battery datetime \
+        -p \
+            disk.format="{percent:1.1f}%" \
+            memory.format="{percent:1.1f}%" \
+            pacman.sum="True" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth,enp0s25" \
+            nic.format="{ssid}" \
+            battery.device="BAT0,BAT1" \
+            datetime.format="%a %d %b %X" \
+        -t base16-default-dark-dd
+}

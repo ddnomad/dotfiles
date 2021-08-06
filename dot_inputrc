@@ -1,0 +1,50 @@
+# Include distro defaults
+# TODO: Check whether it is present on MacOS
+$include /etc/inputrc
+
+# Enable vi mode
+set editing-mode vi
+
+# Apply only if vi mode is active
+$if mode=vi
+  # Show vi mode explicitly as '+' (insert) and ':' (command)
+  set show-mode-in-prompt on
+  set vi-ins-mode-string \1\e[90m\2+\1\e[0m\2
+  set vi-cmd-mode-string \1\e[90m\2:\1\e[0m\2
+
+  # Enable ^l shortcut for clearing the screen in insert mode 
+  set keymap vi-insert
+  Control-l:clear-screen
+$endif
+
+# Do not produce horrible sounds ever
+set bell-style visible
+
+# Visually show opening bracket when closing is entered
+set blink-matching-paren on
+
+# Paste multiline commands as a single command
+# (a.k.a. don't execute rm -rf --no-preserve please)
+set enable-bracketed-paste on
+
+# Show different files types in color when listing completion candidates
+set colored-stats on
+set visible-stats on
+
+# Immediately list all completion matches
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Show common completion prefix in color
+set colored-completion-prefix on
+
+# Perform case-insensitive completion matching
+set completion-ignore-case on
+
+# Treat '-' and '_' equivalently when performing completion matching
+set completion-map-case on
+
+# Match hidden files without explicitly prefixing them with '.'
+# NOTE: It's a default value but some distros disable this feature which is
+# annoying as hell
+set match-hidden-files on

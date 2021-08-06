@@ -1,0 +1,8 @@
+#!/bin/sh
+WALLPAPER_PATH="${HOME}/pictures/wallpapers/lain_02_edited.jpg"
+
+if test "$(autorandr --current)" = "docked"; then
+    feh --no-fehbg --bg-tile "${WALLPAPER_PATH}"
+else
+    feh --no-fehbg --bg-scale "${WALLPAPER_PATH}"
+fi
