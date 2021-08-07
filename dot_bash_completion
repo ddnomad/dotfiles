@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # TODO: How to integrate?
-source /usr/local/opt/gnu-getopt/etc/bash_completion.d
+# FIXME: MacOS specific
+# FIXME: Requires 'brew install bash-completion@2'
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 for bash_comp_script in ~/.bash/completions/*; do
     # shellcheck disable=SC1090
