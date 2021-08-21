@@ -1,3 +1,4 @@
+# FIXME: MacOS version of diff does not understand --color option
 alias diff='diff -y --color=always --suppress-common-lines'
 
 alias less='less -r'
