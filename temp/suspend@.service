@@ -1,0 +1,13 @@
+[Unit]
+Description=Suspend setting lock screen
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lockr -b 10 -- --nofork --ignore-empty-password
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
