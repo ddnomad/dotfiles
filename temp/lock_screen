@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+###############################################################################
+# Title:       lock_screen
+# Description: Lock screen using a locker of my choice
+# Usage:       Add to PATH and bind to a shortcut in the WM
+# Version:     0.0.1
+###############################################################################
+set -euo pipefail
+
+# NOTE: Colors are from Base16 Default Dark schema by Chris Kempson
+readonly COLOR_BLANK='#00000000'
+readonly COLOR_GREY='#58585866'
+readonly COLOR_WRONG='#AB464288'
+
+###############################################################################
+# Main function handling execution pipeline
+###############################################################################
+function main {
+    i3lock \
+    --blur 10 \
+    --bshl-color "${COLOR_GREY}" \
+    --greeter-text '' \
+    --noinput-text '' \
+    --inside-color "${COLOR_BLANK}" \
+    --insidever-color "${COLOR_BLANK}" \
+    --insidewrong-color "${COLOR_WRONG}" \
+    --keyhl-color "${COLOR_GREY}" \
+    --line-uses-inside \
+    --lock-text '' \
+    --lockfailed-text '' \
+    --radius 8 \
+    --ring-width 44 \
+    --ring-color "${COLOR_BLANK}" \
+    --ringver-color "${COLOR_BLANK}" \
+    --ringwrong-color "${COLOR_WRONG}" \
+    --separator-color "${COLOR_BLANK}" \
+    --verif-text '' \
+    --verif-color "${COLOR_BLANK}" \
+    --wrong-text '' \
+    --wrong-color "${COLOR_WRONG}"
+}
+
+###############################################################################
+# Main flow
+###############################################################################
+main
