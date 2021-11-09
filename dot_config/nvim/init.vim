@@ -164,12 +164,12 @@ map <silent> <C-Q> :bd<CR>
 " Transparency hacks
 " TODO: Only apply when on Arch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Normal guibg=none ctermbg=none
-hi NonText guibg=none ctermbg=none
-hi LineNr guibg=none ctermbg=none
-hi CursorLineNr guibg=none ctermbg=none
-hi StatusLine guibg=none ctermbg=none
-hi SignColumn guibg=none ctermbg=none
+hi Normal guibg=none cterm=none ctermbg=none
+hi NonText guibg=none cterm=none ctermbg=none
+hi LineNr guibg=none cterm=none ctermbg=none
+hi CursorLineNr guibg=none cterm=none ctermbg=none
+hi StatusLine guibg=none cterm=none ctermbg=none
+hi SignColumn guibg=none cterm=none ctermbg=none
 
 hi ALEErrorSign ctermfg=9 ctermbg=none
 hi ALEWarningSign ctermfg=3 ctermbg=none
