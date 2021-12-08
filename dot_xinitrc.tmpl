@@ -1,0 +1,36 @@
+# Start SSH agent so key passwords are cached after being entered at least once
+eval $(ssh-agent)
+
+# Hide cursor when the mouse is not used for a short period of time
+# NOTE: Use unclutter-xfixes-git from AUR, as regular unclutter package sometimes
+# breaks i3wm window focusing.
+unclutter &
+
+# Start a compositor to avoid nasty tearing and make windows transparent
+picom -cb
+
+# Run VMWare Tools SUID wrapper (this is required for copy and paste to work)
+{{- if eq .host.chassis_type "vm" }}
+vmware-user-suid-wrapper &
+{{- end }}
+
+# Start i3wm
+exec i3
+
+###############################################################################
+# TODO: Integrate or discard
+###############################################################################
+#
+# # Load Xresources (rxvt terminal configuration)
+# test -f ~/.Xresources && xrdb -merge ~/.Xresources
+#
+# # NOTE: Should only be applied when running on a bare metal host
+# # Load Xmodmap (overlay modification of keyboard layout)
+# test -f ~/.Xmodmap && xmodmap ~/.Xmodmap
+#
+# # NOTE: Should only be applied when running on a bare metal host
+# # Configure Logitech MX Ergo mouse
+# mxergoconf
+#
+# # Reduce keyboard repeat delay
+# #xset r rate 300 25

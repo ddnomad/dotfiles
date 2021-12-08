@@ -1,0 +1,26 @@
+{{- $chassisType := "unknown" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   if contains "MacBook" output "sysctl" "-n" "hw.model" -}}
+{{-     $chassisType = "laptop" -}}
+{{-   else -}}
+{{-     $chassisType = "desktop" -}}
+{{-   end -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis -}}
+{{- end -}}
+{{- $userEmail := promptString "email" -}}
+
+[data.host]
+    # Possible values:
+    # - desktop
+    # - laptop
+    # - unknown
+    # - vm
+    chassis_type = "{{ $chassisType -}}"
+
+[data.user]
+    email = "{{ $userEmail -}}"
+    name = "ddnomad"
+
+[edit]
+    command = "nvim"

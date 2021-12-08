@@ -1,0 +1,59 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+sudo pacman -S \
+    alacritty \
+    base-devel \
+    chezmoi \
+    dmenu \
+    feh \
+    i3-gaps \
+    glances \
+    make \
+    neovim \
+    openssh \
+    picom \
+    xf86-video-intel \
+    xorg-server \
+    xorg-xinit
+
+if ! command -v paru &> /dev/null; then
+    dir_path="/tmp/$(date +%s)-paru"
+    git clone https://aur.archlinux.org/paru.git "${dir_path}"
+    cd "${dir_path}" && makepkg -si; cd - && rm -rf "${dir_path}"
+fi
+
+paru -S unclutter-xfixes-git
+
+{{- if eq .host.chassis_type "vm" }}
+if ! command -v vmware-user-suid-wrapper &> /dev/null; then
+    sudo pacman -S \
+        gtkmm3 \
+        mesa \
+        open-vm-tools \
+        xf86-input-vmmouse \
+        xf86-video-vmware
+
+    sudo systemctl enable vmtoolsd.service
+    sudo systemctl enable vmware-vmblock-fuse.service
+
+    echo '---(!) WARNING: Add the following modules to /etc/mkinitcpio.conf and'
+    echo '---(!) WARNING: run "mkinitcpio -p linux" to regenerate initramfs'
+    echo 'vsock vmw_vsock_vmci_transport vmw_balloon vmw_pvscsi vmw_vmci vmwgfx vmxnet3'
+fi
+
+{{- end -}}
+{{- else if eq .chezmoi.os "darwin" -}}
+
+#!/usr/bin/env zsh
+set -euo pipefail
+
+echo '---(X) ERROR: Not implemented yet' >&2
+exit 1
+
+{{- end }}
+
+git config --global user.email "{{ .user.email }}"
+git config --global user.name "{{ .user.name }}"
