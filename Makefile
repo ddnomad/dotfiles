@@ -6,6 +6,11 @@ SUBMAKE_OPTS := -s
 .PHONY: all
 all:
 
+.PHONY: apply
+apply:
+	@echo '---(i) INFO: Applying changes'
+	chezmoi apply
+
 .PHONY: dry
 dry:
 	@echo '---(i) INFO: Dry running apply'

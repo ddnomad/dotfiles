@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# NOTE: Requires 'brew install bash-completion@2'
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && \
+    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+for bash_comp_script in ~/.bash/completions/*; do
+    # shellcheck disable=SC1090
+    test -f "${bash_comp_script}" && source "${bash_comp_script}"
+done

@@ -16,17 +16,33 @@ TODO.md
 Makefile
 
 ###############################################################################
-# Linux specific configuration files
+# Linux specific files
 ###############################################################################
 {{ if ne .chezmoi.os "linux" }}
 .config/picom/picom.conf
+.scripts/i32m_make_screenshot
 .xinitrc
 .Xresources
 {{ end }}
 
 ###############################################################################
-# Linux laptop specific configuration files
+# Linux laptop specific files
 ###############################################################################
 {{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
 .Xmodmap
+{{ end }}
+
+###############################################################################
+# Linux VM specific files
+###############################################################################
+{{ if ne .host.chassis_type "vm" }}
+.scripts/executable_vmware-mount-shares
+{{ end }}
+
+###############################################################################
+# Linux VM specific configuration files
+###############################################################################
+{{ if ne .chezmoi.os "darwin" }}
+.scripts/chhn
+.bash_completion
 {{ end }}

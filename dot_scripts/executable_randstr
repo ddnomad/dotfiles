@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+###############################################################################
+# Generate a random string of a specified length
+# NOTE: Not cryptographically sound.
+###############################################################################
+function main {
+    if test "$#" -ne 1; then
+        echo "Usage: $0 LENGTH"
+	exit 1
+    fi
+
+    local length
+    length="$1"
+
+    if ! [[ "${length}" =~ ^[0-9]+$ ]] || test "${length}" -lt 1; then
+        echo "Error: LENGTH must be positive integer"
+	exit 1
+    fi
+
+    tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w "${length}" | head -n 1 || :
+}
+
+main "$@"

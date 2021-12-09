@@ -3,6 +3,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+sudo pacman -Sy
 sudo pacman -S \
     alacritty \
     base-devel \
@@ -19,6 +20,7 @@ sudo pacman -S \
     openssh \
     picom \
     rsync \
+    shellcheck \
     xf86-video-intel \
     xorg-server \
     xorg-xinit
@@ -33,7 +35,7 @@ paru -S \
     nerd-fonts-hack \
     unclutter-xfixes-git
 
-{{- if eq .host.chassis_type "vm" }}
+{{ if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
     sudo pacman -S \
         gtkmm3 \
@@ -49,8 +51,8 @@ if ! command -v vmware-user-suid-wrapper &> /dev/null; then
     echo '---(!) WARNING: run "mkinitcpio -p linux" to regenerate initramfs'
     echo 'vsock vmw_vsock_vmci_transport vmw_balloon vmw_pvscsi vmw_vmci vmwgfx vmxnet3'
 fi
+{{ end }}
 
-{{- end -}}
 {{- else if eq .chezmoi.os "darwin" -}}
 
 #!/usr/bin/env zsh

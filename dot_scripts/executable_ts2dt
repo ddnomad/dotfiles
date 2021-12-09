@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+from datetime import datetime
+import sys
+
+# TODO: Prettify and handle exeptions
+print(datetime.fromtimestamp(float(sys.argv[1])/1000000))
