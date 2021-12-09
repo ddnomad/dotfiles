@@ -16,3 +16,7 @@ Post-Migration Cleanups
 * Add support for data from STDIN in `.scripts/jqless`.
 
 * Prettify and handle exceptions in `.scripts/ts2dt`.
+
+* Write a wrapper around `docs/` files to expose them in a usable way on CLI.
+
+* Integrate `ripgrep` as a standard `grep` replacement?
