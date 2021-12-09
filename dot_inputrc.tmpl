@@ -1,0 +1,48 @@
+{{ if eq .chezmoi.os "linux" }}
+# Include OS defaults
+$include /etc/inputrc
+{{ end }}
+
+# Enable vi mode
+set editing-mode vi
+
+# Apply only if vi mode is active
+$if mode=vi
+  # Show vi mode explicitly as '+' (insert) and ':' (command)
+  set show-mode-in-prompt on
+  set vi-ins-mode-string \1\e[90m\2+\1\e[0m\2
+  set vi-cmd-mode-string \1\e[90m\2:\1\e[0m\2
+
+  # Enable ^l shortcut for clearing the screen in insert mode
+  set keymap vi-insert
+  Control-l:clear-screen
+$endif
+
+# Do not produce horrible sounds ever
+set bell-style visible
+
+# Visually show opening bracket when closing is entered
+set blink-matching-paren on
+
+# Paste multi line commands as a single command
+set enable-bracketed-paste on
+
+# Show different files types in color when listing completion candidates
+set colored-stats on
+set visible-stats on
+
+# Immediately list all completion matches
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Show common completion prefix in color
+set colored-completion-prefix on
+
+# Perform case-insensitive completion matching
+set completion-ignore-case on
+
+# Treat '-' and '_' equivalently when performing completion matching
+set completion-map-case on
+
+# Match hidden files without explicitly prefixing them with '.'
+set match-hidden-files on

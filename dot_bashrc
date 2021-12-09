@@ -1,0 +1,8 @@
+# Do nothing if not running interactively
+[[ $- != *i* ]] && return
+
+# Load "modules"
+source ~/.bash/prompt.bash
+source ~/.bash/settings.bash
+source ~/.shell/aliases.sh
+source ~/.shell/env.sh

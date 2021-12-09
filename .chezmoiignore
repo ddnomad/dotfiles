@@ -16,8 +16,17 @@ TODO.md
 Makefile
 
 ###############################################################################
-# Linux specific configuration files if not on Linux host
+# Linux specific configuration files
 ###############################################################################
 {{ if ne .chezmoi.os "linux" }}
+.config/picom/picom.conf
 .xinitrc
+.Xresources
+{{ end }}
+
+###############################################################################
+# Linux laptop specific configuration files
+###############################################################################
+{{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
+.Xmodmap
 {{ end }}

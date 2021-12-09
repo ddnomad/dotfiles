@@ -6,15 +6,19 @@ set -euo pipefail
 sudo pacman -S \
     alacritty \
     base-devel \
+    bash-completion \
     chezmoi \
     dmenu \
     feh \
-    i3-gaps \
     glances \
+    i3-gaps \
+    jq \
     make \
+    man \
     neovim \
     openssh \
     picom \
+    rsync \
     xf86-video-intel \
     xorg-server \
     xorg-xinit
@@ -25,7 +29,9 @@ if ! command -v paru &> /dev/null; then
     cd "${dir_path}" && makepkg -si; cd - && rm -rf "${dir_path}"
 fi
 
-paru -S unclutter-xfixes-git
+paru -S \
+    nerd-fonts-hack \
+    unclutter-xfixes-git
 
 {{- if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
