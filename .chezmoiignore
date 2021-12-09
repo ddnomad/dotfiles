@@ -20,7 +20,7 @@ Makefile
 ###############################################################################
 {{ if ne .chezmoi.os "linux" }}
 .config/picom/picom.conf
-.scripts/i32m_make_screenshot
+.scripts/i3wm_make_screenshot
 .xinitrc
 .Xresources
 {{ end }}
@@ -30,6 +30,7 @@ Makefile
 ###############################################################################
 {{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
 .Xmodmap
+.scripts/executable_mxergoconf
 {{ end }}
 
 ###############################################################################

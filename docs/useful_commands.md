@@ -13,3 +13,7 @@ and works fine on Debian / Ubuntu:
 ```
 jq -C . data.json | less -R
 ```
+
+On hosts where dotfiles are properly integrated, `jqless data.json` can be used
+to achive the same, though as of 2021-12-09 it does not support input from
+STDIN.
