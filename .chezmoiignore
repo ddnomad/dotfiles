@@ -27,6 +27,8 @@ Makefile
 .config/bumblebee/
 .config/i3/
 .config/picom/
+.config/user-dirs.dirs
+.config/zathura/
 .scripts/i3wm_lock_screen
 .scripts/i3wm_make_screenshot
 .xinitrc
