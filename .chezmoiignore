@@ -4,6 +4,11 @@
 docs/
 
 ###############################################################################
+# Files that should be manually copied as they require elevated privileges
+###############################################################################
+root/
+
+###############################################################################
 # VCS boilerplates, temporary files, general information
 ###############################################################################
 LICENSE
@@ -19,7 +24,10 @@ Makefile
 # Linux specific files
 ###############################################################################
 {{ if ne .chezmoi.os "linux" }}
-.config/picom/picom.conf
+.config/bumblebee/
+.config/i3/
+.config/picom/
+.scripts/i3wm_lock_screen
 .scripts/i3wm_make_screenshot
 .xinitrc
 .Xresources

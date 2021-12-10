@@ -1,0 +1,230 @@
+###############################################################################
+# Basic config
+###############################################################################
+set $mod Mod1
+set $alt_mod Mod4
+
+floating_modifier $mod
+
+###############################################################################
+# Color, fonts and visal reprensentation
+###############################################################################
+# Base16 Default Dark theme colors. Source: https://github.com/khamer/base16-i3
+set $baseXX #000000
+set $base00 #181818
+set $base01 #282828
+set $base02 #383838
+set $base03 #585858
+set $base04 #B8B8B8
+set $base05 #D8D8D8
+set $base06 #E8E8E8
+set $base07 #F8F8F8
+set $base08 #AB4642
+set $base09 #DC9656
+set $base0A #F7CA88
+set $base0B #A1B56C
+set $base0C #86C1B9
+set $base0D #7CAFC2
+set $base0E #BA8BAF
+set $base0F #A16946
+
+# Property Name         Border     BG         Text       Indicator  Child Border
+client.focused          $base03    $base02    $base05    $base03    $base03
+client.focused_inactive $base00    $base01    $base05    $base03    $base01
+client.unfocused        $base01    $base00    $base03    $base01    $base01
+client.urgent           $base08    $base08    $base00    $base08    $base08
+client.placeholder      $base00    $base00    $base05    $base00    $base00
+client.background       $base07
+
+# Font for window titles. Will also be used by the bar, unless a different font
+# is used in the bar {} block below.
+font pango:Hack Nerd Font 9
+
+gaps inner 10
+gaps outer 5
+
+# Set title bar borders to 1px which essentially disables them. Please note
+# borders will be still visible in tabbed layout.
+for_window [class="^.*"] border pixel 1
+
+###############################################################################
+# Core bindings
+###############################################################################
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec dmenu_run \
+    -i -p "run:" \
+    -nb $baseXX \
+    -nf $base05 \
+    -fn "Hack Nerd Font-9" \
+    -sb $base0C \
+    -sf $base00
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes' 'i3-msg exit'"
+
+# NOTE: Shifted 1 key left from default bindings to make it 1:1 with vim bindings
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+g split h
+bindsym $mod+v split v
+
+bindsym $mod+p focus parent
+bindsym $mod+c focus child
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym l resize grow width 4 px or 4 ppt
+    bindsym h resize shrink width 4 px or 4 ppt
+    bindsym k resize grow height 4 px or 4 ppt
+    bindsym j resize shrink height 4 px or 4 ppt
+    bindsym Escape mode "default"
+}
+
+###############################################################################
+# Media and utility bindings
+###############################################################################
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# NOTE: Requires manual copy of ~/.scripts/i3wm_lock_screen
+bindsym $alt_mod+l exec /usr/bin/i3wm_lock_screen
+
+# NOTE: Requires manual copy of ~/.local/share/chezmoi/root/suspend@.service
+bindsym $alt_mod+s exec systemctl suspend
+
+bindsym --release Print exec "i3wm_make_screenshot -s ~/pictures/screenshots/"
+
+###############################################################################
+# Workspaces and workspace switching bindings
+###############################################################################
+{{ if eq .host.chassis_type "vm" }}
+set $ws1 "1:  terminal"
+set $ws2 "2:  code-eq"
+set $ws3 "3:  code-gt"
+set $ws4 "4:  code-ge"
+set $ws5 "5:  code-lt"
+set $ws6 "6:  code-le"
+set $ws7 "7:  code-ne"
+set $ws8 "8:  internet"
+set $ws9 "9:  dotfiles"
+set $ws10 "10:  casino"
+{{ else }}
+set $ws1 "1:  term"
+set $ws2 "2:  www"
+set $ws3 "3:  code"
+set $ws4 "4:  chat"
+set $ws5 "5:  tune"
+set $ws6 "6:  game"
+set $ws7 "7:  casino"
+set $ws8 "8:  watch"
+set $ws9 "9:  tor"
+set $ws10 "10:  mail"
+{{ end }}
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+###############################################################################
+# Plugins and modules execution
+###############################################################################
+{{ if eq .host.chassis_type "laptop" }}
+exec_always --no-startup-id feh --no-fehbg --bg-scale ~/pictures/wallpapers/lain.jpg
+{{ else }}
+exec_always --no-startup-id feh --no-fehbg --bg-tile ~/pictures/wallpapers/lain.jpg
+{{ end }}
+
+bar {
+    i3bar_command i3bar -t
+    position top
+    colors {
+        background          $baseXX
+        focused_workspace   $baseXX $baseXX $base05
+        active_workspace    $baseXX $baseXX $base03
+        inactive_workspace  $baseXX $baseXX $base03
+        urgent_workspace    $baseXX $baseXX $base0E
+    }
+
+    {{ if eq .host.chassis_type "laptop" }}
+    # TODO: Might wanna add another 'disk' entry to show home partition space util
+    status_command /usr/bin/bumblebee-status \
+        -t base16-default-dark-dd \
+        -m \
+            cpu \
+            memory \
+            disk \
+            amixer \
+            brightness \
+            pacman \
+            publicip \
+            nic \
+            battery \
+            date \
+            datetime \
+        -p \
+            battery.device="BAT0,BAT1" \
+            datetime.format="%X" \
+            disk.format="{percent:1.1f}%" \
+            memory.format="{percent:1.1f}%" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth" \
+            nic.format="{ssid}" \
+            pacman.sum="True"
+    {{ else }}
+    status_command /usr/bin/bumblebee-status \
+        -t base16-default-dark-dd \
+        -m \
+            cpu \
+            memory \
+            disk \
+            pacman \
+            publicip \
+            nic \
+            date \
+            datetime \
+        -p \
+            datetime.format="%X" \
+            disk.format="{percent:1.1f}%" \
+            memory.format="{percent:1.1f}%" \
+            nic.exclude="lo,virbr,docker,vboxnet,veth" \
+            nic.format="{ip}" \
+            pacman.sum="True"
+    {{ end }}
+}

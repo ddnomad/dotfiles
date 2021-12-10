@@ -6,6 +6,7 @@ set -euo pipefail
 sudo pacman -Sy
 sudo pacman -S \
     alacritty \
+    alsa-utils \
     base-devel \
     bash-completion \
     chezmoi \
@@ -32,6 +33,7 @@ if ! command -v paru &> /dev/null; then
 fi
 
 paru -S \
+    bumblebee-status \
     i3lockr-bin \
     nerd-fonts-hack \
     unclutter-xfixes-git
@@ -53,6 +55,8 @@ if ! command -v vmware-user-suid-wrapper &> /dev/null; then
     echo 'vsock vmw_vsock_vmci_transport vmw_balloon vmw_pvscsi vmw_vmci vmwgfx vmxnet3'
 fi
 {{ end }}
+
+mkdir -p ~/pictures/screenshots
 
 {{- else if eq .chezmoi.os "darwin" -}}
 

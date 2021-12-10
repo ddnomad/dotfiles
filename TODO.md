@@ -17,4 +17,4 @@ Post-Migration Cleanups
 
 * Write a wrapper around `docs/` files to expose them in a usable way on CLI.
 
-* Integrate `ripgrep` as a standard `grep` replacement?
+* Find a way to properly highlight .X.tmpl files (Chezmoi templates) in neovim.

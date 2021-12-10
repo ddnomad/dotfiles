@@ -1,0 +1,30 @@
+{
+  "icons": [
+    "awesome-fonts-dd"
+  ],
+  "defaults": {
+    "fg": "#B8B8B8",
+    "default-separators": false,
+    "separator": "",
+    "separator-block-width": 0,
+    "warning": {
+      "fg": "#F7CA88"
+    },
+    "critical": {
+      "fg": "#AB4642"
+    }
+  },
+  "pacman": {
+    "good": {
+      "fg": "#A1B56C"
+    }
+  },
+  "battery": {
+    "charged": {
+      "fg": "#A1B56C"
+    },
+    "AC": {
+      "fg": "#BA8BAF"
+    }
+  }
+}
