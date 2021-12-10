@@ -23,9 +23,11 @@ sudo pacman -S \
     picom \
     rsync \
     shellcheck \
+    tree \
     xf86-video-intel \
     xorg-server \
-    xorg-xinit
+    xorg-xinit \
+    xorg-xprop
 
 if ! command -v paru &> /dev/null; then
     dir_path="/tmp/$(date +%s)-paru"
