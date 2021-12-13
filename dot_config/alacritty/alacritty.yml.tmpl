@@ -31,7 +31,11 @@ font:
     #family: FiraCode Nerd Font
 
   # Point size
+  {{ if eq .host.chassis_type "laptop" }}
+  size: 5.0
+  {{ else }}
   size: 9.0
+  {{ end }}
 
 # Base16 Default Dark 256
 # Scheme by Chris Kempson (http://chriskempson.com)

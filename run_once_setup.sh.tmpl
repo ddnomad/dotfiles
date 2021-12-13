@@ -3,12 +3,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+###############################################################################
+# Step 1: Installing Paru (AUR helper)
+###############################################################################
 sudo pacman -Sy
-sudo pacman -S \
+
+if ! command -v paru &> /dev/null; then
+    dir_path="/tmp/$(date +%s)-paru"
+    git clone https://aur.archlinux.org/paru.git "${dir_path}"
+    cd "${dir_path}" && makepkg -si; cd - && rm -rf "${dir_path}"
+fi
+
+###############################################################################
+# Step 2: Installing packages
+###############################################################################
+paru -S \
     alacritty \
     alsa-utils \
     base-devel \
     bash-completion \
+    bumblebee-status \
     chezmoi \
     dmenu \
     dnsutils \
@@ -17,13 +31,17 @@ sudo pacman -S \
     firefox \
     flake8 \
     glances \
+    hadolint-bin \
     i3-gaps \
+    i3lockr-bin \
     inetutils \
     jq \
     lua \
+    luacheck \
     make \
     man \
     neovim \
+    nerd-fonts-hack \
     openssh \
     picom \
     python-flake8-docstrings \
@@ -31,30 +49,17 @@ sudo pacman -S \
     python-pydocstyle \
     python-pylint \
     rsync \
+    ruby-sqlint \
     shellcheck \
+    standard \
     tmux \
     tree \
+    unclutter-xfixes-git \
     xf86-video-intel \
     xorg-server \
     xorg-xinit \
     xorg-xprop \
     yarn
-
-if ! command -v paru &> /dev/null; then
-    dir_path="/tmp/$(date +%s)-paru"
-    git clone https://aur.archlinux.org/paru.git "${dir_path}"
-    cd "${dir_path}" && makepkg -si; cd - && rm -rf "${dir_path}"
-fi
-
-paru -S \
-    bumblebee-status \
-    hadolint-bin \
-    i3lockr-bin \
-    luacheck \
-    nerd-fonts-hack \
-    ruby-sqlint \
-    standard \
-    unclutter-xfixes-git
 
 {{ if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
@@ -74,11 +79,25 @@ if ! command -v vmware-user-suid-wrapper &> /dev/null; then
 fi
 {{ end }}
 
+###############################################################################
+# Step 3: Creating directories
+###############################################################################
 mkdir -p ~/casino
 mkdir -p ~/development
 mkdir -p ~/notes
 mkdir -p ~/pictures/screenshots
+
+{{ if eq .host.chassis_type "laptop" }}
+mkdir -p ~/documents
+mkdir -p ~/downloads
+mkdir -p ~/music
+mkdir -p ~/videos
+{{ end }}
+
+{{ if eq .host.chassis_type "vm" }}
 mkdir -p ~/scratch
+{{ end }}
+
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
