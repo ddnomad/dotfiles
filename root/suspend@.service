@@ -6,7 +6,7 @@ Before=sleep.target
 User=%I
 Type=forking
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/i3lockr -b 10 -- --nofork --ignore-empty-password
+ExecStart=/usr/bin/i3wm_lock_screen
 ExecStartPost=/usr/bin/sleep 1
 
 [Install]

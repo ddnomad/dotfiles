@@ -15,3 +15,5 @@ Post-Migration Cleanups
 * Write a wrapper around `docs/` files to expose them in a usable way on CLI.
 
 * Find a way to properly highlight .X.tmpl files (Chezmoi templates) in neovim.
+
+* Prettify `i3wm_lock_screen` configuration.

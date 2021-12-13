@@ -204,8 +204,8 @@ bar {
             datetime.format="%X" \
             disk.format="{percent:1.1f}%" \
             memory.format="{percent:1.1f}%" \
-            nic.exclude="lo,virbr,docker,vboxnet,veth" \
-            nic.format="{ssid}" \
+            nic.exclude="docker,enp,lo,vboxnet,veth,virbr" \
+            nic.format="{ip}" \
             pacman.sum="True"
     {{ else }}
     status_command /usr/bin/bumblebee-status \
@@ -223,7 +223,7 @@ bar {
             datetime.format="%X" \
             disk.format="{percent:1.1f}%" \
             memory.format="{percent:1.1f}%" \
-            nic.exclude="lo,virbr,docker,vboxnet,veth" \
+            nic.exclude="docker,lo,vboxnet,veth,virbr" \
             nic.format="{ip}" \
             pacman.sum="True"
     {{ end }}
