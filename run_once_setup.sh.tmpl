@@ -11,6 +11,7 @@ sudo pacman -S \
     bash-completion \
     chezmoi \
     dmenu \
+    dnsutils \
     eslint \
     feh \
     firefox \
@@ -72,7 +73,11 @@ if ! command -v vmware-user-suid-wrapper &> /dev/null; then
 fi
 {{ end }}
 
+mkdir -p ~/casino
+mkdir -p ~/development
+mkdir -p ~/notes
 mkdir -p ~/pictures/screenshots
+mkdir -p ~/scratch
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
