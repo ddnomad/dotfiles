@@ -11,23 +11,32 @@ sudo pacman -S \
     bash-completion \
     chezmoi \
     dmenu \
+    eslint \
     feh \
     firefox \
+    flake8 \
     glances \
     i3-gaps \
     jq \
+    lua \
     make \
     man \
     neovim \
     openssh \
     picom \
+    python-flake8-docstrings \
+    python-pycodestyle \
+    python-pydocstyle \
+    python-pylint \
     rsync \
     shellcheck \
+    tmux \
     tree \
     xf86-video-intel \
     xorg-server \
     xorg-xinit \
-    xorg-xprop
+    xorg-xprop \
+    yarn
 
 if ! command -v paru &> /dev/null; then
     dir_path="/tmp/$(date +%s)-paru"
@@ -37,8 +46,12 @@ fi
 
 paru -S \
     bumblebee-status \
+    hadolint-bin \
     i3lockr-bin \
+    luacheck \
     nerd-fonts-hack \
+    ruby-sqlint \
+    standard \
     unclutter-xfixes-git
 
 {{ if eq .host.chassis_type "vm" }}
