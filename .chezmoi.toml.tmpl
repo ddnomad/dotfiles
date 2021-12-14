@@ -1,6 +1,6 @@
 {{- $chassisType := "unknown" -}}
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   if contains "MacBook" output "sysctl" "-n" "hw.model" -}}
+{{-   if contains "MacBook" (output "sysctl" "-n" "hw.model") -}}
 {{-     $chassisType = "laptop" -}}
 {{-   else -}}
 {{-     $chassisType = "desktop" -}}
