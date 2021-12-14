@@ -3,8 +3,6 @@ TODO
 
 Post-Migration Cleanups
 -----------------------
-* Finish integrating stuff in `~/.xinitrc` (or discard).
-
 * Implement whole screen / specific window screenshot functionality in
   `.scripts/i3wm_make_screenshot`.
 
@@ -17,5 +15,3 @@ Post-Migration Cleanups
 * Find a way to properly highlight .X.tmpl files (Chezmoi templates) in neovim.
 
 * Prettify `i3wm_lock_screen` configuration.
-
-* Fix trackpad natural scrolling not working on the laptop.
