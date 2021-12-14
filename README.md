@@ -3,6 +3,13 @@ Dotfiles Monorepo
 ![GitHub last commit](https://img.shields.io/github/last-commit/ddnomad/dotfiles)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/dotfiles)
 
+This repository contains various configuration files and utility scripts dd relies on daily
+for various things (mostly work and personal devepment though).
+
+The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
+of 10. MacOS is treated as a second class citizen, hence things will most probably be broken,
+outdated or far from being ideal.
+
 Supported Platforms
 -------------------
 + [Arch Linux](https://www.archlinux.org/) host (laptop / desktop)
