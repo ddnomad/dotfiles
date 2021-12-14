@@ -17,3 +17,5 @@ Post-Migration Cleanups
 * Find a way to properly highlight .X.tmpl files (Chezmoi templates) in neovim.
 
 * Prettify `i3wm_lock_screen` configuration.
+
+* Fix trackpad natural scrolling not working on the laptop.
