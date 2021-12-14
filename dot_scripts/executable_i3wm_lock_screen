@@ -1,8 +1,55 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-function main {
-    i3lockr -b 10 &
-}
+# Base16 Default Dark color schema
+# Source: https://github.com/khamer/base16-i3
+readonly COLOR_BASEXX='#000000'  # Black
+readonly COLOR_BASE00='#181818'  # Near Black
+readonly COLOR_BASE01='#282828'  # Very Dark gray
+readonly COLOR_BASE02='#383838'  # Dark Gray
+readonly COLOR_BASE03='#585858'  # Gray
+readonly COLOR_BASE04='#B8B8B8'  # Light Gray
+readonly COLOR_BASE05='#D8D8D8'  # Very Light Gray
+readonly COLOR_BASE06='#E8E8E8'  # Near White
+readonly COLOR_BASE07='#F8F8F8'  # KindOf White
+readonly COLOR_BASE08='#AB4642'  # Red
+readonly COLOR_BASE09='#DC9656'  # Orange
+readonly COLOR_BASE0A='#F7CA88'  # Yellow
+readonly COLOR_BASE0B='#A1B56C'  # Green
+readonly COLOR_BASE0C='#86C1B9'  # Cyan
+readonly COLOR_BASE0D='#7CAFC2'  # Blue
+readonly COLOR_BASE0E='#BA8BAF'  # Magenta
+readonly COLOR_BASE0F='#A16946'  # Brown
 
-main
+# Supplementary colors with alpha channel
+readonly COLOR_BLANK='#00000000'
+
+i3lock \
+    --insidever-color="${COLOR_BLANK}" \
+    --ringver-color="${COLOR_BASE02}" \
+    \
+    --insidewrong-color="${COLOR_BLANK}" \
+    --ringwrong-color="${COLOR_BASE08}" \
+    \
+    --inside-color="${COLOR_BLANK}" \
+    --ring-color="${COLOR_BASE02}" \
+    --line-color="${COLOR_BLANK}" \
+    --separator-color="${COLOR_BASE02}" \
+    \
+    --verif-color="${COLOR_BASE06}" \
+    --wrong-color="${COLOR_BASE06}" \
+    --time-color="${COLOR_BASE06}" \
+    --date-color="${COLOR_BASE06}" \
+    --layout-color="${COLOR_BASE06}" \
+    --keyhl-color="${COLOR_BASE0C}" \
+    --bshl-color="${COLOR_BASE08}" \
+    \
+    --screen 1 \
+    --blur 5 \
+    --clock \
+    --indicator \
+    --time-str="%H:%M:%S" \
+    --date-str="%A, %m %Y" \
+    --keylayout 1 \
+    --verif-text='verifying' \
+    --wrong-text='wrong'

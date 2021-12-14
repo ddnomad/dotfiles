@@ -1,6 +1,6 @@
 [Unit]
-Description=Suspend setting lock screen
-Before=sleep.target
+Description=Lock screen befor going to sleep or suspend
+Before=sleep.target suspend.target
 
 [Service]
 User=%I

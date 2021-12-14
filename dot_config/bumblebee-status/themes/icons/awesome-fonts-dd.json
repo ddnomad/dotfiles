@@ -37,7 +37,7 @@
       "prefix": [" ", " ", " ", " ", " "],
       "suffix": ""
     },
-    "discharging-10": { "prefix": "", "suffix": "" },
+    "discharging-10": { "prefix": " ", "suffix": "" },
     "discharging-25": { "prefix": " ", "suffix": "" },
     "discharging-50": { "prefix": " ", "suffix": "" },
     "discharging-80": { "prefix": " ", "suffix": "" },
