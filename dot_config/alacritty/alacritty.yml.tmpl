@@ -8,9 +8,15 @@ window:
   # Spread additional padding evenly around the terminal content
   dynamic_padding: false
 
+  {{ if eq .chezmoi.os "darwin" }}
+  padding:
+    x: 12
+    y: 25
+  {{ else }}
   padding:
     x: 10
     y: 10
+  {{ end }}
 
   {{ if eq .chezmoi.os "darwin" }}
   # Window decorations
@@ -21,7 +27,9 @@ scrolling:
   # Maximum number of lines in the scrollback buffer
   history: 40000
 
+{{ if ne .chezmoi.os "darwin" }}
 background_opacity: 0.8
+{{ end }}
 
 font:
   # Normal font face
@@ -31,7 +39,9 @@ font:
     #family: FiraCode Nerd Font
 
   # Point size
-  {{ if eq .host.chassis_type "laptop" }}
+  {{ if eq .chezmoi.os "darwin" }}
+  size: 12.0
+  {{ else if eq .host.chassis_type "laptop" }}
   size: 5.0
   {{ else }}
   size: 9.0

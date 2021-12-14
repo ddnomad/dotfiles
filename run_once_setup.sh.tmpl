@@ -105,8 +105,51 @@ mkdir -p ~/scratch
 #!/usr/bin/env zsh
 set -euo pipefail
 
-echo '---(X) ERROR: Not implemented yet' >&2
-exit 1
+###############################################################################
+# Step 1: Installing packages
+###############################################################################
+brew install \
+    bash \
+    coreutils \
+    findutils \
+    gawk \
+    gnu-getopt \
+    gnu-indent \
+    gnu-sed \
+    gnu-tar \
+    gnutls \
+    neovim \
+    nodejs \
+    python \
+    ruby \
+    yarn
+
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
+xcode-select --install || :
+xcodebuild -license accept || :
+
+echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
+# FIXME: This is broken, presumably because Ruby version is too old
+# sudo gem install neovim
+
+npm install -g neovim
+pip3 install --user --upgrade pip pynvim
+
+if test "${SHELL}" != '/usr/local/bin/bash'; then
+    echo '---(i) INFO: Setting Bash as a default shell'
+    echo "$(brew --prefix)"/bin/bash | sudo tee -a /private/etc/shells
+    sudo chpass -s /usr/local/bin/bash "${USER}"
+fi
+
+###############################################################################
+# Step 3: Creating directories
+###############################################################################
+# NOTE: All other directories should already exist by default
+mkdir -p ~/Casino
+mkdir -p ~/Development
+mkdir -p ~/Notes
 
 {{- end }}
 

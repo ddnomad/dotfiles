@@ -19,6 +19,10 @@ The following tooling is required to integrate the dotfiles:
 * [Git](https://git-scm.com/)
 * [GNU Make](https://www.gnu.org/software/make/)
 
+For MacOS hosts, there are additional required tools:
+* [Alacritty](https://github.com/alacritty/alacritty)
+* [Homebrew](https://brew.sh)
+
 Fresh Host Setup
 ----------------
 Run the following to pull down the dotfiles: 
