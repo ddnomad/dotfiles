@@ -41,6 +41,9 @@ guides are not provided as of right now, mostly due to the fact it should be fai
 figure out as is.
 
 ### Integration
+> **WARNING**: On Windows, `run_once_*.ps1` will execute in PowerShell bypassing a default
+> security policy (i.e. `powershell.exe -NoLogo -ExecutionPolicy ByPass -File setup.ps1`).
+
 Run the following to pull down the dotfiles: 
 ```
 chezmoi init ddnomad --ssh
