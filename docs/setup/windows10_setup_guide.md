@@ -21,9 +21,6 @@ Set-ExecutionPolicy Bypass -Scope Process
 cd $HOME/Downloads; ./chocolatey_install.ps1
 ```
 
-> **FIXME:** WARNING: Not setting tab completion: Profile file does not exist at
-> 'C:\Users\$USER\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
-
 Step 2: Installing Vim
 ----------------------
 The main point of installing plain old Vim is to be able to access it from a regular PowerShell session. In the future,

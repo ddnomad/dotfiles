@@ -4,7 +4,7 @@ Dotfiles Monorepo
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/dotfiles)
 
 This repository contains various configuration files and utility scripts dd relies on daily
-for various things (mostly work and personal devepment though).
+for various things (mostly work and personal development).
 
 Supported Platforms
 -------------------
