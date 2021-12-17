@@ -6,26 +6,32 @@ Dotfiles Monorepo
 This repository contains various configuration files and utility scripts dd relies on daily
 for various things (mostly work and personal devepment though).
 
-The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
-of 10. MacOS is treated as a second class citizen, hence things will most probably be broken,
-outdated or far from being ideal.
-
 Supported Platforms
 -------------------
-+ [Arch Linux](https://www.archlinux.org/) host (laptop / desktop)
-+ [Arch Linux](https://www.archlinux.org/) guest (VMWare Workstation/Fusion)
-+ [MacOS](https://www.apple.com/macos) host (laptop / desktop)
+The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
+of 10. MacOS and Windows are treated is treated as a second class citizen, hence things will
+most probably be broken, outdated or far from being ideal.
+
+### Tier A
+* [Arch Linux](https://www.archlinux.org/) host (laptop / desktop)
+* [Arch Linux](https://www.archlinux.org/) guest (VMWare Workstation/Fusion)
+
+### Tier B
+* [MacOS](https://www.apple.com/macos) host (laptop / desktop)
+* [Windows 10](https://en.wikipedia.org/wiki/Windows_10)
 
 Prerequisites
 -------------
-The following tooling is required to integrate the dotfiles:
+### All Platforms
 * [Chezmoi](https://www.chezmoi.io/)
 * [Git](https://git-scm.com/)
-* [GNU Make](https://www.gnu.org/software/make/)
 
-For MacOS hosts, there are additional required tools:
+### MacOS
 * [Alacritty](https://github.com/alacritty/alacritty)
 * [Homebrew](https://brew.sh)
+
+### Linux / MacOS (Optional)
+* [GNU Make](https://www.gnu.org/software/make/)
 
 Fresh Host Setup
 ----------------
