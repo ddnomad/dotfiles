@@ -29,8 +29,8 @@ Makefile
 .config/picom/
 .config/user-dirs.dirs
 .config/zathura/
-.scripts/i3wm_lock_screen
-.scripts/i3wm_make_screenshot
+.scripts/nix/i3wm_lock_screen
+.scripts/nix/i3wm_make_screenshot
 .xinitrc
 .Xresources
 {{ end }}
@@ -40,20 +40,20 @@ Makefile
 ###############################################################################
 {{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
 .Xmodmap
-.scripts/executable_mxergoconf
+.scripts/nix/mxergoconf
 {{ end }}
 
 ###############################################################################
 # Linux VM specific files
 ###############################################################################
 {{ if ne .host.chassis_type "vm" }}
-.scripts/executable_vmware-mount-shares
+.scripts/nix/vmware-mount-shares
 {{ end }}
 
 ###############################################################################
 # Linux VM specific configuration files
 ###############################################################################
 {{ if ne .chezmoi.os "darwin" }}
-.scripts/chhn
+.scripts/nix/chhn
 .bash_completion
 {{ end }}
