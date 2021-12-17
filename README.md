@@ -32,12 +32,8 @@ MacOS development workflow is based around [Alacritty](https://github.com/alacri
 workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install
 them as well.
 
-### MacOS
-* [Alacritty](https://github.com/alacritty/alacritty)
-* [Homebrew](https://brew.sh)
-
-### Linux / MacOS (Optional)
-* [GNU Make](https://www.gnu.org/software/make/)
+For local development on Linux, [GNU Make](https://www.gnu.org/software/make/) will come in handy as well the repository
+contains `Makefile` which several somewhat useful targets which save time when iterating on new changes.
 
 Fresh Host Setup
 ----------------
