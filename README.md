@@ -9,16 +9,14 @@ for various things (mostly work and personal devepment though).
 Supported Platforms
 -------------------
 The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
-of 10. MacOS and Windows are treated is treated as a second class citizen, hence things will
-most probably be broken, outdated or far from being ideal.
+of 10. MacOS and Windows are treated as a second class citizen, hence things will most probably
+be broken, outdated or far from being ideal.
 
-### Tier A
-* [Arch Linux](https://www.archlinux.org/) host (laptop / desktop)
-* [Arch Linux](https://www.archlinux.org/) guest (VMWare Workstation/Fusion)
-
-### Tier B
-* [MacOS](https://www.apple.com/macos) host (laptop / desktop)
-* [Windows 10](https://en.wikipedia.org/wiki/Windows_10) host (laptop / desktop)
+| Platform                                               | Chassis Types             | Support Tier                    |
+| ------------------------------------------------------ | ---------------------     | ------------------------------- |
+| [Arch Linux](https://www.archlinux.org)                | Laptop / Desktop / VMWare | Tier 1 - Actively maintained    |
+| [MacOS](https://www.apple.com/macos)                   | Laptop / Desktop          | Tier 2 - Best Effort            |
+| [Windows 10](https://en.wikipedia.org/wiki/Windows_10) | Desktop                   | Tier 3 - Low Effort / Barebones |
 
 Prerequisites
 -------------
