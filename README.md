@@ -20,9 +20,17 @@ be broken, outdated or far from being ideal.
 
 Prerequisites
 -------------
-### All Platforms
-* [Chezmoi](https://www.chezmoi.io/)
-* [Git](https://git-scm.com/)
+The following sofware must be installed on a target platform before the integration can be performed:
+
+| Platform   | Software                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
+| Linux      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/)                                        |
+| MacOS      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Homebrew](https://brew.sh)           |
+| Windows 10 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/) |
+
+MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 10 development
+workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install
+them as well.
 
 ### MacOS
 * [Alacritty](https://github.com/alacritty/alacritty)
@@ -33,7 +41,7 @@ Prerequisites
 
 Fresh Host Setup
 ----------------
-### OS-Specific Prerequisites
+### OS Specific Prerequisites
 For Windows 10, see [setup guide](./docs/setup/windows10_setup_guide.md). Linux and MacOS setup
 guides are not provided as of right now, mostly due to the fact it should be fairly trivial to
 figure out as is.
