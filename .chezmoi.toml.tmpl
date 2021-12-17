@@ -10,6 +10,12 @@
 {{- end -}}
 {{- $userEmail := promptString "email" -}}
 
+{{ if eq .chezmoi.os "windows" }}
+[cd]
+    command = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    args = ["-NoLogo"]
+{{ end }}
+
 [data.host]
     # Possible values:
     # - desktop
