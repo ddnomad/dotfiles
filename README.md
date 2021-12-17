@@ -18,7 +18,7 @@ most probably be broken, outdated or far from being ideal.
 
 ### Tier B
 * [MacOS](https://www.apple.com/macos) host (laptop / desktop)
-* [Windows 10](https://en.wikipedia.org/wiki/Windows_10)
+* [Windows 10](https://en.wikipedia.org/wiki/Windows_10) host (laptop / desktop)
 
 Prerequisites
 -------------
@@ -35,6 +35,12 @@ Prerequisites
 
 Fresh Host Setup
 ----------------
+### OS-Specific Prerequisites
+For Windows 10, see [setup guide](./docs/setup/windows10_setup_guide.md). Linux and MacOS setup
+guides are not provided as of right now, mostly due to the fact it should be fairly trivial to
+figure out as is.
+
+### Integration
 Run the following to pull down the dotfiles: 
 ```
 chezmoi init ddnomad --ssh
