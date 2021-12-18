@@ -1,5 +1,13 @@
 ##########################################################################################################################################################################
-# Step 1: Self-elevate the script if required
+# Step 1: Change PowerShell execution policy to allow local script execution
+#
+# NOTE: powershell.exe -ExecutionPolicy -ByPass exists thus keeping 'Restricted' execution policy is pretty pointless, unless it's a hardened production environment
+# and you are not a stranger to GPOs.
+##########################################################################################################################################################################
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+##########################################################################################################################################################################
+# Step 2: Self-elevate the script if required
 ##########################################################################################################################################################################
 if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
     if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
@@ -16,12 +24,12 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 ##########################################################################################################################################################################
-# Step 2: Install packages
+# Step 3: Install packages
 ##########################################################################################################################################################################
 choco install python3
 
 ##########################################################################################################################################################################
-# Step 3: Configure Git
+# Step 4: Configure Git
 ##########################################################################################################################################################################
 git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"

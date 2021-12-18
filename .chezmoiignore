@@ -77,6 +77,7 @@ setup.sh
 # Ignore Windows specific files on Linux and MacOS
 ###############################################################################
 {{ if ne .chezmoi.os "windows" }}
+Documents/
 _vimrc
 setup.ps1
 {{ end }}
