@@ -1,4 +1,5 @@
 $VSCODE_EXTENSIONS = @'
+golf1052.base16-generator
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
