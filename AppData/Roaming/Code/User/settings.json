@@ -1,14 +1,25 @@
 {
     "breadcrumbs.enabled": false,
+
+    "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.overviewRulerBorder": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+
+    "git.decorations.enabled": false,
 
     // See https://code.visualstudio.com/api/references/theme-color
     "workbench.colorCustomizations":{
-        "focusBorder":"#ff000000",
+        "focusBorder":"#FF000000",
         "sideBar.background": "#181818",
+        "sideBar.border": "#3D3D3D",
         "editorGroupHeader.tabsBackground": "#181818",
         "tab.activeForeground": "#E8E8E8",
+        "tab.border": "#FF000000",
         "tab.inactiveBackground": "#181818",
+        "statusBar.background": "#181818",
 
         //"tab.activeBackground": "#7CAFC2",
         // "tab.activeForeground": "#181818",
@@ -16,5 +27,5 @@
     },
 
     "workbench.tree.indent": 16,
-    "workbench.colorTheme": "Base16 Default Dark"
+    "workbench.colorTheme": "Base17 Default Dark"
 }
