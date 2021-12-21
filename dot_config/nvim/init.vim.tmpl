@@ -272,7 +272,11 @@ let g:ale_linters = {
     \'sql': ['sqlint'],
 \}
 
-let g:ale_python_mypy_auto_pipenv = 1
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_flake8_auto_pipenv = 1
+let g:ale_python_pycodestyle_auto_pipenv = 1
+let g:ale_python_pydocstyle_auto_pipenv = 1
+let g:ale_python_pylama_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
 let g:ale_python_pylint_options = '--load-plugins pylint_flask'
 
