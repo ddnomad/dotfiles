@@ -1,31 +1,75 @@
 {
     "breadcrumbs.enabled": false,
 
+    // NOTE: This is probably not optimal, but it works
+    // See https://github.com/microsoft/vscode/issues/42253
+    "customizeUI.stylesheet": {
+        // Reduce titlebar height to 22px
+        "div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(1)": "height: 22px !important",
+        "div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(3)": "top: 22px !important",
+        "#workbench\\.parts\\.titlebar": "height: 22px !important",
+        "#workbench\\.parts\\.titlebar > div.window-title": "font-size: 12px; line-height: 22px !important;",
+        "#workbench\\.parts\\.titlebar > div.menubar": "height: 22px !important;",
+        "#workbench\\.parts\\.titlebar > div.menubar > div": "font-size: 12px; height: 22px !important; line-height: 22px !important;",
+        "#workbench\\.parts\\.titlebar > div.window-controls-container > div.window-icon": "line-height: 22px !important",
+
+        // Reduce expolorer header height to 22px
+        ".monaco-workbench .part > .title": "height: 22px !important;",
+        ".title-actions": "height: 22px !important;",
+        ".composite.title": "height: 22px !important;",
+        ".title-label": "line-height: 22px !important;",
+
+        // Reduce titlebar tabs height to 22px
+        // Source: https://github.com/microsoft/vscode/issues/42253#issuecomment-993715597
+        ":root": "--tab-height: 22px; --font-size-tab-title: 13px;",
+        ".editor-actions": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
+        ".tabs-container .tab": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
+        ".tabs-container .monaco-icon-label": "height: var(--tab-height) !important; line-height: var(--tab-height) !important; font-size: var(--font-size-tab-title); !important",
+        ".tabs-container .monaco-icon-label:before": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
+
+        // Make active tab title font bold
+        ".tabs-container .tab.active": "font-weight: bold;",
+    },
+
+    "editor.fontSize": 13,
+    "editor.fontFamily": "Hack Regular, monospace",
+    "editor.hideCursorInOverviewRuler": true,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
-    "editor.hideCursorInOverviewRuler": true,
     "editor.overviewRulerBorder": false,
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
 
     "git.decorations.enabled": false,
 
+    "terminal.integrated.fontFamily": "Hack Regular, monospace",
+    "terminal.integrated.fontSize": 13,
+
+    "window.titleBarStyle": "custom",
+
+    // Based on https://github.com/chriskempson/base16-vim
     // See https://code.visualstudio.com/api/references/theme-color
     "workbench.colorCustomizations":{
+        "editorGroupHeader.tabsBackground": "#181818",
         "focusBorder":"#FF000000",
+        "list.hoverBackground": "#282828",
         "sideBar.background": "#181818",
         "sideBar.border": "#3D3D3D",
-        "editorGroupHeader.tabsBackground": "#181818",
-        "tab.activeForeground": "#E8E8E8",
-        "tab.border": "#FF000000",
-        "tab.inactiveBackground": "#181818",
         "statusBar.background": "#181818",
-
-        //"tab.activeBackground": "#7CAFC2",
-        // "tab.activeForeground": "#181818",
-        // "sideBarTitle.foreground": "#ac0000"
+        "tab.activeBackground": "#7CAFC2",
+        "tab.activeForeground": "#181818",
+        "tab.border": "#FF000000",
+        "tab.hoverBackground": "#7CAFC2",
+        "tab.hoverForeground": "#181818",
+        "tab.inactiveBackground": "#181818",
+        "tab.inactiveForeground": "#D8D8D8",
+        "tab.unfocusedHoverBackground": "#282828",
+        "tab.unfocusedHoverForeground": "#D8D8D8",
     },
 
-    "workbench.tree.indent": 16,
-    "workbench.colorTheme": "Base17 Default Dark"
+    "workbench.colorTheme": "Base16 Default Dark",
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.showIcons": false,
+    "workbench.editor.tabSizing": "fit",
+    "workbench.tree.indent": 16
 }

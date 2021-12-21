@@ -1,5 +1,7 @@
 $VSCODE_EXTENSIONS = @'
 golf1052.base16-generator
+iocave.customize-ui
+iocave.monkey-patch
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
