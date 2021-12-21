@@ -23,7 +23,7 @@ Makefile
 ###############################################################################
 # Ignore *Nix specific files on Windows
 ###############################################################################
-{{ if (or (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin")) }}
+{{ if eq .chezmoi.os "windows" }}
 .bash/
 .bash_profile
 .bashrc
