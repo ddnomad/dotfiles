@@ -1,0 +1,15 @@
+[
+    // Toggle between terminal and editor focus
+    { "key": "alt+d", "command": "workbench.action.terminal.focus"},
+    { "key": "alt+d", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+
+    // Toggle between editors (tabs) in a single tab group
+    { "key": "ctrl+j", "command": "workbench.action.nextEditor"},
+    { "key": "ctrl+k", "command": "workbench.action.previousEditor"},
+
+    // $DEITY bless this person: https://stackoverflow.com/a/50593160/3272592
+    { "key": "alt+h", "command": "workbench.action.navigateLeft" },
+    { "key": "alt+l", "command": "workbench.action.navigateRight" },
+    { "key": "alt+k", "command": "workbench.action.navigateUp" },
+    { "key": "alt+j", "command": "workbench.action.navigateDown" },
+]

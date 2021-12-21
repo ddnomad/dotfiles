@@ -1,2 +1,48 @@
+##########################################################################################################################################################################
+# Step 1: Change PowerShell execution policy to allow local script execution
+#
+# NOTE: powershell.exe -ExecutionPolicy -ByPass exists thus keeping 'Restricted' execution policy is pretty pointless, unless it's a hardened production environment
+# and you are not a stranger to GPOs.
+##########################################################################################################################################################################
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+##########################################################################################################################################################################
+# Step 2: Self-elevate the script if required
+##########################################################################################################################################################################
+if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+    if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
+      Write-Host '---(i) INFO: Executing this script in an elevated PowerShell instance'
+
+      $CommandLine = "-ExecutionPolicy ByPass -NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+      Start-Process -FilePath PowerShell.exe -Verb RunAs -ArgumentList $CommandLine
+
+      Write-Host -NoNewLine '---(i) INFO: Execution will proceed in a separate PowerShell window. Press any key to exit...'
+      $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+
+      Exit
+    }
+}
+
+##########################################################################################################################################################################
+# Step 3: Install packages
+##########################################################################################################################################################################
+choco install `
+    make `
+    python3 `
+    sudo
+
+##########################################################################################################################################################################
+# Step 4: Install VS Code extensions
+##########################################################################################################################################################################
+if(Get-Command code) {
+    Write-Host '---(i) INFO: Installing VS Code extensions'
+    & ("$HOME\AppData\Roaming\Code\User\install_extensions.ps1")
+} else {
+    Write-Host '---(!) WARN: Not installing VS Code extensions as VS Code is not installed'
+}
+
+##########################################################################################################################################################################
+# Step 5: Configure Git
+##########################################################################################################################################################################
 git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"

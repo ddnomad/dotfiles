@@ -4,7 +4,7 @@ Dotfiles Monorepo
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/dotfiles)
 
 This repository contains various configuration files and utility scripts dd relies on daily
-for various things (mostly work and personal devepment though).
+for various things (mostly work and personal development).
 
 Supported Platforms
 -------------------
@@ -32,8 +32,8 @@ MacOS development workflow is based around [Alacritty](https://github.com/alacri
 workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install
 them as well.
 
-For local development on Linux, [GNU Make](https://www.gnu.org/software/make/) will come in handy as well the repository
-contains `Makefile` which several somewhat useful targets which save time when iterating on new changes.
+For local development on Linux, [GNU Make](https://www.gnu.org/software/make/) will come in handy too, as the repository
+contains `Makefile` with several somewhat useful targets which save time when iterating on new changes.
 
 Fresh Host Setup
 ----------------

@@ -8,7 +8,13 @@
 {{- else if eq .chezmoi.os "linux" -}}
 {{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis -}}
 {{- end -}}
-{{- $userEmail := promptString "email" -}}
+
+{{- $userEmail := "" -}}
+{{- if (hasKey .user "email") -}}
+{{-   $userEmail = .user.email -}}
+{{- else -}}
+{{-   $userEmail = promptString "email" -}}
+{{- end -}}
 
 {{ if eq .chezmoi.os "windows" }}
 [cd]
