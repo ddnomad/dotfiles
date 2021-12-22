@@ -1,5 +1,5 @@
 ###############################################################################
-# Chocolatey profile
+# Source Chocolatey profile
 ###############################################################################
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
@@ -8,6 +8,11 @@ if (Test-Path($ChocolateyProfile)) {
 }
 
 ###############################################################################
-# Enable Vi mode
+# Enable Vi mode and tweak PSReadLine options
 ###############################################################################
-Set-PSReadlineOption -EditMode vi
+$PSReadLineOptions = @{
+    BellStyle = "None"
+    EditMode = "Vi"
+}
+
+Set-PSReadlineOption @PSReadLineOptions
