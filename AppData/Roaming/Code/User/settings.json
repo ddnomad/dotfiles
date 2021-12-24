@@ -1,75 +1,96 @@
 {
     "breadcrumbs.enabled": false,
 
-    // NOTE: This is probably not optimal, but it works
-    // See https://github.com/microsoft/vscode/issues/42253
+    "customizeUI.activityBar": "bottom",
+    "customizeUI.activityBarHideSettings": true,
+    "customizeUI.listRowHeight": 20,
     "customizeUI.stylesheet": {
-        // Reduce titlebar height to 22px
-        "div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(1)": "height: 22px !important",
-        "div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(3)": "top: 22px !important",
-        "#workbench\\.parts\\.titlebar": "height: 22px !important",
-        "#workbench\\.parts\\.titlebar > div.window-title": "font-size: 12px; line-height: 22px !important;",
-        "#workbench\\.parts\\.titlebar > div.menubar": "height: 22px !important;",
-        "#workbench\\.parts\\.titlebar > div.menubar > div": "font-size: 12px; height: 22px !important; line-height: 22px !important;",
-        "#workbench\\.parts\\.titlebar > div.window-controls-container > div.window-icon": "line-height: 22px !important",
-
-        // Reduce expolorer header height to 22px
-        ".monaco-workbench .part > .title": "height: 22px !important;",
-        ".title-actions": "height: 22px !important;",
-        ".composite.title": "height: 22px !important;",
-        ".title-label": "line-height: 22px !important;",
-
-        // Reduce titlebar tabs height to 22px
-        // Source: https://github.com/microsoft/vscode/issues/42253#issuecomment-993715597
-        ":root": "--tab-height: 22px; --font-size-tab-title: 13px;",
-        ".editor-actions": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
-        ".tabs-container .tab": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
-        ".tabs-container .monaco-icon-label": "height: var(--tab-height) !important; line-height: var(--tab-height) !important; font-size: var(--font-size-tab-title); !important",
-        ".tabs-container .monaco-icon-label:before": "height: var(--tab-height) !important; line-height: var(--tab-height) !important;",
-
-        // Make active tab title font bold
+        ".scrollbar": "height: 0 !important; width: 0 !important;",
         ".tabs-container .tab.active": "font-weight: bold;",
     },
 
-    "editor.fontSize": 13,
-    "editor.fontFamily": "Hack Regular, monospace",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.cursorStyle": "underline",
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Hack Nerd Font Mono",
     "editor.hideCursorInOverviewRuler": true,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.overviewRulerBorder": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.scrollBeyondLastLine": false,
     "editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.horizontalScrollbarSize": 0,
     "editor.scrollbar.vertical": "hidden",
+	"editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "on",
+
+    "files.exclude": { "*.pyc": true },
 
     "git.decorations.enabled": false,
 
-    "terminal.integrated.fontFamily": "Hack Regular, monospace",
-    "terminal.integrated.fontSize": 13,
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.external.osxExec": "Alacritty.app",
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowershell\\v1.0\\powershell.exe",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.localEchoExcludePrograms": [ "vim", "vi", "nano", "tmux", "nvim" ],
+    "terminal.integrated.commandsToSkipShell": [
+        "~remote.forwardedPorts.focus",
+        "workbench.action.problems.focus",
+        "workbench.panel.output.focus",
+        "workbench.panel.repl.view.focus",
+    ],
+
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.cursorStylePerMode.normal": "underline",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.cursorStylePerMode.visual": "underline",
+    "vim.cursorStylePerMode.visualblock": "underline",
+    "vim.cursorStylePerMode.visualline": "underline",
+    "vim.useSystemClipboard": true,
 
     "window.titleBarStyle": "custom",
 
-    // Based on https://github.com/chriskempson/base16-vim
-    // See https://code.visualstudio.com/api/references/theme-color
-    "workbench.colorCustomizations":{
+    "workbench.colorCustomizations": {
         "editorGroupHeader.tabsBackground": "#181818",
-        "focusBorder":"#FF000000",
+        "editorIndentGuide.background": "#282828",
+        "editorIndentGuide.activeBackground": "#585858",
+        "focusBorder":"#282828",
+        "list.activeSelectionBackground": "#282828",
+        "list.focusBackground": "#282828",
         "list.hoverBackground": "#282828",
+        "list.inactiveFocusBackground": "#282829",
+        "list.inactiveSelectionBackground": "#282828",
+        "quickInput.background": "#181818",
         "sideBar.background": "#181818",
         "sideBar.border": "#3D3D3D",
+        "sideBarSectionHeader.background": "#181818",
+        "sideBarSectionHeader.border": "#3D3D3D",
         "statusBar.background": "#181818",
+        "statusBarItem.remoteBackground": "#181818",
         "tab.activeBackground": "#7CAFC2",
         "tab.activeForeground": "#181818",
         "tab.border": "#FF000000",
-        "tab.hoverBackground": "#7CAFC2",
-        "tab.hoverForeground": "#181818",
+        "tab.hoverBackground": "#282828",
+        "tab.hoverForeground": "#D8D8D8",
         "tab.inactiveBackground": "#181818",
         "tab.inactiveForeground": "#D8D8D8",
         "tab.unfocusedHoverBackground": "#282828",
         "tab.unfocusedHoverForeground": "#D8D8D8",
+        "tree.indentGuidesStroke": "#383838",
     },
-
     "workbench.colorTheme": "Base16 Default Dark",
-    "workbench.editor.closeEmptyGroups": false,
+
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.decorations.colors": false,
+    "workbench.editor.decorations.badges": true,
     "workbench.editor.showIcons": false,
-    "workbench.editor.tabSizing": "fit",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.panel.defaultLocation": "right",
     "workbench.tree.indent": 16
 }
