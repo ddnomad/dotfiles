@@ -75,8 +75,8 @@
     { "key": "alt+9", "command": "", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
 
     // Navigation between items in command palette
-    { "key": "ctrl+n", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
-    { "key": "ctrl+p", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
+    { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
+    { "key": "ctrl+k", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Moving things around

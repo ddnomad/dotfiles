@@ -1,14 +1,17 @@
 $VSCODE_EXTENSIONS = @'
+christian-kohler.path-intellisense
 golf1052.base16-generator
 iocave.customize-ui
 iocave.monkey-patch
 ms-python.python
+ms-python.vscode-pylance
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 ms-vscode.powershell
+njpwerner.autodocstring
 usernamehw.errorlens
 vscodevim.vim
 '@
