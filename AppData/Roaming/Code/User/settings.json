@@ -6,6 +6,7 @@
     "customizeUI.activityBarHideSettings": true,
     "customizeUI.listRowHeight": 20,
     "customizeUI.stylesheet": {
+        "#workbench\\.parts\\.titlebar > a": "display: none !important;",
         ".scrollbar": "height: 0 !important; width: 0 !important;",
         ".tabs-container .tab.active": "font-weight: bold;",
         ".monaco-icon-label:after": "opacity: 1.0 !important;",
