@@ -55,6 +55,7 @@ paru -S \
     python-pyx \
     rsync \
     ruby-sqlint \
+    rustup \
     shellcheck \
     standard \
     tmux \
@@ -162,5 +163,10 @@ mkdir -p ~/Notes
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
 ###############################################################################
+# Git configuration
 git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"
+
+# Install and set a default Rust toolchain
+rustup install nightly
+rustup default nightly
