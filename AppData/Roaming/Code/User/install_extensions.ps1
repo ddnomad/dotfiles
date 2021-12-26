@@ -3,6 +3,7 @@ christian-kohler.path-intellisense
 golf1052.base16-generator
 iocave.customize-ui
 iocave.monkey-patch
+matklad.rust-analyzer
 ms-python.python
 ms-python.vscode-pylance
 ms-vscode-remote.remote-containers

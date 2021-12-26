@@ -11,7 +11,7 @@
     // Opening things
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     { "key": "alt+d", "command": "workbench.action.showCommands"},
-    { "key": "alt+enter", "command": "workbench.action.terminal.toggleTerminal", "when": "editorFocus" },
+    { "key": "alt+enter", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "alt+enter", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
     { "key": "alt+enter", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
     { "key": "alt+shift+enter", "command": "workbench.action.terminal.new", "when": "terminalFocus" },
@@ -43,6 +43,10 @@
     { "key": "alt+l", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus && panelPosition == 'bottom'"},
     { "key": "alt+h", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus && panelPosition == 'bottom'"},
 
+    // Move between explorer and outline in the same way as between root UI elements
+    { "key": "alt+j", "command": "outline.focus", "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer'" },
+    { "key": "alt+k", "command": "workbench.explorer.fileView.focus", "when": "sideBarFocus && outline.active" },
+
     // Cycle between editors (tabs) in a single tab group
     { "key": "ctrl+j", "command": "workbench.action.nextEditor" },
     { "key": "ctrl+k", "command": "workbench.action.previousEditor", },
@@ -64,15 +68,15 @@
 
     // FIXME: Instead use to switch between problems / output etc.
     // Switching between problems, output, terminal etc. tabs
-    { "key": "alt+1", "command": "workbench.action.problems.focus", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+2", "command": "workbench.panel.output.focus", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+3", "command": "workbench.action.terminal.focus", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+4", "command": "~remote.forwardedPorts.focus", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+5", "command": "workbench.panel.repl.view.focus", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+6", "command": "", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+7", "command": "", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+8", "command": "", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
-    { "key": "alt+9", "command": "", "when": "activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || problemFocus || terminalFocus" },
+    { "key": "alt+1", "command": "workbench.action.problems.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+2", "command": "workbench.panel.output.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+3", "command": "workbench.action.terminal.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+4", "command": "~remote.forwardedPorts.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+5", "command": "workbench.panel.repl.view.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+6", "command": "", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+7", "command": "", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+8", "command": "", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "alt+9", "command": "", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
 
     // Navigation between items in command palette
     { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
