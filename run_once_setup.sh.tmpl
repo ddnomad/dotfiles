@@ -67,7 +67,8 @@ paru -S \
     xorg-server \
     xorg-xinit \
     xorg-xprop \
-    yarn
+    yarn \
+    wget
 
 {{ if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
@@ -170,4 +171,5 @@ git config --global user.name "{{ .user.name }}"
 
 # Install and set a default Rust toolchain
 rustup install nightly
+rustup install stable
 rustup default nightly
