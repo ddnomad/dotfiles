@@ -75,6 +75,7 @@
     "vim.cursorStylePerMode.visual": "underline",
     "vim.cursorStylePerMode.visualblock": "underline",
     "vim.cursorStylePerMode.visualline": "underline",
+    "vim.incsearch": true,
     "vim.useSystemClipboard": true,
 
     "window.customMenuBarAltFocus": false,
@@ -94,17 +95,19 @@
         "list.activeSelectionBackground": "#282828",
         "list.focusBackground": "#282828",
         "list.hoverBackground": "#282828",
-        "list.inactiveFocusBackground": "#282829",
+        "list.inactiveFocusBackground": "#FF000000",
         "list.inactiveSelectionBackground": "#282828",
         "pickerGroup.border": "#3D3D3D",
         "quickInput.background": "#282828",
         "quickInputList.focusBackground": "#383838",
+        "selection.background": "#585858",
         "sideBar.background": "#181818",
         "sideBar.border": "#3D3D3D",
         "sideBarSectionHeader.background": "#181818",
         "sideBarSectionHeader.border": "#3D3D3D",
         "statusBar.background": "#282828",
         "statusBarItem.remoteBackground": "#282828",
+        "symbolIcon.objectForeground": "#BA8BAF",
         "tab.activeBackground": "#282828",
         "tab.activeForeground": "#D8D8D8",
         "tab.border": "#FF000000",
@@ -114,7 +117,7 @@
         "tab.inactiveForeground": "#D8D8D8",
         "tab.unfocusedHoverBackground": "#282828",
         "tab.unfocusedHoverForeground": "#D8D8D8",
-        "tree.indentGuidesStroke": "#383838",
+        "tree.indentGuidesStroke": "#383838"
     },
     "workbench.colorTheme": "Base16 Default Dark",
 
@@ -126,3 +129,4 @@
     "workbench.panel.defaultLocation": "right",
     "workbench.tree.indent": 16
 }
+
