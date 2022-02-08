@@ -118,6 +118,7 @@ set -euo pipefail
 ###############################################################################
 brew install \
     bash \
+    bash-completion@2 \
     coreutils \
     findutils \
     gawk \
@@ -131,6 +132,7 @@ brew install \
     python \
     ruby \
     rustup \
+    shellcheck \
     tmux \
     yarn
 
@@ -147,7 +149,7 @@ echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
 # FIXME: This is broken, presumably because Ruby version is too old
 # sudo gem install neovim
 
-npm install -g neovim
+npm install -g nativefier neovim
 pip3 install --user --upgrade pip pynvim
 
 if test "${SHELL}" != '/usr/local/bin/bash'; then

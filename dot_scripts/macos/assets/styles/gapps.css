@@ -1,0 +1,15 @@
+header {
+  -webkit-app-region: drag;
+}
+
+header button {
+  -webkit-app-region: no-drag;
+}
+
+header {
+  padding-top: 22px;
+}
+
+button[aria-label="Create"] {
+  margin-top: 26px !important;
+}

@@ -7,4 +7,4 @@
 for bash_comp_script in ~/.bash/completions/*; do
     # shellcheck disable=SC1090
     test -f "${bash_comp_script}" && source "${bash_comp_script}"
-done
+done || :

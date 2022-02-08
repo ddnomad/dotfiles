@@ -25,6 +25,7 @@ Makefile
 ###############################################################################
 {{ if eq .chezmoi.os "windows" }}
 .bash/
+.bash_completion
 .bash_profile
 .bashrc
 .config/
@@ -33,6 +34,9 @@ Makefile
 .shell/
 pictures/
 setup.sh
+.xinitrc
+.Xmodmap
+.Xresources
 {{ end }}
 
 ###############################################################################
@@ -69,7 +73,7 @@ setup.sh
 # Ignore MacOS specific files on Linux and Windows
 ###############################################################################
 {{ if ne .chezmoi.os "darwin" }}
-.scripts/nix/chhn
+.scripts/macos
 .bash_completion
 {{ end }}
 
