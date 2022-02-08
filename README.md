@@ -63,4 +63,4 @@ chezmoi cd && make apply
 
 Please note, that files in `"$(chezmoi cd)"/root/` directory won't be applied
 automatically. These should be copied manually as needed, as they fall outside
-of `"${HOME}"` directory of a current user.
+of `"${HOME}"` directory of a current user or just tricky to apply automatically.

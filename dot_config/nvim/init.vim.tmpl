@@ -162,16 +162,14 @@ map <C-L> <C-W>l
 " Close current buffer
 map <silent> <C-Q> :bd<CR>
 
-{{ if eq .chezmoi.os "linux" }}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparency hacks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+{{ if eq .chezmoi.os "linux" }}
 hi Normal guibg=none cterm=none ctermbg=none
 hi NonText guibg=none cterm=none ctermbg=none
-hi LineNr guibg=none cterm=none ctermbg=none
 hi CursorLineNr guibg=none cterm=none ctermbg=none
 hi StatusLine guibg=none cterm=none ctermbg=none
-hi SignColumn guibg=none cterm=none ctermbg=none
 
 hi ALEErrorSign ctermfg=9 ctermbg=none
 hi ALEWarningSign ctermfg=3 ctermbg=none
@@ -189,6 +187,8 @@ hi GitGutterChange guibg=none ctermbg=none
 hi GitGutterDelete guibg=none ctermbg=none
 hi GitGutterChangeDelete guibg=none ctermbg=none
 {{ end }}
+hi LineNr guibg=none cterm=none ctermbg=none
+hi SignColumn guibg=none cterm=none ctermbg=none
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline plugin settings
