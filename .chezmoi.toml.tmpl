@@ -34,6 +34,13 @@
     email = "{{ $userEmail }}"
     name = "ddnomad"
 
+[data.vscode]
+{{ if eq .chezmoi.os "darwin" }}
+    mod1 = "cmd"
+{{ else }}
+    mod1 = "alt"
+{{ end }}
+
 [edit]
     command = "nvim"
 

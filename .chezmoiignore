@@ -73,6 +73,7 @@ setup.sh
 # Ignore MacOS specific files on Linux and Windows
 ###############################################################################
 {{ if ne .chezmoi.os "darwin" }}
+Library/
 .scripts/macos
 .bash_completion
 {{ end }}

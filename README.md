@@ -43,6 +43,14 @@ guides are not provided as of right now, mostly due to the fact it should be fai
 figure out as is.
 
 ### Integration
+> **WARNING**: On MacOS, `Command+H` hide shortcut should be disabled for Alacritty by
+> setting it to a different (preferably, hard to accidentally trigger) key combination.
+> This can be done from `System Preferences -> Keyboard -> Shortcuts -> App Shortcuts`.
+
+> **WARNING**: On MacOS, `Shell Command: Install 'code' command in PATH command` must be
+> executed from within VS Code to make the CLI `code` command available from in `$PATH`
+> before running initial `make apply` or `chezmoi apply`.
+
 > **WARNING**: On Windows, `run_once_*.ps1` will execute in PowerShell bypassing a default
 > security policy (i.e. `powershell.exe -NoLogo -ExecutionPolicy ByPass -File setup.ps1`).
 

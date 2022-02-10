@@ -1,0 +1,8 @@
+$VSCODE_EXTENSIONS = @'
+{{ template "vscode_plugins.txt" . -}}
+'@
+
+ForEach ($extension_id in $($VSCODE_EXTENSIONS -split "[\r\n]+")) {
+    Write-Host "---(i) INFO: Installing VS Code extension: $extension_id"
+    code --install-extension $extension_id
+}

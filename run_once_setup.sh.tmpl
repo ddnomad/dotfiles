@@ -166,6 +166,16 @@ mkdir -p ~/Casino
 mkdir -p ~/Development
 mkdir -p ~/Notes
 
+###############################################################################
+# Step 4: Install VS Code extensions
+###############################################################################
+if command -v code; then
+    echo '---(i) INFO: Installing VS Code extensions'
+    "${HOME}/Library/Application Support/Code/User/"install_extensions.sh
+else
+    echo '---(!) WARN: Not installing VS Code extensions as VS Code is not installed'
+fi
+
 {{- end }}
 
 

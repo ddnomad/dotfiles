@@ -1,4 +1,3 @@
-$VSCODE_EXTENSIONS = @'
 christian-kohler.path-intellisense
 golf1052.base16-generator
 iocave.customize-ui
@@ -15,9 +14,3 @@ ms-vscode.powershell
 njpwerner.autodocstring
 usernamehw.errorlens
 vscodevim.vim
-'@
-
-ForEach ($extension_id in $($VSCODE_EXTENSIONS -split "[\r\n]+")) {
-    Write-Host "---(i) INFO: Installing VS Code extension: $extension_id"
-    code --install-extension $extension_id
-}
