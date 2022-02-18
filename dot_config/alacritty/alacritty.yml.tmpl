@@ -2,8 +2,8 @@
 window:
   # Window dimensions
   dimensions:
-    columns: 240
-    lines: 80
+    columns: 150
+    lines: 50
 
   # Spread additional padding evenly around the terminal content
   dynamic_padding: false
@@ -185,6 +185,13 @@ key_bindings:
   - key: L
     mods: Command|Shift
     chars: "\x01\x4c"
+  # See: https://github.com/alacritty/alacritty/issues/1359
+  - key: Q
+    mods: Control
+    chars: "\x11"
+
+  # TODO: Bridge for closing Tmux windows (tabs)
+  # Default Tmux shortcut: ^&
 
   - key: Key0
     mods: Command

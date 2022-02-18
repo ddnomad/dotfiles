@@ -4,7 +4,6 @@ set -euo pipefail
 CMD_NAME="$(basename "$0")"
 readonly CMD_NAME
 
-
 function main {
     if test "$#" -ne 1; then
         echo "Usage ${CMD_NAME} <hostname>"

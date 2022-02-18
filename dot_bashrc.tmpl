@@ -6,3 +6,8 @@ source ~/.bash/prompt.bash
 source ~/.bash/settings.bash
 source ~/.shell/aliases.sh
 source ~/.shell/env.sh
+
+{{ if eq .chezmoi.os "darwin" }}
+# Source bash completion, as it is not sourced by default on MacOS
+source ~/.bash_completion
+{{ end }}

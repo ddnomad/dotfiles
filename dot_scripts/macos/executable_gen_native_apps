@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CMD_NAME="$(basename "$0")"
+readonly CMD_NAME
+
+ICONS_PATH="$(dirname "${BASH_SOURCE[0]}")/assets/icons"
+readonly ICONS_PATH
+
+GAPPS_STYLESHEET_PATH="$(dirname "${BASH_SOURCE[0]}")/assets/styles/gapps.css"
+readonly GAPPS_STYLESHEET_PATH
+
+GCAL_ICON_PATH="${ICONS_PATH}/gcal.icns"
+readonly GCAL_ICON_PATH
+
+GMAIL_ICON_PATH="${ICONS_PATH}/gmail.icns"
+readonly GMAIL_ICON_PATH
+
+CMD_HELP="$(cat <<EOF
+Usage ${CMD_NAME} (--from-scratch)
+
+OPTIONS
+--from-scratch  Ignore existing native application and compile a replacement from scratch.
+EOF
+)"
+readonly CMD_HELP
+
+FROM_SCRATCH=0
+
+function gen_native_app {
+    if test "$#" -ne 5; then
+        echo 'Usage: gen_native_app APP_NAME ICON_PATH STYLESHEET_PATH LOAD_BG_COLOR WEBSITE_URL'
+        exit 1
+    fi
+
+    local app_name
+    local icon_path
+    local stylesheet_path
+    local load_bg_color
+    local website_url
+    app_name="$1"
+    icon_path="$2"
+    stylesheet_path="$3"
+    load_bg_color="$4"
+    website_url="$5"
+
+    local app_path
+    app_path="${HOME}/Applications/${app_name}.app"
+
+    if test -d "${app_path}"; then
+        if test "${FROM_SCRATCH}" -eq 0; then
+            echo "[i] Upgrading a nativefied application: ${app_name}"
+            nativefier --upgrade "${app_path}"
+            echo "[+] Upgraded successfully: ${app_path}"
+            return
+        fi
+
+        rm -r "${app_path}"
+    fi
+
+    echo "[i] Generating a nativefied application: ${app_name}"
+    nativefier \
+        -i "${icon_path}" \
+        -n "${app_name}" \
+        --background-color "${load_bg_color}" \
+        --inject "${stylesheet_path}" \
+        --title-bar-style 'hiddenInset' \
+        "${website_url}" .
+
+    local temp_path_glob
+    # NOTE: May fail on M1 Macs, but this is fine for now
+    temp_path_glob="${app_name}-darwin-x$(uname -m | cut -f2 -d'_')"
+
+    mv "./${temp_path_glob}/${app_name}.app" "${app_path}"
+    rm -r "${temp_path_glob}"
+
+    echo "[+] Generated successfully: ${app_path}"
+}
+
+function main {
+    if test "$#" -eq 1; then
+        local opt
+        opt="$1"
+
+        if test "${opt}" = '--from-scratch'; then
+            echo '[!] Will override existing applications and build them from scratch!'
+            FROM_SCRATCH=1
+        else
+            echo "${CMD_HELP}"
+            exit 1
+        fi
+    fi
+
+    gen_native_app \
+        'Google Calendar' \
+        "${GCAL_ICON_PATH}" \
+        "${GAPPS_STYLESHEET_PATH}" \
+        '#FFFFFF' \
+        'https://calendar.google.com'
+
+    gen_native_app \
+        'Google Mail' \
+        "${GMAIL_ICON_PATH}" \
+        "${GAPPS_STYLESHEET_PATH}" \
+        '#FFFFFF' \
+        'https://mail.google.com'
+
+    echo '[+] Done'
+}
+
+main "$@"

@@ -40,16 +40,23 @@ paru -S \
     luacheck \
     make \
     man \
+    neofetch \
     neovim \
     nerd-fonts-hack \
     openssh \
     picom \
     python-flake8-docstrings \
+    python-neovim \
+    python-pip \
+    python-pipenv \
     python-pycodestyle \
     python-pydocstyle \
     python-pylint \
+    python-pylint-flask \
+    python-pyx \
     rsync \
     ruby-sqlint \
+    rustup \
     shellcheck \
     standard \
     tmux \
@@ -60,7 +67,8 @@ paru -S \
     xorg-server \
     xorg-xinit \
     xorg-xprop \
-    yarn
+    yarn \
+    wget
 
 {{ if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
@@ -110,6 +118,7 @@ set -euo pipefail
 ###############################################################################
 brew install \
     bash \
+    bash-completion@2 \
     coreutils \
     findutils \
     gawk \
@@ -122,7 +131,13 @@ brew install \
     nodejs \
     python \
     ruby \
+    rustup \
+    shellcheck \
+    tmux \
     yarn
+
+# Initialise Rust
+rustup-init
 
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
@@ -134,7 +149,7 @@ echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
 # FIXME: This is broken, presumably because Ruby version is too old
 # sudo gem install neovim
 
-npm install -g neovim
+npm install -g nativefier neovim
 pip3 install --user --upgrade pip pynvim
 
 if test "${SHELL}" != '/usr/local/bin/bash'; then
@@ -151,7 +166,27 @@ mkdir -p ~/Casino
 mkdir -p ~/Development
 mkdir -p ~/Notes
 
+###############################################################################
+# Step 4: Install VS Code extensions
+###############################################################################
+if command -v code; then
+    echo '---(i) INFO: Installing VS Code extensions'
+    "${HOME}/Library/Application Support/Code/User/"install_extensions.sh
+else
+    echo '---(!) WARN: Not installing VS Code extensions as VS Code is not installed'
+fi
+
 {{- end }}
 
+
+###############################################################################
+# Step -1: Execute common commands across Linux / MacOS
+###############################################################################
+# Git configuration
 git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"
+
+# Install and set a default Rust toolchain
+rustup install nightly
+rustup install stable
+rustup default nightly

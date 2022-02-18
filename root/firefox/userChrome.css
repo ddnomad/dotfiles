@@ -1,0 +1,10 @@
+@import './window_control_placeholder_support.css';
+
+/* NOTE: Each file has a hacky check to detect whether running on MacOS and apply / no-op depending on that,
+ * hence this stylesheet should be usable on all operating systems without any modifications. */
+@import './hide_tabs_toolbar_osx.css';
+@import './hide_tabs_toolbar.css';
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}

@@ -4,43 +4,56 @@ Dotfiles Monorepo
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/dotfiles)
 
 This repository contains various configuration files and utility scripts dd relies on daily
-for various things (mostly work and personal devepment though).
+for various things (mostly work and personal development).
 
 Supported Platforms
 -------------------
 The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
-of 10. MacOS and Windows are treated is treated as a second class citizen, hence things will
-most probably be broken, outdated or far from being ideal.
+of 10. MacOS and Windows are treated as a second class citizen, hence things will most probably
+be broken, outdated or far from being ideal.
 
-### Tier A
-* [Arch Linux](https://www.archlinux.org/) host (laptop / desktop)
-* [Arch Linux](https://www.archlinux.org/) guest (VMWare Workstation/Fusion)
-
-### Tier B
-* [MacOS](https://www.apple.com/macos) host (laptop / desktop)
-* [Windows 10](https://en.wikipedia.org/wiki/Windows_10) host (laptop / desktop)
+| Platform                                               | Chassis Types             | Support Tier                    |
+| ------------------------------------------------------ | ---------------------     | ------------------------------- |
+| [Arch Linux](https://www.archlinux.org)                | Laptop / Desktop / VMWare | Tier 1 - Actively maintained    |
+| [MacOS](https://www.apple.com/macos)                   | Laptop / Desktop          | Tier 2 - Best Effort            |
+| [Windows 10](https://en.wikipedia.org/wiki/Windows_10) | Desktop                   | Tier 3 - Low Effort / Barebones |
 
 Prerequisites
 -------------
-### All Platforms
-* [Chezmoi](https://www.chezmoi.io/)
-* [Git](https://git-scm.com/)
+The following sofware must be installed on a target platform before the integration can be performed:
 
-### MacOS
-* [Alacritty](https://github.com/alacritty/alacritty)
-* [Homebrew](https://brew.sh)
+| Platform   | Software                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
+| Linux      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/)                                        |
+| MacOS      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Homebrew](https://brew.sh)           |
+| Windows 10 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/) |
 
-### Linux / MacOS (Optional)
-* [GNU Make](https://www.gnu.org/software/make/)
+MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 10 development
+workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install
+them as well.
+
+For local development on Linux, [GNU Make](https://www.gnu.org/software/make/) will come in handy too, as the repository
+contains `Makefile` with several somewhat useful targets which save time when iterating on new changes.
 
 Fresh Host Setup
 ----------------
-### OS-Specific Prerequisites
+### OS Specific Prerequisites
 For Windows 10, see [setup guide](./docs/setup/windows10_setup_guide.md). Linux and MacOS setup
 guides are not provided as of right now, mostly due to the fact it should be fairly trivial to
 figure out as is.
 
 ### Integration
+> **WARNING**: On MacOS, `Command+H` hide shortcut should be disabled for Alacritty by
+> setting it to a different (preferably, hard to accidentally trigger) key combination.
+> This can be done from `System Preferences -> Keyboard -> Shortcuts -> App Shortcuts`.
+
+> **WARNING**: On MacOS, `Shell Command: Install 'code' command in PATH command` must be
+> executed from within VS Code to make the CLI `code` command available from in `$PATH`
+> before running initial `make apply` or `chezmoi apply`.
+
+> **WARNING**: On Windows, `run_once_*.ps1` will execute in PowerShell bypassing a default
+> security policy (i.e. `powershell.exe -NoLogo -ExecutionPolicy ByPass -File setup.ps1`).
+
 Run the following to pull down the dotfiles: 
 ```
 chezmoi init ddnomad --ssh
@@ -58,4 +71,4 @@ chezmoi cd && make apply
 
 Please note, that files in `"$(chezmoi cd)"/root/` directory won't be applied
 automatically. These should be copied manually as needed, as they fall outside
-of `"${HOME}"` directory of a current user.
+of `"${HOME}"` directory of a current user or just tricky to apply automatically.

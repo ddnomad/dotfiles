@@ -8,7 +8,19 @@
 {{- else if eq .chezmoi.os "linux" -}}
 {{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis -}}
 {{- end -}}
-{{- $userEmail := promptString "email" -}}
+
+{{- $userEmail := "" -}}
+{{- if (hasKey .user "email") -}}
+{{-   $userEmail = .user.email -}}
+{{- else -}}
+{{-   $userEmail = promptString "email" -}}
+{{- end -}}
+
+{{ if eq .chezmoi.os "windows" }}
+[cd]
+    command = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    args = ["-NoLogo"]
+{{ end }}
 
 [data.host]
     # Possible values:
@@ -22,5 +34,20 @@
     email = "{{ $userEmail }}"
     name = "ddnomad"
 
+[data.vscode]
+{{ if eq .chezmoi.os "darwin" }}
+    mod1 = "cmd"
+{{ else }}
+    mod1 = "alt"
+{{ end }}
+
 [edit]
     command = "nvim"
+
+[interpreters.ps1]
+    command = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    args = [
+        "-NoLogo",
+        "-ExecutionPolicy", "ByPass",
+        "-File"
+    ]

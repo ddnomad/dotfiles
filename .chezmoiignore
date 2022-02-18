@@ -1,27 +1,46 @@
 ###############################################################################
-# Documentation and temporary files
+# Ignore documentation and temporary files
 ###############################################################################
 docs/
 
 ###############################################################################
-# Files that should be manually copied as they require elevated privileges
+# Ignore files that should be copied manually
 ###############################################################################
 root/
 
 ###############################################################################
-# VCS boilerplates, temporary files, general information
+# Ignore VCS boilerplates, temporary files, general information
 ###############################################################################
 LICENSE
 README.md
 TODO.md
 
 ###############################################################################
-# Development and testing tooling
+# Ignore development and testing tooling
 ###############################################################################
 Makefile
 
 ###############################################################################
-# Linux specific files
+# Ignore *Nix specific files on Windows
+###############################################################################
+{{ if eq .chezmoi.os "windows" }}
+.bash/
+.bash_completion
+.bash_profile
+.bashrc
+.config/
+.inputrc
+.scripts/nix/
+.shell/
+pictures/
+setup.sh
+.xinitrc
+.Xmodmap
+.Xresources
+{{ end }}
+
+###############################################################################
+# Ignore Linux specific files on MacOS and Windows
 ###############################################################################
 {{ if ne .chezmoi.os "linux" }}
 .config/bumblebee/
@@ -36,7 +55,7 @@ Makefile
 {{ end }}
 
 ###############################################################################
-# Linux laptop specific files
+# Ignore Linux laptop specific files on all other platforms
 ###############################################################################
 {{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
 .Xmodmap
@@ -44,16 +63,27 @@ Makefile
 {{ end }}
 
 ###############################################################################
-# Linux VM specific files
+# Ignore Linux VM specific files on all other platforms
 ###############################################################################
 {{ if ne .host.chassis_type "vm" }}
 .scripts/nix/vmware-mount-shares
 {{ end }}
 
 ###############################################################################
-# Linux VM specific configuration files
+# Ignore MacOS specific files on Linux and Windows
 ###############################################################################
 {{ if ne .chezmoi.os "darwin" }}
-.scripts/nix/chhn
+Library/
+.scripts/macos
 .bash_completion
+{{ end }}
+
+###############################################################################
+# Ignore Windows specific files on Linux and MacOS
+###############################################################################
+{{ if ne .chezmoi.os "windows" }}
+AppData/
+Documents/
+_vimrc
+setup.ps1
 {{ end }}
