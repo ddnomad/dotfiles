@@ -12,5 +12,6 @@ ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 ms-vscode.powershell
 njpwerner.autodocstring
+streetsidesoftware.code-spell-checker
 usernamehw.errorlens
 vscodevim.vim
