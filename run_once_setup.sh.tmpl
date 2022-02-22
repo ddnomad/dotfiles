@@ -168,7 +168,7 @@ mkdir -p ~/Development
 mkdir -p ~/Notes
 
 ###############################################################################
-# Step 4: Install VS Code extensions
+# Step 4: Configuring VS Code
 ###############################################################################
 if command -v code; then
     echo '---(i) INFO: Installing VS Code extensions'
@@ -179,6 +179,9 @@ fi
 
 {{- end }}
 
+
+echo '---(i) INFO: Disabling Press & Hold in VS Code to enable key repeat'
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
