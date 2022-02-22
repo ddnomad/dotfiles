@@ -73,8 +73,6 @@
     { "key": "ctrl+j", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
     { "key": "ctrl+k", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
 
-    // FIXME: Instead use to switch between problems / output etc.
-    // FIXME: Does not work on MacOS
     // Switching between problems, output, terminal etc. tabs
     { "key": "cmd+1", "command": "workbench.action.problems.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
     { "key": "cmd+2", "command": "workbench.panel.output.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },

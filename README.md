@@ -38,7 +38,7 @@ contains `Makefile` with several somewhat useful targets which save time when it
 Fresh Host Setup
 ----------------
 ### OS Specific Prerequisites
-For Windows 10, see [setup guide](./docs/setup/windows10_setup_guide.md). Linux and MacOS setup
+For Windows 10, see [setup guide](./docs/setup/windows_setup_guide.md). Linux and MacOS setup
 guides are not provided as of right now, mostly due to the fact it should be fairly trivial to
 figure out as is.
 
