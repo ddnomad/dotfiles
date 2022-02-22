@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+VSCODE_EXTENSIONS="$(cat <<EOF
+{{ template "vscode_plugins.txt" . -}}
+EOF
+)"
+readonly VSCODE_EXTENSIONS
+
+while IFS= read -r extension_id; do
+    echo "---(i) INFO: Installing VS Code extension: ${extension_id}"
+    code-insiders --install-extension "${extension_id}"
+done <<< "${VSCODE_EXTENSIONS}"

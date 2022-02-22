@@ -13,7 +13,6 @@
     { "key": "{{ .vscode.mod1 }}+d", "command": "workbench.action.showCommands"},
     { "key": "{{ .vscode.mod1 }}+enter", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "{{ .vscode.mod1 }}+enter", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
-    { "key": "{{ .vscode.mod1 }}+enter", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
     { "key": "{{ .vscode.mod1 }}+shift+enter", "command": "workbench.action.terminal.new", "when": "terminalFocus" },
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,9 +41,10 @@
     { "key": "enter", "command": "-renameFile", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
     {{ end }}
 
-    // TODO: Shortcut for renaming files in the Expolorer (was a default when pressing Enter on MacOS)
+    // TODO: Shortcut for renaming files in the Explorer (was a default when pressing Enter on MacOS)
 
     // Navigate between integrated terminal splits in the same way as between root UI elements
+    // FIXME: Does not work on MacOS
     { "key": "{{ .vscode.mod1 }}+j", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus && panelPosition == 'right'"},
     { "key": "{{ .vscode.mod1 }}+k", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus && panelPosition == 'right'"},
     { "key": "{{ .vscode.mod1 }}+l", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus && panelPosition == 'bottom'"},
@@ -74,6 +74,7 @@
     { "key": "ctrl+k", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
 
     // FIXME: Instead use to switch between problems / output etc.
+    // FIXME: Does not work on MacOS
     // Switching between problems, output, terminal etc. tabs
     { "key": "{{ .vscode.mod1 }}+1", "command": "workbench.action.problems.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
     { "key": "{{ .vscode.mod1 }}+2", "command": "workbench.panel.output.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },

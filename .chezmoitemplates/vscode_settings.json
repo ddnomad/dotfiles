@@ -66,8 +66,9 @@
         "~remote.forwardedPorts.focus",
         "workbench.action.problems.focus",
         "workbench.panel.output.focus",
-        "workbench.panel.repl.view.focus",
+        "workbench.panel.repl.view.focus"
     ],
+    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
 
     "vim.cursorStylePerMode.insert": "underline",
     "vim.cursorStylePerMode.normal": "underline",
@@ -127,6 +128,6 @@
     "workbench.editor.showIcons": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.panel.defaultLocation": "right",
-    "workbench.tree.indent": 16
+    "workbench.tree.indent": 16,
 }
 
