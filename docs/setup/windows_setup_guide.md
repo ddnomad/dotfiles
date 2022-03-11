@@ -40,7 +40,12 @@ Host github.com
 ```
 
 ### Step 3: Integrating Dotfiles
-From this point on, Chezmoi can be installed via `choco install chezmoi` and the integration steps should be similar
+Install Git (because default Git that is shipped with Windows does not support cloning via SSH; run from an elevated shell):
+```
+choco install git
+```
+
+From this point on, Chezmoi can be installed via `choco install chezmoi` (from an elevated shell); the integration steps should be similar
 to all other platforms.
 
 Remote Development Machine
