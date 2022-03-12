@@ -44,7 +44,6 @@
     // TODO: Shortcut for renaming files in the Explorer (was a default when pressing Enter on MacOS)
 
     // Navigate between integrated terminal splits in the same way as between root UI elements
-    // FIXME: Does not work on MacOS
     { "key": "{{ .vscode.mod1 }}+j", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus && panelPosition == 'right'"},
     { "key": "{{ .vscode.mod1 }}+k", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus && panelPosition == 'right'"},
     { "key": "{{ .vscode.mod1 }}+l", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus && panelPosition == 'bottom'"},
@@ -58,7 +57,7 @@
     { "key": "ctrl+j", "command": "workbench.action.nextEditor" },
     { "key": "ctrl+k", "command": "workbench.action.previousEditor", },
 
-    // Cycle between sidebar panes
+    // Go to a sidebar pane with a specific number
     { "key": "{{ .vscode.mod1 }}+1", "command": "workbench.view.explorer", "when": "sideBarFocus" },
     { "key": "{{ .vscode.mod1 }}+2", "command": "workbench.view.search.focus", "when": "sideBarFocus" },
     { "key": "{{ .vscode.mod1 }}+3", "command": "workbench.view.scm", "when": "sideBarFocus" },
@@ -74,11 +73,19 @@
     { "key": "ctrl+k", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
 
     // Switching between problems, output, terminal etc. tabs
+    {{ if eq .chezmoi.os "darwin" }}
     { "key": "{{ .vscode.mod1 }}+1", "command": "workbench.action.problems.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
     { "key": "{{ .vscode.mod1 }}+2", "command": "workbench.panel.output.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
-    { "key": "{{ .vscode.mod1 }}+3", "command": "workbench.action.terminal.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
-    { "key": "{{ .vscode.mod1 }}+4", "command": "workbench.panel.repl.view.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || acriveAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+3", "command": "workbench.panel.repl.view.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || acriveAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+4", "command": "workbench.action.terminal.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
     { "key": "{{ .vscode.mod1 }}+5", "command": "~remote.forwardedPorts.focus", "when": "activeAuxiliary == 'workbench.panel.markers' || activeAuxiliary == 'workbench.panel.output' || activeAuxiliary == 'workbench.panel.repl' || activeAuxiliary == '~remote.forwardedPortsContainer' || terminalFocus" },
+    {{ else }}
+    { "key": "{{ .vscode.mod1 }}+1", "command": "workbench.action.problems.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+2", "command": "workbench.panel.output.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+3", "command": "workbench.panel.repl.view.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || acriveAuxiliary == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+4", "command": "workbench.action.terminal.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    { "key": "{{ .vscode.mod1 }}+5", "command": "~remote.forwardedPorts.focus", "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == '~remote.forwardedPortsContainer' || terminalFocus" },
+    {{ end }}
 
     // Navigation between items in command palette
     { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
