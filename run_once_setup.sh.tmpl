@@ -177,11 +177,9 @@ else
     echo '---(!) WARN: Not installing VS Code extensions as VS Code is not installed'
 fi
 
-{{- end }}
-
-
 echo '---(i) INFO: Disabling Press & Hold in VS Code to enable key repeat'
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+{{- end }}
 
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
