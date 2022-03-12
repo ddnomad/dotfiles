@@ -11,6 +11,7 @@ unmanaged/
 ###############################################################################
 # Ignore VCS boilerplates, temporary files, general information
 ###############################################################################
+.github/
 LICENSE
 README.md
 TODO.md
