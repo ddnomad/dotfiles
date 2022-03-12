@@ -6,6 +6,10 @@ Dotfiles Monorepo
 This repository contains various configuration files and utility scripts dd relies on daily
 for various things (mostly work and personal development).
 
+Screenshots
+-----------
+![Arch Laptop Screenshot](./.github/arch_screenshot.png)
+
 Supported Platforms
 -------------------
 The main focus is Arch Linux support, as that's what dd prefers for development 9 times out
