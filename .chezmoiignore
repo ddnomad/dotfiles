@@ -33,11 +33,10 @@ Makefile
 .inputrc
 .scripts/nix/
 .shell/
-pictures/
-setup.sh
 .xinitrc
 .Xmodmap
 .Xresources
+setup.sh
 {{ end }}
 
 ###############################################################################
@@ -53,14 +52,15 @@ setup.sh
 .scripts/nix/i3wm_make_screenshot
 .xinitrc
 .Xresources
+pictures/
 {{ end }}
 
 ###############################################################################
 # Ignore Linux laptop specific files on all other platforms
 ###############################################################################
 {{ if (or (ne .host.chassis_type "laptop") (ne .host.chassis_type "linux")) }}
-.Xmodmap
 .scripts/nix/mxergoconf
+.Xmodmap
 {{ end }}
 
 ###############################################################################
@@ -74,17 +74,17 @@ setup.sh
 # Ignore MacOS specific files on Linux and Windows
 ###############################################################################
 {{ if ne .chezmoi.os "darwin" }}
-Library/
 .scripts/macos
 .bash_completion
+Library/
 {{ end }}
 
 ###############################################################################
 # Ignore Windows specific files on Linux and MacOS
 ###############################################################################
 {{ if ne .chezmoi.os "windows" }}
-AppData/
-Documents/
 _vimrc
 setup.ps1
+AppData/
+Documents/
 {{ end }}
