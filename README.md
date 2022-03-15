@@ -24,13 +24,13 @@ be broken, outdated or far from being ideal.
 
 Prerequisites
 -------------
-The following sofware must be installed on a target platform before the integration can be performed:
+The following sofware must be installed on a target platform before the integration should be performed:
 
-| Platform   | Software                                                                                               |
-| ---------- | ------------------------------------------------------------------------------------------------------ |
-| Linux      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/)                                        |
-| MacOS      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Homebrew](https://brew.sh)           |
-| Windows 10 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/) |
+| Platform   | Software                                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Linux      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/)                                                                       |
+| MacOS      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Homebrew](https://brew.sh)                                          |
+| Windows 10 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/), [Rust Up](https://rustup.rs/) |
 
 MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 10 development
 workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install
