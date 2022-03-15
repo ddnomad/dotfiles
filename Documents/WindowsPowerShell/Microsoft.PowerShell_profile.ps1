@@ -18,8 +18,17 @@ $PSReadLineOptions = @{
 Set-PSReadlineOption @PSReadLineOptions
 
 ############################################################################################
-# Append local Python packages to PowerShell PATH
+# Define useful aliases
 ############################################################################################
+Set-Alias vim nvim
+
+############################################################################################
+# Add tooling to PowerShell PATH
+############################################################################################
+# Python packages
 $pythonPackagesPath = (get-item (python -m site --user-site)).Parent.FullName -Join "`n"
 $pythonPackagesPath += "\Scripts"
 $Env:PATH += ";$pythonPackagesPath"
+
+# Neovim installed using Chocolatey
+$Env:PATH += ";C:\Tools\neovim\Neovim\bin"

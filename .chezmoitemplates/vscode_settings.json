@@ -2,6 +2,11 @@
     "autoDocstring.docstringFormat": "sphinx",
     "breadcrumbs.enabled": false,
 
+    "cSpell.language": "en-GB",
+    "cSpell.enableFiletypes": [
+        "!json",
+    ],
+
     "customizeUI.activityBar": "bottom",
     "customizeUI.activityBarHideSettings": true,
     "customizeUI.listRowHeight": 20,

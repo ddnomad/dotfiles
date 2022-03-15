@@ -1,5 +1,10 @@
+bungcip.better-toml
 christian-kohler.path-intellisense
+DavidAnson.vscode-markdownlint 
+dbaeumer.vscode-eslint
+formulahendry.code-runner 	
 golf1052.base16-generator
+GraphQL.vscode-graphql
 iocave.customize-ui
 iocave.monkey-patch
 matklad.rust-analyzer
@@ -12,6 +17,7 @@ ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 ms-vscode.powershell
 njpwerner.autodocstring
+redhat.vscode-yaml
 streetsidesoftware.code-spell-checker
 usernamehw.errorlens
 vscodevim.vim
