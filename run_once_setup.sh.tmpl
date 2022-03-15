@@ -173,12 +173,12 @@ mkdir -p ~/Notes
 if command -v code; then
     echo '---(i) INFO: Installing VS Code extensions'
     "${HOME}/Library/Application Support/Code/User/"install_extensions.sh
-else
-    echo '---(!) WARN: Not installing VS Code extensions as VS Code is not installed'
-fi
 
-echo '---(i) INFO: Disabling Press & Hold in VS Code to enable key repeat'
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    echo '---(i) INFO: Disabling Press & Hold in VS Code to enable key repeat'
+    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+else
+    echo '---(!) WARN: Skipping extensions setup as VS Code is not installed'
+fi
 {{- end }}
 
 ###############################################################################
