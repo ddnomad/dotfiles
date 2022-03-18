@@ -41,3 +41,9 @@ Via https://stackoverflow.com/a/12216578:
 :profile pause
 :noautocmd qall!
 ```
+
+Highlight Debugging
+-------------------
+```
+:so $VIMRUNTIME/syntax/hitest.vim
+```
