@@ -36,8 +36,11 @@ choco install `
     make `
     neovim `
     nerdfont-hack `
+    nodejs.install `
     python3 `
     sudo
+
+choco install visualstudio2019buildtools --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-GB"
 
 ##########################################################################################################################################################################
 # Step 5: Install and configure basic Python packages
@@ -72,3 +75,8 @@ git config --global user.name "{{ .user.name }}"
 rustup install nightly
 rustup install stable
 rustup default nightly
+
+##########################################################################################################################################################################
+# Step 9: Install Rust tooling
+##########################################################################################################################################################################
+cargo install --force cargo-make
