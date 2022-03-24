@@ -58,6 +58,9 @@ figure out as is.
 > **WARNING**: On Windows, `run_once_*.ps1` will execute in PowerShell bypassing a default
 > security policy (i.e. `powershell.exe -NoLogo -ExecutionPolicy ByPass -File setup.ps1`).
 
+> **WARNING**: On Windows, reboot is required after initial integration, as VS Build Tools
+> are installed and won't be working untill after the reboot.
+
 Run the following to pull down the dotfiles: 
 ```
 chezmoi init ddnomad --ssh
