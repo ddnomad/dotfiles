@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# FIXME: Not working cause stuck in a middle of refactor
+
 # shellcheck disable=SC2155
 readonly CMD_NAME="$(basename "$0")"
 # shellcheck disable=SC2155
