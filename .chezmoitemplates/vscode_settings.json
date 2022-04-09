@@ -74,6 +74,7 @@
         "workbench.panel.repl.view.focus"
     ],
     "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 
     "vim.cursorStylePerMode.insert": "underline",
     "vim.cursorStylePerMode.normal": "underline",
@@ -130,6 +131,8 @@
     "workbench.editor.closeEmptyGroups": true,
     "workbench.editor.decorations.colors": false,
     "workbench.editor.decorations.badges": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showIcons": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.panel.defaultLocation": "right",
