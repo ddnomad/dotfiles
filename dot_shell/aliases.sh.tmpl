@@ -1,22 +1,24 @@
 alias cap='chezmoi apply'
 alias ccd='chezmoi cd'
 alias cp='rsync -ah --progress'
-alias pac='paru'
+
+alias l='ls --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first'
+alias sl='ls --color=auto --group-directories-first'
+
 alias pgp='gpg'
-alias sucp='sudo rsync -ah --progress'
-alias tmux='tmux -u'
-alias top='glances'
 alias vim='nvim'
 
 {{ if eq .chezmoi.os "linux" }}
 alias diff='diff -y --color=always --suppress-common-lines'
 alias feh='feh -.'
-alias l='ls --color=auto --group-directories-first'
-alias ls='ls --color=auto --group-directories-first'
 alias mixer='alsamixer'
 alias mplayer='mplayer -softvol -softvol-max 1500'
-alias sl='ls --color=auto --group-directories-first'
+alias pac='paru'
+alias sucp='sudo rsync -ah --progress'
 alias tfeh='feh "$(ls -tr | tail -1)" & disown'
+alias tmux='tmux -u'
+alias top='glances'
 alias transmission='transmission-cli'
 {{ end }}
 
