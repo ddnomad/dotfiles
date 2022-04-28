@@ -24,15 +24,13 @@ Makefile
 ###############################################################################
 # Ignore *Nix specific files on Windows
 ###############################################################################
+# NOTE: .bashrc, .bash_profile, .inputrc, .bash/, .shell/aliases.sh are still
+# added to be used with Git Bash on Windows
 {{ if eq .chezmoi.os "windows" }}
-.bash/
 .bash_completion
-.bash_profile
-.bashrc
 .config/
-.inputrc
 .scripts/nix/
-.shell/
+.shell/env.sh
 .xinitrc
 .Xmodmap
 .Xresources
