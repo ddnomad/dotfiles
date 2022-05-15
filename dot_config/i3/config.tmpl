@@ -172,6 +172,8 @@ exec_always --no-startup-id feh --no-fehbg --bg-scale ~/pictures/wallpapers/lain
 exec_always --no-startup-id feh --no-fehbg --bg-tile ~/pictures/wallpapers/lain.jpg
 {{ end }}
 
+exec --no-startup-id /usr/lib/pam_kwallet_init
+
 bar {
     i3bar_command i3bar -t
     position top
