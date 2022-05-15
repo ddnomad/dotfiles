@@ -102,9 +102,9 @@ mode "resize" {
 ###############################################################################
 # Media and utility bindings
 ###############################################################################
-bindsym XF86AudioRaiseVolume exec --no-statup-id amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # NOTE: Requires manual copy of ~/.scripts/i3wm_lock_screen
 bindsym $alt_mod+l exec --no-startup-id /usr/bin/i3wm_lock_screen
