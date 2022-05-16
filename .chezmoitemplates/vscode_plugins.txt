@@ -1,9 +1,9 @@
 bungcip.better-toml
 christian-kohler.path-intellisense
 codecamel.json-viewer
-DavidAnson.vscode-markdownlint 
+davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
-formulahendry.code-runner 	
+formulahendry.code-runner
 golf1052.base16-generator
 GraphQL.vscode-graphql
 iocave.customize-ui
