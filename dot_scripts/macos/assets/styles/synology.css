@@ -1,0 +1,7 @@
+#sds-taskbar {
+  -webkit-app-region: drag;
+}
+
+.taskbar-left-wrapper {
+  margin-left: 78px !important;
+}
