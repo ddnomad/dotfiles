@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+
 CMD_NAME="$(basename "$0")"
 readonly CMD_NAME
 
 ICONS_PATH="$(dirname "${BASH_SOURCE[0]}")/assets/icons"
 readonly ICONS_PATH
 
-GAPPS_STYLESHEET_PATH="$(dirname "${BASH_SOURCE[0]}")/assets/styles/gapps.css"
+STYLESHEETS_PATH="$(dirname "${BASH_SOURCE[0]}")/assets/styles"
+readonly STYLESHEETS_PATH
+
+
+GAPPS_STYLESHEET_PATH="${STYLESHEETS_PATH}/gapps.css"
 readonly GAPPS_STYLESHEET_PATH
 
 GCAL_ICON_PATH="${ICONS_PATH}/gcal.icns"
@@ -15,6 +20,21 @@ readonly GCAL_ICON_PATH
 
 GMAIL_ICON_PATH="${ICONS_PATH}/gmail.icns"
 readonly GMAIL_ICON_PATH
+
+
+PROTONMAIL_ICON_PATH="${ICONS_PATH}/protonmail.icns"
+readonly SYNOLOGYMAIL_ICON_PATH
+
+PROTONMAIL_STYLESHEET_PATH="${STYLESHEETS_PATH}/protonmail.css"
+readonly PROTONMAIL_STYLESHEET_PATH
+
+
+SYNOLOGY_ICON_PATH="${ICONS_PATH}/synology.icns"
+readonly SYNOLOGY_ICON_PATH
+
+SYNOLOGY_STYLESHEET_PATH="${STYLESHEETS_PATH}/synology.css"
+readonly SYNOLOGY_STYLESHEET_PATH
+
 
 CMD_HELP="$(cat <<EOF
 Usage ${CMD_NAME} (--from-scratch)
@@ -25,11 +45,13 @@ EOF
 )"
 readonly CMD_HELP
 
+
 FROM_SCRATCH=0
 
+
 function gen_native_app {
-    if test "$#" -ne 5; then
-        echo 'Usage: gen_native_app APP_NAME ICON_PATH STYLESHEET_PATH LOAD_BG_COLOR WEBSITE_URL'
+    if test "$#" -lt 5; then
+        echo 'Usage: gen_native_app APP_NAME ICON_PATH STYLESHEET_PATH LOAD_BG_COLOR WEBSITE_URL [EXTRA_OPTIONS]'
         exit 1
     fi
 
@@ -38,11 +60,19 @@ function gen_native_app {
     local stylesheet_path
     local load_bg_color
     local website_url
+    local extra_options
+
     app_name="$1"
     icon_path="$2"
     stylesheet_path="$3"
     load_bg_color="$4"
     website_url="$5"
+
+    if test "$#" -ge 6; then
+        extra_options="${*:6}"
+    else
+        extra_options=
+    fi
 
     local app_path
     app_path="${HOME}/Applications/${app_name}.app"
@@ -65,6 +95,7 @@ function gen_native_app {
         --background-color "${load_bg_color}" \
         --inject "${stylesheet_path}" \
         --title-bar-style 'hiddenInset' \
+        ${extra_options} \
         "${website_url}" .
 
     local temp_path_glob
@@ -76,6 +107,7 @@ function gen_native_app {
 
     echo "[+] Generated successfully: ${app_path}"
 }
+
 
 function main {
     if test "$#" -eq 1; then
@@ -105,7 +137,23 @@ function main {
         '#FFFFFF' \
         'https://mail.google.com'
 
+    gen_native_app \
+        'ProtonMail' \
+        "${PROTONMAIL_ICON_PATH}" \
+        "${PROTONMAIL_STYLESHEET_PATH}" \
+        '#1D223B' \
+        'https://mail.protonmail.com'
+
+    gen_native_app \
+        'Synology DiskStation' \
+        "${SYNOLOGY_ICON_PATH}" \
+        "${SYNOLOGY_STYLESHEET_PATH}" \
+        '#181A1B' \
+        'https://192.168.1.157:5001' \
+        --ignore-certificate
+
     echo '[+] Done'
 }
+
 
 main "$@"
