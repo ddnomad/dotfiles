@@ -142,7 +142,7 @@ function main {
         "${PROTONMAIL_ICON_PATH}" \
         "${PROTONMAIL_STYLESHEET_PATH}" \
         '#1D223B' \
-        'https://mail.protonmail.com'
+        'https://mail.proton.me'
 
     gen_native_app \
         'Synology DiskStation' \
