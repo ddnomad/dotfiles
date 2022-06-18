@@ -50,10 +50,10 @@ for_window [class="^.*"] border pixel 1
 ###############################################################################
 # Core bindings
 ###############################################################################
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec dmenu_run \
+bindsym $mod+d exec --no-startup-id dmenu_run \
     -i -p "run:" \
     -nb "$baseXX" \
     -nf "$base05" \
@@ -63,7 +63,7 @@ bindsym $mod+d exec dmenu_run \
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -B 'Yes' 'i3-msg exit'"
 
 # NOTE: Shifted 1 key left from default bindings to make it 1:1 with vim bindings
 bindsym $mod+h focus left
@@ -107,12 +107,12 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # NOTE: Requires manual copy of ~/.scripts/i3wm_lock_screen
-bindsym $alt_mod+l exec /usr/bin/i3wm_lock_screen
+bindsym $alt_mod+l exec --no-startup-id /usr/bin/i3wm_lock_screen
 
 # NOTE: Requires manual copy of ~/.local/share/chezmoi/root/suspend@.service
-bindsym $alt_mod+s exec systemctl suspend
+bindsym $alt_mod+s exec --no-startup-id systemctl suspend
 
-bindsym --release Print exec "i3wm_make_screenshot -s ~/pictures/screenshots/"
+bindsym --release Print exec --no-startup-id "i3wm_make_screenshot -s ~/pictures/screenshots/"
 
 ###############################################################################
 # Workspaces and workspace switching bindings
@@ -171,6 +171,8 @@ exec_always --no-startup-id feh --no-fehbg --bg-scale ~/pictures/wallpapers/lain
 {{ else }}
 exec_always --no-startup-id feh --no-fehbg --bg-tile ~/pictures/wallpapers/lain.jpg
 {{ end }}
+
+exec --no-startup-id /usr/lib/pam_kwallet_init
 
 bar {
     i3bar_command i3bar -t

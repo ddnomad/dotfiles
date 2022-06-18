@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CMD_NAME="$(basename "$0")"
+declare -r CMD_NAME
+
+CMD_USAGE="$(cat <<EOF
+Usage: ${CMD_NAME} TARGET LABEL
+
+Encrypt a device or partition with dmcrypt. Target should be in /dev/sdX or
+/dev/sdXY format. There are no extra confirmation / sanity prompts added so
+triple check before running.
+
+NOTE: Bear in mind that this script will ask for a user password, as it needs
+to sudo up to root to access the target block device.
+
+WARNING: This script does not perform a secure wipe of the target. This should
+be done separately if / when needed.
+EOF
+)"
+declare -r CMD_USAGE
+
+
+function main {
+    if test "$#" -ne 2; then
+        2>&1 echo "${CMD_USAGE}"
+        exit 1
+    fi
+
+    local target
+    target="$1"
+
+    local label
+    label="$2"
+
+    if ! test -b "${target}"; then
+        2>&1 echo "$(tput setaf 1)Error: Target does not exist or is not block special file: ${target}$(tput setaf 7)"
+        exit 1
+    fi
+
+    2>&1 echo "$(tput setaf 4)---(i) INFO: Encrypting: ${target}$(tput setaf 7)"
+    sudo cryptsetup \
+        --cipher aes-cbc-essiv:sha256 \
+        --key-size 256 \
+        --label "${label}" \
+        luksFormat "${target}"
+
+    2>&1 echo "$(tput setaf 4)---(i) INFO: Creating filesystem: ${target}$(tput setaf 7)"
+    sudo cryptsetup open "${target}" "${label}"
+    sudo mkfs.ext4 /dev/mapper/"${label}"
+    sudo cryptsetup close "${label}"
+
+    2>&1 echo "$(tput setaf 2)---(+) OK: Done$(tput setaf 7)"
+    sudo cryptsetup luksDump "${target}"
+}
+
+
+main "$@"

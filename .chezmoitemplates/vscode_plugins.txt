@@ -1,7 +1,7 @@
 bungcip.better-toml
 christian-kohler.path-intellisense
 codecamel.json-viewer
-DavidAnson.vscode-markdownlint 
+davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 editorconfig.editorconfig
 formulahendry.code-runner 	

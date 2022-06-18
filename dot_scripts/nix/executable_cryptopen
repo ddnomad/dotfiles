@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CMD_NAME="$(basename "$0")"
+declare -r CMD_NAME
+
+CMD_USAGE="$(cat <<EOF
+Usage: ${CMD_NAME} TARGET MOUNT_POINT
+
+Open and mount a dmcrypt encrypted device or partition. Target should be in
+/dev/sdX or /dev/sdXY format.
+
+NOTE: Bear in mind that this script will ask for a user password, as it needs
+to sudo up to root to access the target block device.
+EOF
+)"
+declare -r CMD_USAGE
+
+
+function main {
+    if test "$#" -ne 2; then
+        2>&1 echo "${CMD_USAGE}"
+        exit 1
+    fi
+
+    local target
+    target="$1"
+
+    local mount_point
+    mount_point="$2"
+
+    if ! test -b "${target}"; then
+        2>&1 echo "$(tput setaf 1)Error: Target does not exist or is not block special file: ${target}$(tput setaf 7)"
+        exit 1
+    fi
+
+    2>&1 echo "$(tput setaf 4)---(i) INFO: Fetching encrypted target label: ${target}$(tput setaf 7)"
+    local label
+    label="$(sudo cryptsetup luksDump "${target}" | grep 'Label:' | cut -f2 -d':' | xargs)"
+
+    2>&1 echo "$(tput setaf 4)---(+) OK: Encrypted target label: ${label}$(tput setaf 7)"
+
+    2>&1 echo "$(tput setaf 4)---(i) INFO: Opening: ${target}$(tput setaf 7)"
+    sudo cryptsetup open "${target}" "${label}"
+
+    2>&1 echo "$(tput setaf 4)---(i) INFO: Mounting: /dev/mapper/${label} -> ${mount_point}$(tput setaf 7)"
+    sudo mount /dev/mapper/"${label}" "${mount_point}"
+
+    2>&1 echo "$(tput setaf 2)---(+) OK: Done$(tput setaf 7)"
+    2>&1 echo "$(tput setaf 3)---(i) NOTE: Run the following to unmount and close the target:$(tput setaf 7)"
+    2>&1 echo
+    2>&1 echo "$(tput setaf 3)       sudo umount ${mount_point}$(tput setaf 7)"
+    2>&1 echo "$(tput setaf 3)       sudo cryptsetup close ${label}$(tput setaf 7)"
+}
+
+
+main "$@"

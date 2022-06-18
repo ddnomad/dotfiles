@@ -1,0 +1,10 @@
+# WARNING: This is only a partial configuration, don't
+#          you dare replacing the whole file with it!!!
+#
+auth    required pam_autologin.so
+
+# ... (add right after auth lines)
+auth    optional pam_kwallet5.so 
+
+# ... (add right after session lines)
+session optional pam_kwallet5.so auto_start force_run
