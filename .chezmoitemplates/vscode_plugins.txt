@@ -3,7 +3,8 @@ christian-kohler.path-intellisense
 codecamel.json-viewer
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
-formulahendry.code-runner
+editorconfig.editorconfig
+formulahendry.code-runner 	
 golf1052.base16-generator
 GraphQL.vscode-graphql
 iocave.customize-ui
@@ -20,5 +21,6 @@ ms-vscode.powershell
 njpwerner.autodocstring
 redhat.vscode-yaml
 streetsidesoftware.code-spell-checker
+styled-components.vscode-styled-components
 usernamehw.errorlens
 vscodevim.vim
