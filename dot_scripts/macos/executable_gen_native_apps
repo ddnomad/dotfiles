@@ -95,6 +95,7 @@ function gen_native_app {
         --background-color "${load_bg_color}" \
         --inject "${stylesheet_path}" \
         --title-bar-style 'hiddenInset' \
+        --user-agent firefox \
         ${extra_options} \
         "${website_url}" .
 
