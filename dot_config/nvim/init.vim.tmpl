@@ -79,10 +79,9 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-" FIXME: Caused issues in Arch VM (new version); need to see whether it's
-" specific to Arch of just a new version of _something_ that started using
-" GUI colours for ALE highlights.
-" set termguicolors
+{{ if eq .chezmoi.os "darwin" }}
+set termguicolors
+{{ end }}
 
 " Color scheme
 let base16colorspace=256

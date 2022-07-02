@@ -2,11 +2,6 @@
 	"autoDocstring.docstringFormat": "sphinx",
 	"breadcrumbs.enabled": false,
 
-	"cSpell.language": "en-GB",
-	"cSpell.enableFiletypes": [
-		"!json",
-	],
-
 	"customizeUI.activityBar": "bottom",
 	"customizeUI.activityBarHideSettings": true,
 	"customizeUI.listRowHeight": 20,
@@ -14,7 +9,7 @@
 		"#workbench\\.parts\\.titlebar > a": "display: none !important;",
 		".scrollbar": "height: 0 !important; width: 0 !important;",
 		".tabs-container .tab.active": "font-weight: bold;",
-		".monaco-icon-label:after": "opacity: 1.0 !important;",
+		".monaco-icon-label:after": "opacity: 1.0 !important;"
 	},
 
 	"editor.autoClosingBrackets": "never",
@@ -49,6 +44,8 @@
 	"errorLens.infoGutterIconColor": "#86C1B9",
 	"errorLens.warningGutterIconColor": "#F7CA88",
 
+  "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
+
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
 
@@ -62,6 +59,9 @@
 	"python.linting.pydocstyleEnabled": true,
 	"python.linting.pylamaEnabled": true,
 	"python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": ["--rcfile=setup.cfg"],
+
+  "redhat.telemetry.enabled": false,
 
 	"terminal.external.linuxExec": "alacritty",
 	"terminal.external.osxExec": "Alacritty.app",
