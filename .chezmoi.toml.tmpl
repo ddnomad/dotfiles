@@ -6,7 +6,11 @@
 {{-     $chassisType = "desktop" -}}
 {{-   end -}}
 {{- else if eq .chezmoi.os "linux" -}}
-{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis -}}
+{{-   if eq (output "cat" "/sys/class/dmi/id/chassis_type" | trim) "10" -}}
+{{-     $chassisType = "laptop" -}}
+{{-   else -}}
+{{-     $chassisType = "desktop" -}}
+{{-   end -}}
 {{- end -}}
 
 {{- $userEmail := "" -}}
@@ -29,6 +33,11 @@
     # - unknown
     # - vm
     chassis_type = "{{ $chassisType }}"
+
+    # Possible values:
+    # - KDE
+    # - ???
+    desktop_environment = "{{- (env "XDG_CURRENT_DESKTOP" | trim) -}}"
 
 [data.user]
     email = "{{ $userEmail }}"
