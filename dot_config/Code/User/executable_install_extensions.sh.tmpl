@@ -9,5 +9,5 @@ readonly VSCODE_EXTENSIONS
 
 while IFS= read -r extension_id; do
     echo "---(i) INFO: Installing VS Code extension: ${extension_id}"
-    code-insiders --install-extension "${extension_id}"
+    code --install-extension "${extension_id}"
 done <<< "${VSCODE_EXTENSIONS}"

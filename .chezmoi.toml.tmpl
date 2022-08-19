@@ -37,7 +37,7 @@
     # Possible values:
     # - KDE
     # - ???
-    desktop_environment = "{{- (env "XDG_CURRENT_DESKTOP" | trim) -}}"
+    desktop_environment = "{{- (env "XDG_CURRENT_DESKTOP" | trim | lower) -}}"
 
 [data.user]
     email = "{{ $userEmail }}"

@@ -40,8 +40,15 @@ setup.sh
 ###############################################################################
 # Ignore Linux specific files on MacOS and Windows
 ###############################################################################
-{{ if ne .chezmoi.os "linux" }}
-.config/bumblebee/
+{{ if (ne .chezmoi.os "linux") -}}
+.config/Code
+{{ end }}
+
+###############################################################################
+# Ignore Linux specific files on MacOS, Windows or Linux running KDE
+###############################################################################
+{{ if (or (ne .chezmoi.os "linux") (eq .host.desktop_environment "kde")) }}
+.config/bumblebee-status/
 .config/i3/
 .config/picom/
 .config/user-dirs.dirs

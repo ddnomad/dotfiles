@@ -84,7 +84,9 @@ set termguicolors
 {{ end }}
 
 " Color scheme
+{{ if ne .host.desktop_environment "kde" }}
 let base16colorspace=256
+{{ end }}
 colorscheme base16-default-dark
 
 " Allow to copy/paste from the main clipboard buffer
