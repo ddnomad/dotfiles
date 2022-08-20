@@ -179,20 +179,26 @@ fi
 mkdir -p ~/Casino
 mkdir -p ~/Development
 mkdir -p ~/Notes
+{{- end }}
 
 ###############################################################################
-# Step 4: Configuring VS Code
+# Step -2: Configuring VS Code
 ###############################################################################
 if command -v code; then
     echo '---(i) INFO: Installing VS Code extensions'
+    {{ if eq .chezmoi.os "darwin" }}
     "${HOME}/Library/Application Support/Code/User/"install_extensions.sh
+    {{ else if eq .chezmoi.os "linux" }}
+    "${HOME}/.config/Code/User/"install_extensions.sh
+    {{ end }}
 
+    {{ if eq .chezmoi.os "darwin" }}
     echo '---(i) INFO: Disabling Press & Hold in VS Code to enable key repeat'
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    {{ end }}
 else
     echo '---(!) WARN: Skipping extensions setup as VS Code is not installed'
 fi
-{{- end }}
 
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
