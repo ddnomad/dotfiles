@@ -43,6 +43,13 @@
     email = "{{ $userEmail }}"
     name = "ddnomad"
 
+[data.alacritty]
+{{ if eq .chezmoi.os "darwin" }}
+    mod1 = "Command"
+{{ else }}
+    mod1 = "Alt"
+{{ end }}
+
 [data.vscode]
 {{ if eq .chezmoi.os "darwin" }}
     mod1 = "cmd"
