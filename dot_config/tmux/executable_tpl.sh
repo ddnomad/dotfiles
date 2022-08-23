@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+TPL_SED=sed
+if ! command -v sed &> /dev/null; then
+TPL_SED="${TPL_SED}"
+fi
+readonly TPL_SED
+
 readonly TPL_DIR="${HOME}/.config/tmux/tpl"
 readonly TPL_ORIGIN=https://github.com/erikw/tmux-powerline.git
 # shellcheck disable=SC2016
@@ -14,27 +20,27 @@ readonly TPL_WAN_IP_FILE="${TPL_DIR}/segments/wan_ip.sh"
 
 function patch {
     echo 'Patching Tmux Powerline config path ...'
-    gsed \
+    "${TPL_SED}" \
         -i \
         's@^\(.*\)'"${TPL_OLD_CFG}"'\(.*\)$@\1'"${TPL_NEW_CFG}"'\2@' \
         "${TPL_PATHS_FILE}"
 
     echo 'Patching Tmux Powerline Now Playing segment ...'
-    gsed \
+    "${TPL_SED}" \
         -i \
         's@♫@@' \
         "${TPL_NOW_PLAYING_FILE}"
-    gsed \
+    "${TPL_SED}" \
         -i \
         's@►@ @' \
         "${TPL_SPOTIFY_MAC_FILE}"
-    gsed \
+    "${TPL_SED}" \
         -i \
         's@❙❙@ @' \
         "${TPL_SPOTIFY_MAC_FILE}"
 
     echo 'Patching Tmux Powerline WAN IP segment ...'
-    gsed \
+    "${TPL_SED}" \
         -i \
         's@ⓦ @  @' \
         "${TPL_WAN_IP_FILE}"

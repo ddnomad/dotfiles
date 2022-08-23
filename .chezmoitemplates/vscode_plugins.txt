@@ -4,12 +4,11 @@ codecamel.json-viewer
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 editorconfig.editorconfig
-formulahendry.code-runner 	
+formulahendry.code-runner
 golf1052.base16-generator
 GraphQL.vscode-graphql
 iocave.customize-ui
 iocave.monkey-patch
-matklad.rust-analyzer
 ms-python.python
 ms-python.vscode-pylance
 ms-vscode.makefile-tools
@@ -21,6 +20,7 @@ ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 njpwerner.autodocstring
 redhat.vscode-yaml
+rust-lang.rust-analyzer
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
 usernamehw.errorlens
