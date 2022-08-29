@@ -79,6 +79,7 @@
 	],
 	"terminal.integrated.shell.osx": "/usr/local/bin/bash",
 	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "terminal.integrated.shellIntegration.enabled": false,
 
 	"vim.cursorStylePerMode.insert": "underline",
 	"vim.cursorStylePerMode.normal": "underline",

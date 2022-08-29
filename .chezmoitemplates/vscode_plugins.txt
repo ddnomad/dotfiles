@@ -1,3 +1,4 @@
+antyos.openscad
 bungcip.better-toml
 christian-kohler.path-intellisense
 codecamel.json-viewer
@@ -21,6 +22,7 @@ ms-vscode-remote.vscode-remote-extensionpack
 njpwerner.autodocstring
 redhat.vscode-yaml
 rust-lang.rust-analyzer
+slevesque.vscode-3dviewer
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
 usernamehw.errorlens
