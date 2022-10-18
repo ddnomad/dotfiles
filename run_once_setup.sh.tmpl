@@ -129,7 +129,7 @@ set -euo pipefail
 ###############################################################################
 # Step 1: Installing packages
 ###############################################################################
-brew install \
+/opt/homebrew/bin/brew install \
     bash \
     bash-completion@2 \
     coreutils \
@@ -152,10 +152,10 @@ brew install \
     yarn
 
 # Initialise Rust
-rustup-init
+/opt/homebrew/bin/rustup-init
 
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+/opt/homebrew/bin/brew tap homebrew/cask-fonts
+/opt/homebrew/bin/brew install --cask font-hack-nerd-font
 
 xcode-select --install || :
 xcodebuild -license accept || :
@@ -164,13 +164,13 @@ echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
 # FIXME: This is broken, presumably because Ruby version is too old
 # sudo gem install neovim
 
-npm install -g nativefier neovim
+PATH="${PATH}:/opt/homebrew/bin" /opt/homebrew/bin/npm install -g nativefier neovim
 pip3 install --user --upgrade pip pynvim
 
-if test "${SHELL}" != '/usr/local/bin/bash'; then
+if test "${SHELL}" != '/opt/homebrew/bin/bash'; then
     echo '---(i) INFO: Setting Bash as a default shell'
-    echo "$(brew --prefix)"/bin/bash | sudo tee -a /private/etc/shells
-    sudo chpass -s /usr/local/bin/bash "${USER}"
+    echo "$(/opt/homebrew/bin/brew --prefix)"/bin/bash | sudo tee -a /private/etc/shells
+    sudo chpass -s /opt/homebrew/bin/bash "${USER}"
 fi
 
 ###############################################################################

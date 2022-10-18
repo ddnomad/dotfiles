@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+TPL_SED=gsed
+if ! command -v gsed &> /dev/null; then
 TPL_SED=sed
-if ! command -v sed &> /dev/null; then
-TPL_SED="${TPL_SED}"
 fi
 readonly TPL_SED
 

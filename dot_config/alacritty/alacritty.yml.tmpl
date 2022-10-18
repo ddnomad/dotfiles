@@ -38,7 +38,7 @@ font:
 
   # Point size
   {{ if eq .chezmoi.os "darwin" }}
-  size: 12.0
+  size: 11.0
   {{ else if (and (eq .chezmoi.os "linux") (ne .host.desktop_environment "kde")) }}
   size: 5.0
   {{ else }}
@@ -110,14 +110,18 @@ cursor:
 {{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
 shell:
   {{ if eq .chezmoi.os "darwin" }}
-  program: /usr/local/bin/bash
+  program: /opt/homebrew/bin/bash
   {{ else }}
   program: /usr/bin/bash
   {{ end }}
   args:
     - --login
     - -c
+    {{ if eq .chezmoi.os "darwin" }}
+    - /opt/homebrew/bin/tmux -u attach || /opt/homebrew/bin/tmux -u -f ~/.config/tmux/tmux.conf
+    {{ else }}
     - tmux -u attach || tmux -u -f ~/.config/tmux/tmux.conf
+    {{ end }}
 {{ end }}
 
 live_config_reload: true
