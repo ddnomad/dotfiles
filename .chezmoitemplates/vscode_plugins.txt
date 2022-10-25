@@ -7,6 +7,7 @@ dbaeumer.vscode-eslint
 editorconfig.editorconfig
 formulahendry.code-runner
 golf1052.base16-generator
+gruntfuggly.todo-tree
 GraphQL.vscode-graphql
 iocave.customize-ui
 iocave.monkey-patch

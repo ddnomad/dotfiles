@@ -77,7 +77,7 @@
 		"workbench.panel.output.focus",
 		"workbench.panel.repl.view.focus"
 	],
-	"terminal.integrated.shell.osx": "/usr/local/bin/bash",
+	"terminal.integrated.shell.osx": "/opt/homebrew/bin/bash",
 	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
   "terminal.integrated.shellIntegration.enabled": false,
 
