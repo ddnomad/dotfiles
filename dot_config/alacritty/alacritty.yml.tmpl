@@ -127,7 +127,11 @@ shell:
 live_config_reload: true
 
 mouse:
+  {{ if eq .chezmoi.os "darwin" }}
+  hide_when_typing: false
+  {{ else }}
   hide_when_typing: true
+  {{ end }}
 
 {{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
 # Full list of available key codes:

@@ -11,6 +11,7 @@ gruntfuggly.todo-tree
 GraphQL.vscode-graphql
 iocave.customize-ui
 iocave.monkey-patch
+mads-hartmann.bash-ide-vscode
 ms-python.python
 ms-python.vscode-pylance
 ms-vscode.makefile-tools
@@ -26,5 +27,6 @@ rust-lang.rust-analyzer
 slevesque.vscode-3dviewer
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
+timonwong.shellcheck
 usernamehw.errorlens
 vscodevim.vim
