@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function main {
+    if ! test "$#" -eq 2; then
+        >&2 echo "Usage: $0 GITHUB_USERNAME OUTPUT_DIRECTORY"
+        >&2 echo
+        >&2 echo "Clone all public repositories of a specified GitHub user."
+        exit 1
+    fi
+
+    local github_username
+    github_username="$1"
+
+    local output_directory
+    output_directory="$2"
+
+    if ! test -d "${output_directory}"; then
+        >&2 echo "Error: Output directory does not exist or is not a directory: ${output_directory}"
+        exit 1
+    fi
+
+    >&2 echo "---(i) INFO: Cloning repositories of a user: ${github_username}"
+
+    cd "${output_directory}" && { \
+        curl -s https://api.github.com/users/"${github_username}"/repos | \
+        jq '.[].clone_url' | \
+        xargs -I{} git clone {}; \
+    } && cd -
+
+    local total_cloned
+    total_cloned="$(find "${output_directory}" -maxdepth 1 -type d | wc -l)"
+
+    >&2 echo "---(+) Done: Cloned ${total_cloned} repositories into ${output_directory}"
+}
+
+main "$@"
