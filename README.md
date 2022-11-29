@@ -3,7 +3,7 @@ Dotfiles Monorepo
 ![GitHub last commit](https://img.shields.io/github/last-commit/ddnomad/dotfiles)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ddnomad/dotfiles)
 
-This repository contains various configuration files and utility scripts dd relies on daily for various things (mostly work, [leisure](./.github/leisure.jpg) and pet projects).
+This repository contains various configuration files and utility scripts dd relies on daily for various things (mostly work, [leisure](https://raw.githubusercontent.com/ddnomad/dotfiles/main/.github/leisure.jpg) and pet projects).
 
 Screenshots
 -----------
