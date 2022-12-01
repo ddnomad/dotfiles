@@ -215,6 +215,17 @@ fi
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
 ###############################################################################
+# Install basic Python dependencies
+if command -v pip; then
+    PIP_COMMAND=pip
+else
+    PIP_COMMAND=pip3
+fi
+
+readonly PIP_COMMAND
+
+"${PIP_COMMAND}" install 'pylama[all]'
+
 # Disable Yarn analytics
 yarn config set --home enableTelemetry 0
 
