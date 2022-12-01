@@ -1,10 +1,9 @@
 {{- if eq .chezmoi.os "linux" -}}
-
 #!/usr/bin/env bash
 set -euo pipefail
 
 ###############################################################################
-# Step 1: Installing Paru (AUR helper)
+# Step 1: Install Paru (AUR helper)
 ###############################################################################
 sudo pacman -Sy
 
@@ -15,7 +14,7 @@ if ! command -v paru &> /dev/null; then
 fi
 
 ###############################################################################
-# Step 2: Installing packages
+# Step 2: Install packages
 ###############################################################################
 paru --needed -S \
     alacritty \
@@ -100,7 +99,7 @@ fi
 {{ end }}
 
 ###############################################################################
-# Step 3: Creating directories
+# Step 3: Create directories
 ###############################################################################
 {{ if ne .host.desktop_environment "kde" }}
     mkdir -p ~/casino
@@ -122,17 +121,27 @@ fi
 
 
 {{- else if eq .chezmoi.os "darwin" -}}
-
 #!/usr/bin/env zsh
 set -euo pipefail
 
 ###############################################################################
-# Step 1: Installing packages
+# Step 1: Change system-wide defaults
+###############################################################################
+# Disable annoying press and hold
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Show dock on all displays
+defaults write com.apple.Dock appswitcher-all-displays -bool true
+killall Dock
+
+###############################################################################
+# Step 2: Install packages
 ###############################################################################
 /opt/homebrew/bin/brew install \
     bash \
     bash-completion@2 \
     coreutils \
+    ext4fuse \
     findutils \
     gawk \
     gnu-getopt \
@@ -178,7 +187,7 @@ if test "${SHELL}" != '/opt/homebrew/bin/bash'; then
 fi
 
 ###############################################################################
-# Step 3: Creating directories
+# Step 3: Create directories
 ###############################################################################
 # NOTE: All other directories should already exist by default
 mkdir -p ~/Casino
@@ -186,7 +195,7 @@ mkdir -p ~/Development
 {{- end }}
 
 ###############################################################################
-# Step -2: Configuring VS Code
+# Step -2: Configure VS Code
 ###############################################################################
 if command -v code; then
     echo '---(i) INFO: Installing VS Code extensions'
@@ -207,7 +216,10 @@ fi
 ###############################################################################
 # Step -1: Execute common commands across Linux / MacOS
 ###############################################################################
-# Git configuration
+# Disable Yarn analytics
+yarn config set --home enableTelemetry 0
+
+# Configure Git
 git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"
 
