@@ -31,7 +31,7 @@ The following sofware must be installed on a target platform before the integrat
 
 MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 10 development workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install them as well.
 
-For local development on Linux, [GNU Make](https://www.gnu.org/software/make/) will come in handy too, as the repository contains `Makefile` with several somewhat useful targets which save time when iterating on new changes.
+For local development on Linux or MacOS, [Cargo Make](https://sagiegurari.github.io/cargo-make) will come in handy too, as the repository contains `Makefile.toml` with several somewhat useful targets which save time when iterating on new changes.
 
 Fresh Host Setup
 ----------------
@@ -41,7 +41,7 @@ For Windows 10, see [setup guide](./docs/setup/windows_setup_guide.md). Linux an
 ### Integration
 > **WARNING**: On MacOS, `Command+H` hide shortcut should be disabled for Alacritty by setting it to a different (preferably, hard to accidentally trigger) key combination. This can be done from `System Preferences -> Keyboard -> Shortcuts -> App Shortcuts`.
 
-> **WARNING**: On MacOS, `Shell Command: Install 'code' command in PATH command` must be executed from within VS Code to make the CLI `code` command available from in `$PATH` before running initial `make apply` or `chezmoi apply`.
+> **WARNING**: On MacOS, `Shell Command: Install 'code' command in PATH command` must be executed from within VS Code to make the CLI `code` command available from in `$PATH` before running initial `cargo make apply` or `chezmoi apply`.
 
 > **WARNING**: On Windows, `run_once_*.ps1` will execute in PowerShell bypassing a default security policy (i.e. `powershell.exe -NoLogo -ExecutionPolicy ByPass -File setup.ps1`).
 
@@ -54,12 +54,12 @@ chezmoi init ddnomad --ssh
 
 Preview what files will be copied (no changes will be made):
 ```
-chezmoi cd && make dry
+chezmoi cd && cargo make dry
 ```
 
 Apply all changes:
 ```
-chezmoi cd && make apply
+chezmoi cd && cargo make apply
 ```
 
 Please note, that files in `"$(chezmoi cd)"/unmanaged/` directory won't be applied automatically. These should be copied manually as needed, as they fall outside of `"${HOME}"` directory of a current user or just tricky to apply automatically.

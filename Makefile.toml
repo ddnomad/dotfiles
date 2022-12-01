@@ -1,0 +1,21 @@
+[config]
+skip_core_tasks = true
+unstable_features = ["CTRL_C_HANDLING"]
+
+[tasks.apply]
+script = """
+echo '---(i) INFO: Applying changes'
+chezmoi apply
+"""
+
+[tasks.dry]
+script = """
+echo '---(i) INFO: Dry running apply'
+chezmoi apply --dry-run --verbose
+"""
+
+[tasks.reset]
+script = """
+echo '---(i) INFO: Clearing chezmoi state'
+chezmoi state reset
+"""
