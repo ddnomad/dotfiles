@@ -1,5 +1,6 @@
 antyos.openscad
 bungcip.better-toml
+christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 codecamel.json-viewer
 davidanson.vscode-markdownlint

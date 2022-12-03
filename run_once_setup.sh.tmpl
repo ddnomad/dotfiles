@@ -224,7 +224,9 @@ fi
 
 readonly PIP_COMMAND
 
-"${PIP_COMMAND}" install 'pylama[all]'
+"${PIP_COMMAND}" install \
+    'pylama[all]' \
+    uncompyle6  # Byte-code decomp
 
 # Disable Yarn analytics
 yarn config set --home enableTelemetry 0
