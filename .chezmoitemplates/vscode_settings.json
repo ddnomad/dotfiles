@@ -52,14 +52,18 @@
 	"git.decorations.enabled": false,
 
 	"python.analysis.typeCheckingMode": "basic",
-
-	"python.linting.flake8Enabled": true,
 	"python.linting.lintOnSave": true,
-	"python.linting.pycodestyleEnabled": true,
-	"python.linting.pydocstyleEnabled": true,
+
+	"python.linting.flake8Enabled": false,
+	"python.linting.pycodestyleEnabled": false,
+	"python.linting.pydocstyleEnabled": false,
+	"python.linting.pylintEnabled": false,
+
 	"python.linting.pylamaEnabled": true,
-	"python.linting.pylintEnabled": true,
-  "python.linting.pylintArgs": ["--rcfile=setup.cfg"],
+  "python.linting.pylamaArgs": [
+    "--linters",
+    "mccabe,pycodestyle,pydocstyle,pyflakes,pylint"
+  ],
 
   "redhat.telemetry.enabled": false,
 
@@ -79,7 +83,7 @@
 	],
 	"terminal.integrated.shell.osx": "/opt/homebrew/bin/bash",
 	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "terminal.integrated.shellIntegration.enabled": false,
+	"terminal.integrated.shellIntegration.enabled": false,
 
 	"vim.cursorStylePerMode.insert": "underline",
 	"vim.cursorStylePerMode.normal": "underline",
