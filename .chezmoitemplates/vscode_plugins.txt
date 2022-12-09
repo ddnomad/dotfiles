@@ -12,7 +12,10 @@ gruntfuggly.todo-tree
 GraphQL.vscode-graphql
 iocave.customize-ui
 iocave.monkey-patch
+littlefoxteam.vscode-python-test-adapter
 mads-hartmann.bash-ide-vscode
+ms-azuretools.vscode-docker
+ms-ossdata.vscode-postgresql
 ms-python.python
 ms-python.vscode-pylance
 ms-vscode.makefile-tools
@@ -22,6 +25,8 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
+mtxr.sqltools
+mtxr.sqltools-driver-pg
 njpwerner.autodocstring
 redhat.vscode-yaml
 rust-lang.rust-analyzer
