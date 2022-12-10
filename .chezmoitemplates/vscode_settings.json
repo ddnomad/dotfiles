@@ -46,6 +46,8 @@
 
   "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
 
+  "explorer.compactFolders": false,
+
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
 
