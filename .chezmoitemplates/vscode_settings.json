@@ -34,6 +34,12 @@
 			"tooltip": "Debug"
 		},
 		{
+			"command": "todo-tree-view.focus",
+			"priority": 1000,
+			"text": "$(checklist)",
+			"tooltip": "Debug"
+		},
+		{
 			"command": "workbench.view.extensions",
 			"priority": 1000,
 			"text": "$(package)",
