@@ -10,8 +10,12 @@ formulahendry.code-runner
 golf1052.base16-generator
 gruntfuggly.todo-tree
 GraphQL.vscode-graphql
-iocave.customize-ui
-iocave.monkey-patch
+
+# NOTE: Customize UI is broken in the latest version of VS Code.
+# See https://github.com/iocave/customize-ui/issues/156
+# iocave.customize-ui
+# iocave.monkey-patch
+
 littlefoxteam.vscode-python-test-adapter
 mads-hartmann.bash-ide-vscode
 ms-azuretools.vscode-docker

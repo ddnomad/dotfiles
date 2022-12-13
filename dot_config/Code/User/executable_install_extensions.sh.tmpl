@@ -8,6 +8,11 @@ EOF
 readonly VSCODE_EXTENSIONS
 
 while IFS= read -r extension_id; do
+    if [[ "${extension_id}" == \#* ]] || test -z "${extension_id}"; then
+        echo "---(!) WARNING: Skipping commented out or empty line: ${extension_id}"
+        continue
+    fi
+
     echo "---(i) INFO: Installing VS Code extension: ${extension_id}"
     code --install-extension "${extension_id}"
 done <<< "${VSCODE_EXTENSIONS}"

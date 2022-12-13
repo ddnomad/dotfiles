@@ -3,6 +3,12 @@ $VSCODE_EXTENSIONS = @'
 '@
 
 ForEach ($extension_id in $($VSCODE_EXTENSIONS -split "[\r\n]+")) {
+    # FIXME: Not tested, just wishful thinking that it will actually work
+    if (!$extension_id -or $extension_id -like '#*') {
+        Write-Host "---(!) WARNING: Skipping commented out or empty line: $extension_id"
+        continue
+    }
+
     Write-Host "---(i) INFO: Installing VS Code extension: $extension_id"
     code --install-extension $extension_id
 }

@@ -2,15 +2,17 @@
 	"autoDocstring.docstringFormat": "sphinx",
 	"breadcrumbs.enabled": false,
 
-	"customizeUI.activityBar": "bottom",
-	"customizeUI.activityBarHideSettings": true,
-	"customizeUI.listRowHeight": 20,
-	"customizeUI.stylesheet": {
-		"#workbench\\.parts\\.titlebar > a": "display: none !important;",
-		".scrollbar": "height: 0 !important; width: 0 !important;",
-		".tabs-container .tab.active": "font-weight: bold;",
-		".monaco-icon-label:after": "opacity: 1.0 !important;"
-	},
+  # NOTE: Customize UI is broken in the latest version of VS Code.
+  # See https://github.com/iocave/customize-ui/issues/156
+	# "customizeUI.activityBar": "bottom",
+	# "customizeUI.activityBarHideSettings": true,
+	# "customizeUI.listRowHeight": 20,
+	# "customizeUI.stylesheet": {
+	#	"#workbench\\.parts\\.titlebar > a": "display: none !important;",
+	#	".scrollbar": "height: 0 !important; width: 0 !important;",
+	#	".tabs-container .tab.active": "font-weight: bold;",
+	#	".monaco-icon-label:after": "opacity: 1.0 !important;"
+	#},
 
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingDelete": "never",
