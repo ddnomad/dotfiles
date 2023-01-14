@@ -33,6 +33,7 @@ ms-vscode-remote.vscode-remote-extensionpack
 mtxr.sqltools
 mtxr.sqltools-driver-pg
 njpwerner.autodocstring
+redhat.vscode-xml
 redhat.vscode-yaml
 rust-lang.rust-analyzer
 slevesque.vscode-3dviewer
