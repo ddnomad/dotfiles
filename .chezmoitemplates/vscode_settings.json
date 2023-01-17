@@ -109,10 +109,10 @@
 	"python.linting.pylintEnabled": false,
 
 	"python.linting.pylamaEnabled": true,
-  "python.linting.pylamaArgs": [
-    "--linters",
-    "mccabe,pycodestyle,pydocstyle,pyflakes,pylint"
-  ],
+	"python.linting.pylamaArgs": [
+		"--linters",
+		"mccabe,pycodestyle,pydocstyle,pyflakes,pylint"
+	],
 
   "redhat.telemetry.enabled": false,
 
@@ -148,14 +148,24 @@
 
 	"workbench.colorCustomizations": {
 		"editorGroupHeader.tabsBackground": "#181818",
+
 		"editorIndentGuide.background": "#282828",
 		"editorIndentGuide.activeBackground": "#585858",
+
+		"editorInlayHint.background": "#FFFFFF00",
+		"editorInlayHint.foreground": "#585858",
+		"editorInlayHint.parameterBackground": "#FFFFFF00",
+		"editorInlayHint.parameterForeground": "#585858",
+		"editorInlayHint.typeBackground": "#FFFFFF00",
+		"editorInlayHint.typeForeground": "#585858",
+
 		"errorLens.errorBackground": "#AB464211",
 		"errorLens.errorForeground": "#AB4642",
 		"errorLens.infoBackground": "#86C1B911",
 		"errorLens.infoForeground": "#86C1B9",
 		"errorLens.warningBackground": "#F7CA8811",
 		"errorLens.warningForeground": "#F7CA88",
+
 		"focusBorder":"#282828",
 		"list.activeSelectionBackground": "#282828",
 		"list.focusBackground": "#282828",
@@ -194,6 +204,6 @@
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabSizing": "shrink",
 	"workbench.panel.defaultLocation": "right",
-	"workbench.tree.indent": 16,
+	"workbench.tree.indent": 16
 }
 
