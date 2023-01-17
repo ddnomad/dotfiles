@@ -154,6 +154,7 @@ killall Dock
     neovim \
     nmap \
     nodejs \
+    pdm \
     python \
     pipenv \
     ruby \
@@ -162,6 +163,10 @@ killall Dock
     tmux \
     tree \
     yarn
+
+# Generate missing completion scripts
+mkdir ~/.bash/completions
+pdm completion bash > ~/.bash/completions/pdm.bash-completion
 
 # Initialise Rust
 /opt/homebrew/bin/rustup-init
@@ -172,8 +177,8 @@ killall Dock
 xcode-select --install || :
 xcodebuild -license accept || :
 
-echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
 # FIXME: This is broken, presumably because Ruby version is too old
+# echo '---(i) INFO: Install neovim Ruby gem -- password prompt inbound'
 # sudo gem install neovim
 
 PATH="${PATH}:/opt/homebrew/bin" /opt/homebrew/bin/npm install -g nativefier neovim
