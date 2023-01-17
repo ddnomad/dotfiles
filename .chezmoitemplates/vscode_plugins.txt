@@ -17,6 +17,7 @@ GraphQL.vscode-graphql
 # iocave.customize-ui
 # iocave.monkey-patch
 
+lextudio.restructuredtext
 littlefoxteam.vscode-python-test-adapter
 mads-hartmann.bash-ide-vscode
 ms-azuretools.vscode-docker
@@ -40,5 +41,6 @@ slevesque.vscode-3dviewer
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
 timonwong.shellcheck
+trond-snekvik.simple-rst
 usernamehw.errorlens
 vscodevim.vim
