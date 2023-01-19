@@ -15,9 +15,19 @@ function assemble_prompt {
     virtualenv_token=''
 
     if [ -n "${VIRTUAL_ENV}" ]; then
-        local virtualenv_name
-        virtualenv_name="$(basename "${VIRTUAL_ENV}" | tr -d $'\n' | tr -d $'\r')"
-        virtualenv_token=" ${virtualenv_name::-9} "
+
+        # Running inside a local project environment created by Poetry
+        if [[ "${VIRTUAL_ENV}" == *".venv"* ]]; then
+                virtualenv_name="$(echo "${VIRTUAL_ENV}" | rev | cut -c7- | rev | xargs basename | tr -d $'\n' | tr -d $'\r')"
+
+        # Running inside an environment created by Pipenv or Poetry outside of the project directory
+        else
+                loca virtualenv_name
+                virtualenv_name="$(basename "${VIRTUAL_ENV}" | tr -d $'\n' | tr -d $'\r')"
+                virtualenv_name="${virtualenv_name::-9}"
+        fi
+
+        virtualenv_token=" ${virtualenv_name} "
     fi
 
     echo -n "${git_token}${virtualenv_token}"
