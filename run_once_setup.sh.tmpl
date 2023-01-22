@@ -154,6 +154,7 @@ killall Dock
     neovim \
     nmap \
     nodejs \
+    openscad \
     pdm \
     python \
     pipenv \
@@ -165,7 +166,7 @@ killall Dock
     yarn
 
 # Generate missing completion scripts
-mkdir ~/.bash/completions
+mkdir -p ~/.bash/completions
 pdm completion bash > ~/.bash/completions/pdm.bash-completion
 
 # Initialise Rust
