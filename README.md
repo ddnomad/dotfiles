@@ -11,7 +11,9 @@ Screenshots
 
 Supported Platforms
 -------------------
-The main focus is Arch Linux support, as that's what dd prefers for development 9 times out of 10. MacOS and Windows are treated as a second class citizen, hence things will most probably be broken, outdated or far from being ideal.
+~~The main focus is Arch Linux support, as that's what dd prefers for development 9 times out of 10. MacOS and Windows are treated as a second class citizen, hence things will most probably be broken, outdated or far from being ideal.~~
+
+The main focus is now shifted to MacOS, as Apple Silicon Macs are too good to ignore. Arch Linux support is still in place and will be maintained long-term, albeit without much in terms of planned changes / improvements.
 
 | Platform                                               | Chassis Types             | Desktop Environments | Support Tier                    |
 | ------------------------------------------------------ | ------------------------- | -------------------- | ------------------------------- |
