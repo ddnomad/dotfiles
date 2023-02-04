@@ -54,6 +54,7 @@ paru --needed -S \
     python-coloredlogs \
     python-flake8-docstrings \
     python-neovim \
+    python-pdm \
     python-pip \
     python-pipenv \
     python-pycodestyle \
@@ -165,10 +166,6 @@ killall Dock
     tree \
     yarn
 
-# Generate missing completion scripts
-mkdir -p ~/.bash/completions
-pdm completion bash > ~/.bash/completions/pdm.bash-completion
-
 # Initialise Rust
 /opt/homebrew/bin/rustup-init
 
@@ -245,3 +242,16 @@ git config --global user.name "{{ .user.name }}"
 rustup install nightly
 rustup install stable
 rustup default nightly
+
+# Install basic Rust dependencies
+cargo install cargo-make
+
+# Generate missing completion scripts
+mkdir -p ~/.bash/completions
+
+pdm completion bash > ~/.bash/completions/pdm.bash-completion
+
+find ~/.cargo/registry/src/ -type d -name 'cargo-make-*' | \
+    tail -n 1 | \
+    xargs -I{} cat {}/extra/shell/makers-completion.bash > ~/.bash/completions/cargo_make.bash-completion
+

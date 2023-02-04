@@ -15,8 +15,8 @@ The main focus is Arch Linux support, as that's what dd prefers for development 
 
 | Platform                                               | Chassis Types             | Desktop Environments | Support Tier                    |
 | ------------------------------------------------------ | ------------------------- | -------------------- | ------------------------------- |
-| [Arch Linux](https://www.archlinux.org)                | Laptop / Desktop / VMWare | i3wm / KDE Plasma    | Tier 1 - Actively maintained    |
-| [MacOS](https://www.apple.com/macos)                   | Laptop / Desktop          | Aqua                 | Tier 2 - Best Effort            |
+| [MacOS](https://www.apple.com/macos)                   | Laptop / Desktop          | Aqua                 | Tier 1 - Actively Maintained    |
+| [Arch Linux](https://www.archlinux.org)                | Laptop / Desktop / VMWare | i3wm / KDE Plasma    | Tier 2 - Best Effort            |
 | [Windows 10](https://en.wikipedia.org/wiki/Windows_10) | Desktop                   | Windows Shell        | Tier 3 - Low Effort / Barebones |
 
 Prerequisites
