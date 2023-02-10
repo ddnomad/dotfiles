@@ -1,3 +1,4 @@
+asvetliakov.vscode-neovim
 bungcip.better-toml
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
@@ -12,7 +13,7 @@ gruntfuggly.todo-tree
 GraphQL.vscode-graphql
 
 # NOTE: Customize UI is broken in the latest version of VS Code.
-# See https://github.com/iocave/customize-ui/issues/156
+# See https://github.com/iocave/customize-ui/issues/156.
 # iocave.customize-ui
 # iocave.monkey-patch
 
@@ -43,4 +44,7 @@ styled-components.vscode-styled-components
 timonwong.shellcheck
 trond-snekvik.simple-rst
 usernamehw.errorlens
-vscodevim.vim
+
+# NOTE: Switched to VSCode Neovim plugin due to an undo bug.
+# See https://github.com/VSCodeVim/Vim/issues/8157.
+# vscodevim.vim

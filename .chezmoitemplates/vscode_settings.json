@@ -48,7 +48,7 @@
 	],
 
 	// NOTE: Customize UI is broken in the latest version of VS Code.
-	// See https://github.com/iocave/customize-ui/issues/156
+	// See https://github.com/iocave/customize-ui/issues/156.
 	// "customizeUI.activityBar": "bottom",
 	// "customizeUI.activityBarHideSettings": true,
 	// "customizeUI.listRowHeight": 20,
@@ -95,6 +95,10 @@
 
   "explorer.compactFolders": false,
 
+	"extensions.experimental.affinity": {
+		"asvetliakov.vscode-neovim": 1
+	},
+
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
 
@@ -134,14 +138,20 @@
 	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 	"terminal.integrated.shellIntegration.enabled": false,
 
-	"vim.cursorStylePerMode.insert": "underline",
-	"vim.cursorStylePerMode.normal": "underline",
-	"vim.cursorStylePerMode.replace": "underline",
-	"vim.cursorStylePerMode.visual": "underline",
-	"vim.cursorStylePerMode.visualblock": "underline",
-	"vim.cursorStylePerMode.visualline": "underline",
-	"vim.incsearch": true,
-	"vim.useSystemClipboard": true,
+	// NOTE: Switched to VSCode Neovim plugin due to an undo bug.
+	// See https://github.com/VSCodeVim/Vim/issues/8157.
+	// "vim.cursorStylePerMode.insert": "underline",
+	// "vim.cursorStylePerMode.normal": "underline",
+	// "vim.cursorStylePerMode.replace": "underline",
+	// "vim.cursorStylePerMode.visual": "underline",
+	// "vim.cursorStylePerMode.visualblock": "underline",
+	// "vim.cursorStylePerMode.visualline": "underline",
+	// "vim.incsearch": true,
+	// "vim.useSystemClipboard": true,
+
+	"vscode-neovim.neovimInitVimPaths.darwin": "~/Library/Application Support/Code/User/neovim_settings.lua",
+	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/Code/User/neovim_settings.lua",
+	"vscode-neovim.neovimInitVimPaths.win32": "~/AppData/Roaming/Code/User/neovim_settings.lua",
 
 	"window.customMenuBarAltFocus": false,
 	"window.titleBarStyle": "custom",
