@@ -135,8 +135,14 @@ mouse:
   {{ end }}
 
 {{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
+
 # Full list of available key codes:
 # https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#
+# On MacOS: Run `showkey` outside of Tmux (e.g. in a default terminal app),
+# type in a key combination (e.g. Ctrl+L), receive output like <CTL-L=FF>,
+# look up hex code for the ASCII mnemonic on https://www.asciitable.com
+# (for <CTL-L=FF> it is \x0c), then use it as a value for `chars`.
 key_bindings:
   - key: Key0
     mods: {{ .alacritty.mod1 }}
@@ -168,79 +174,89 @@ key_bindings:
     action: ClearLogNotice
   - key: L
     mods: Control
-    chars: "\x0c"
+    chars: "\x0c" # <CTRL-A>l
 
   # Tmux bridge bindings
+  # Move between panes like in i3wm
   - key: J
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x6a"
+    chars: "\x01\x6a" # <CTRL-A>-j
   - key: K
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x6b"
+    chars: "\x01\x6b" # <CTRL-A>-k
   - key: H
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x68"
+    chars: "\x01\x68" # <CTRL-A>-h
   - key: L
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x6c"
+    chars: "\x01\x6c" # <CTRL-A>-l
 
+  # Resize panes like similarly to i3wm
   - key: J
     mods: {{ .alacritty.mod1 }}|Shift
-    chars: "\x01\x4a"
+    chars: "\x01\x4a" # <CTRL-A>-J
   - key: K
     mods: {{ .alacritty.mod1 }}|Shift
-    chars: "\x01\x4b"
+    chars: "\x01\x4b" # <CTRL-A>-K
   - key: H
     mods: {{ .alacritty.mod1 }}|Shift
-    chars: "\x01\x48"
+    chars: "\x01\x48" # <CTRL-A>-H
   - key: L
     mods: {{ .alacritty.mod1 }}|Shift
-    chars: "\x01\x4c"
+    chars: "\x01\x4c" # <CTRL-A>-L
   # See: https://github.com/alacritty/alacritty/issues/1359
   - key: Q
     mods: Control
-    chars: "\x11"
+    chars: "\x11" # Magic
 
-  # TODO: Bridge for closing Tmux windows (tabs)
-  # Default Tmux shortcut: ^&
-
+  # Jump to a window with a given number
   - key: Key0
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x30"
+    chars: "\x01\x30" # <CTRL-A>-0
   - key: Key1
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x31"
+    chars: "\x01\x31" # <CTRL-A>-1
   - key: Key2
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x32"
+    chars: "\x01\x32" # <CTRL-A>-2
   - key: Key3
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x33"
+    chars: "\x01\x33" # <CTRL-A>-3
   - key: Key4
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x34"
+    chars: "\x01\x34" # <CTRL-A>-4
   - key: Key5
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x35"
+    chars: "\x01\x35" # <CTRL-A>-5
   - key: Key6
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x36"
+    chars: "\x01\x36" # <CTRL-A>-6
   - key: Key7
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x37"
+    chars: "\x01\x37" # <CTRL-A>-7
   - key: Key8
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x38"
+    chars: "\x01\x38" # <CTRL-A>-8
   - key: Key9
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x39"
+    chars: "\x01\x39" # <CTRL-A>-9
 
+  # Open a new tmux window
   - key: T
     mods: {{ .alacritty.mod1 }}
-    chars: "\x01\x74"
+    chars: "\x01\x74" # <CTRL-A>-t
+
+  # Close a current tmux window
   - key: T
     mods: {{ .alacritty.mod1 }}|Shift
-    chars: "\x01\x54"
+    chars: "\x01\x54" # <CTRL-A>-T
+
+  # Close a current tmux pane
+  # (will not ask for a confirmation due
+  # to a custom tmux config)
+  - key: X
+    mods: {{ .alacritty.mod1 }}
+    chars: "\x01\x78" # <CTRL-A>-x
 
   # Disabled bindings
   - key: F
