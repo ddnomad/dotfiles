@@ -1,0 +1,62 @@
+{
+    "control":[
+        { "VTOY_TREE_VIEW_MENU_STYLE": "1" },
+        { "VTOY_DEFAULT_SEARCH_ROOT": "/iso" }
+    ],
+    "theme":{
+        "file": "/ventoy/themes/ventoy_dark/theme.txt",
+        "ventoy_color": "white"
+    },
+    "menu_alias":[
+        {
+            "image": "/iso/os/linux/archlinux-****.**.**-x86_64.iso",
+            "alias": "Arch Linux x86_64"
+        },
+        {
+            "image": "/iso/os/linux/debian-live-11.*.*-amd64-kde.iso",
+            "alias": "Debian 11 x86_64 (Live, KDE)"
+        },
+        {
+            "image": "/iso/os/windows/Win10_****_English_x64.iso",
+            "alias": "Windows 10 x86_64"
+        },
+        {
+            "image": "/iso/os/windows/Win11_****_English_x64**.iso",
+            "alias": "Windows 11 x86_64"
+        },
+        {
+            "image": "/iso/support/dell/PET420_BOOTABLE_************.iso",
+            "alias": "Dell PSBI (PowerEdge T420)"
+        },
+        {
+            "image": "/iso/utilities/memtest86-pro-usb.img",
+            "alias": "MemTest86 Pro"
+        }
+    ],
+    "menu_class":[
+        {
+            "key": "archlinux",
+            "class": "archlinux"
+        },
+        {
+            "key": "debian",
+            "class": "debian"
+        },
+        {
+            "key": "Win10",
+            "class": "windows"
+        },
+        {
+            "key": "Win11",
+            "class": "windows11"
+        },
+        {
+            "parent": "/iso/support/dell",
+            "class": "dell"
+        },
+        {
+            "key": "memtest86",
+            "class": "memtest"
+        }
+    ]
+}
