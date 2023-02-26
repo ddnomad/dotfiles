@@ -138,6 +138,8 @@
 	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 	"terminal.integrated.shellIntegration.enabled": false,
 
+	"telemetry.telemetryLevel": "off",
+
 	// NOTE: Switched to VSCode Neovim plugin due to an undo bug.
 	// See https://github.com/VSCodeVim/Vim/issues/8157.
 	// "vim.cursorStylePerMode.insert": "underline",
