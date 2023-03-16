@@ -6,6 +6,7 @@ codecamel.json-viewer
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 editorconfig.editorconfig
+exiasr.hadolint
 fabiospampinato.vscode-commands
 formulahendry.code-runner
 golf1052.base16-generator
