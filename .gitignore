@@ -1,0 +1,14 @@
+# Obsidian vault configuration that does not contain sensitive information
+docs/.obsidian/*
+!docs/.obsidian/app.json
+!docs/.obsidian/appearance.json
+!docs/.obsidian/core-plugins.json
+!docs/.obsidian/core-plugins-migration.json
+!docs/.obsidian/hotkeys.json
+!docs/.obsidian/templates.json
+
+# Temporary directory
+temp/
+
+# Temporary files
+.DS_Store

@@ -1,0 +1,21 @@
+[config]
+skip_core_tasks = true
+unstable_features = ["CTRL_C_HANDLING"]
+
+[tasks.docs]
+dependencies = [
+  "install_obsidian_community_plugins",
+  "install_obsidian_themes"
+]
+
+[tasks.install_obsidian_community_plugins]
+script_runner = "@shell"
+script = """
+./scripts/install_obsidian_community_plugins.sh ./docs/.obsidian_community_plugins.txt ./docs/.obsidian/
+"""
+
+[tasks.install_obsidian_themes]
+script_runner = "@shell"
+script = """
+./scripts/install_obsidian_themes.sh ./docs/.obsidian_themes.txt ./docs/.obsidian/
+"""

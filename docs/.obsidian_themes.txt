@@ -1,0 +1,4 @@
+Things
+
+# The last theme is automatically set as the default theme
+Minimal
