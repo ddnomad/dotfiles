@@ -70,8 +70,8 @@
     { "key": "{{ .vscode.mod1 }}+9", "command": "", "when": "sideBarFocus" },
 
     // Cycle between terminal tabs
-    { "key": "ctrl+j", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
-    { "key": "ctrl+k", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
+    { "key": "ctrl+j", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus && activeEditor != 'terminalEditor'" },
+    { "key": "ctrl+k", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus && activeEditor != 'terminalEditor'" },
 
     // Switching between problems, output, terminal etc. tabs
     {{ if eq .chezmoi.os "darwin" }}
