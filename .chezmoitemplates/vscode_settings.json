@@ -118,7 +118,8 @@
 		"mccabe,pycodestyle,pydocstyle,pyflakes,pylint"
 	],
 
-  "redhat.telemetry.enabled": false,
+	"redhat.telemetry.enabled": false,
+	"svgPreview.autoOpen": false,
 
 	"terminal.external.linuxExec": "alacritty",
 	"terminal.external.osxExec": "Alacritty.app",

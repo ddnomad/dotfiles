@@ -39,6 +39,7 @@ njpwerner.autodocstring
 redhat.vscode-xml
 redhat.vscode-yaml
 rust-lang.rust-analyzer
+simonsiefke.svg-preview
 slevesque.vscode-3dviewer
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
