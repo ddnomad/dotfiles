@@ -21,6 +21,12 @@ readonly GCAL_ICON_PATH
 GMAIL_ICON_PATH="${ICONS_PATH}/gmail.icns"
 readonly GMAIL_ICON_PATH
 
+MONKEYTYPE_ICON_PATH="${ICONS_PATH}/monkeytype.icns"
+readonly MONKEYTYPE_ICON_PATH
+
+MONKEYTYPE_STYLESHEET_PATH="${STYLESHEETS_PATH}/monkeytype.css"
+readonly MONKEYTYPE_STYLESHEET_PATH
+
 PROTONMAIL_ICON_PATH="${ICONS_PATH}/protonmail.icns"
 readonly PROTONMAIL_ICON_PATH
 
@@ -121,6 +127,13 @@ function main {
             exit 1
         fi
     fi
+
+    gen_native_app \
+        'Monkeytype' \
+        "${MONKEYTYPE_ICON_PATH}" \
+        "${MONKEYTYPE_STYLESHEET_PATH}" \
+        '#181818' \
+        'https://monkeytype.com'
 
     gen_native_app \
         'Google Calendar' \

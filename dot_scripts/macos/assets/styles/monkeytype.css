@@ -1,0 +1,16 @@
+#centerContent {
+  -webkit-app-region: drag;
+}
+
+#centerContent #top {
+  -webkit-app-region: no-drag;
+}
+
+#centerContent #middle {
+  -webkit-app-region: no-drag;
+}
+
+#centerContent #bottom {
+  -webkit-app-region: no-drag;
+}
+
