@@ -1,7 +1,8 @@
 {
     "control":[
-        { "VTOY_TREE_VIEW_MENU_STYLE": "1" },
-        { "VTOY_DEFAULT_SEARCH_ROOT": "/iso" }
+        { "VTOY_DEFAULT_SEARCH_ROOT": "/iso" },
+        { "VTOY_DEFAULT_MENU_MODE": "1" },
+        { "VTOY_TREE_VIEW_MENU_STYLE": "0" }
     ],
     "theme":{
         "file": "/ventoy/themes/ventoy_dark/theme.txt",
@@ -15,6 +16,10 @@
         {
             "image": "/iso/os/linux/debian-live-11.*.*-amd64-kde.iso",
             "alias": "Debian 11 x86_64 (Live, KDE)"
+        },
+        {
+            "image": "/iso/os/linux/tails-amd64-*.**.*.img",
+            "alias": "Tails OS x86_64"
         },
         {
             "image": "/iso/os/windows/Win10_****_English_x64.iso",
@@ -41,6 +46,10 @@
         {
             "key": "debian",
             "class": "debian"
+        },
+        {
+            "key": "tails",
+            "class": "tails"
         },
         {
             "key": "Win10",
