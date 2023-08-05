@@ -65,6 +65,8 @@
 	"editor.cursorStyle": "underline",
 	"editor.fontSize": 12,
 	"editor.fontFamily": "Hack Nerd Font Mono",
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
 	"editor.hideCursorInOverviewRuler": true,
 	"editor.lineNumbers": "relative",
 	"editor.minimap.enabled": false,
@@ -119,6 +121,7 @@
 	],
 
 	"redhat.telemetry.enabled": false,
+	"rust-analyzer.rustfmt.enableRangeFormatting": true,
 	"svgPreview.autoOpen": false,
 
 	"terminal.external.linuxExec": "alacritty",
@@ -217,6 +220,11 @@
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabSizing": "shrink",
 	"workbench.panel.defaultLocation": "right",
-	"workbench.tree.indent": 16
+	"workbench.tree.indent": 16,
+
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer",
+		"editor.formatOnSave": true
+	}
 }
 

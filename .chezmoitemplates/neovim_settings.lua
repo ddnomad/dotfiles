@@ -7,13 +7,13 @@ RELOAD_CONFIG_COMMAND = string.format(':source %s | echo "[+] Reloaded NeoVim co
 vim.g.mapleader = ';'
 
 -- Keymap to manually reload configuration
-vim.keymap.set('n', '<leader>r', RELOAD_CONFIG_COMMAND, {silent = true})
+vim.keymap.set('n', '<leader>r', RELOAD_CONFIG_COMMAND, { silent = true })
 
 -- Mappings for commenting out lines of code in different Vim modes
-vim.keymap.set('n', 'gcc', '<Plug>VSCodeCommentaryLine', {silent = true})
-vim.keymap.set('n', 'gc', '<Plug>VSCodeCommentary', {silent = true})
-vim.keymap.set('o', 'gc', '<Plug>VSCodeCommentary', {silent = true})
-vim.keymap.set('x', 'gc', '<Plug>VSCodeCommentary', {silent = true})
+vim.keymap.set('n', 'gcc', "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>", { silent = true })
+vim.keymap.set('n', 'gc', "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>", { silent = true })
+vim.keymap.set('o', 'gc', "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>", { silent = true })
+vim.keymap.set('x', 'gc', "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>", { silent = true })
 
 -- Use system's clipboard by default on all platforms
 {{ if eq .chezmoi.os "darwin" }}
