@@ -18,16 +18,16 @@
             "alias": "Debian 11 x86_64 (Live, KDE)"
         },
         {
+            "image": "/iso/os/linux/HoloISO_*.*_OfflineInstaller-********_****-x86_64.iso",
+            "alias": "Holo ISO x86_64 (Offline Installer)"
+        },
+        {
+            "image": "/iso/os/linux/Lakka-Generic.x86_64-*.*.img",
+            "alias": "Lakka Generic x86_64"
+        },
+        {
             "image": "/iso/os/linux/tails-amd64-*.**.*.img",
             "alias": "Tails OS x86_64"
-        },
-        {
-            "image": "/iso/os/windows/Win10_****_English_x64.iso",
-            "alias": "Windows 10 x86_64"
-        },
-        {
-            "image": "/iso/os/windows/Win11_****_English_x64**.iso",
-            "alias": "Windows 11 x86_64"
         },
         {
             "image": "/iso/support/dell/PET420_BOOTABLE_************.iso",
@@ -36,6 +36,14 @@
         {
             "image": "/iso/utilities/memtest86-pro-usb.img",
             "alias": "MemTest86 Pro"
+        },
+        {
+            "image": "/iso/os/windows/Win10_****_English_x64.iso",
+            "alias": "Windows 10 x86_64"
+        },
+        {
+            "image": "/iso/os/windows/Win11_****_English_x64**.iso",
+            "alias": "Windows 11 x86_64"
         }
     ],
     "menu_class":[
@@ -46,6 +54,14 @@
         {
             "key": "debian",
             "class": "debian"
+        },
+        {
+            "key": "holoiso",
+            "class": "holoiso"
+        },
+        {
+            "key": "lakka",
+            "class": "lakka"
         },
         {
             "key": "tails",
