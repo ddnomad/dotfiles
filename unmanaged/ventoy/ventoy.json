@@ -13,6 +13,11 @@
             "image": "/iso/os/linux/archlinux-****.**.**-x86_64.iso",
             "alias": "Arch Linux x86_64"
         },
+
+        {
+            "image": "/iso/os/linux/chimeraos-****.**.**-x86_64.iso",
+            "alias": "ChimeraOS x86_64"
+        },
         {
             "image": "/iso/os/linux/debian-live-11.*.*-amd64-kde.iso",
             "alias": "Debian 11 x86_64 (Live, KDE)"
@@ -50,6 +55,10 @@
         {
             "key": "archlinux",
             "class": "archlinux"
+        },
+        {
+            "key": "chimeraos",
+            "class": "chimeraos"
         },
         {
             "key": "debian",
