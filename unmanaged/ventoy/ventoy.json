@@ -13,7 +13,6 @@
             "image": "/iso/os/linux/archlinux-****.**.**-x86_64.iso",
             "alias": "Arch Linux x86_64"
         },
-
         {
             "image": "/iso/os/linux/chimeraos-****.**.**-x86_64.iso",
             "alias": "ChimeraOS x86_64"
@@ -35,12 +34,20 @@
             "alias": "Tails OS x86_64"
         },
         {
+            "image": "/iso/os/unix/sol-**.*-text-x86.dms.iso",
+            "alias": "Solaris 11 x86_64"
+        },
+        {
             "image": "/iso/support/dell/PET420_BOOTABLE_************.iso",
             "alias": "Dell PSBI (PowerEdge T420)"
         },
         {
             "image": "/iso/utilities/memtest86-pro-usb.img",
             "alias": "MemTest86 Pro"
+        },
+        {
+            "image": "/iso/utilities/pmagic_****_**_**.iso",
+            "alias": "Parted Magic"
         },
         {
             "image": "/iso/os/windows/Win10_****_English_x64.iso",
@@ -71,6 +78,14 @@
         {
             "key": "Lakka",
             "class": "lakka"
+        },
+        {
+            "key": "pmagic",
+            "class": "pmagic"
+        },
+        {
+            "key": "sol-",
+            "class": "solaris"
         },
         {
             "key": "tails",
