@@ -34,7 +34,7 @@
             "alias": "Tails OS x86_64"
         },
         {
-            "image": "/iso/os/unix/sol-**.*-text-x86.dms.iso",
+            "image": "/iso/os/unix/sol-**_*-text-x86.dms.iso",
             "alias": "Solaris 11 x86_64"
         },
         {
