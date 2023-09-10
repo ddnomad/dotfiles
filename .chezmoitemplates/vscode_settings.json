@@ -159,6 +159,7 @@
 	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/Code/User/neovim_settings.lua",
 	"vscode-neovim.neovimInitVimPaths.win32": "~/AppData/Roaming/Code/User/neovim_settings.lua",
 
+	"window.commandCenter": false,
 	"window.customMenuBarAltFocus": false,
 	"window.titleBarStyle": "custom",
 
