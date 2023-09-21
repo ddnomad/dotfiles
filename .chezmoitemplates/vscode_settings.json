@@ -121,7 +121,10 @@
 	],
 
 	"redhat.telemetry.enabled": false,
+
+	"rust-analyzer.checkOnSave.command": "clippy",
 	"rust-analyzer.rustfmt.enableRangeFormatting": true,
+
 	"svgPreview.autoOpen": false,
 
 	"terminal.external.linuxExec": "alacritty",
