@@ -18,6 +18,7 @@ GraphQL.vscode-graphql
 # iocave.customize-ui
 # iocave.monkey-patch
 
+jakeboone02.cypher-query-language
 leathong.openscad-language-support
 lextudio.restructuredtext
 littlefoxteam.vscode-python-test-adapter
