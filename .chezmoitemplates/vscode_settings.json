@@ -107,6 +107,9 @@
 	"git.decorations.enabled": false,
 
 	"python.analysis.typeCheckingMode": "strict",
+  "python.analysis.diagnosticSeverityOverrides": {
+		"reportUnknownVariableType": "warning"
+	},
 
 	"redhat.telemetry.enabled": false,
 
