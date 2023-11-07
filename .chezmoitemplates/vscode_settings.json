@@ -106,19 +106,7 @@
 
 	"git.decorations.enabled": false,
 
-	"python.analysis.typeCheckingMode": "basic",
-	"python.linting.lintOnSave": true,
-
-	"python.linting.flake8Enabled": false,
-	"python.linting.pycodestyleEnabled": false,
-	"python.linting.pydocstyleEnabled": false,
-	"python.linting.pylintEnabled": false,
-
-	"python.linting.pylamaEnabled": true,
-	"python.linting.pylamaArgs": [
-		"--linters",
-		"mccabe,pycodestyle,pydocstyle,pyflakes,pylint"
-	],
+	"python.analysis.typeCheckingMode": "strict",
 
 	"redhat.telemetry.enabled": false,
 
