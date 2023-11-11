@@ -50,6 +50,10 @@
             "alias": "Parted Magic"
         },
         {
+            "image": "/iso/os/linux/TrueNAS-SCALE-**.**.**.**.iso",
+            "alias": "TrueNAS Scale"
+        },
+        {
             "image": "/iso/os/windows/Win10_****_English_x64.iso",
             "alias": "Windows 10 x86_64"
         },
@@ -89,6 +93,10 @@
         },
         {
             "key": "tails",
+            "class": "tails"
+        },
+        {
+            "key": "TrueNAS",
             "class": "tails"
         },
         {
