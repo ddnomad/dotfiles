@@ -39,7 +39,9 @@
 
     // Fix for a default action being "Rename File" on MacOS when pressing Enter on a selected file when navigating Explorer pane
     {{ if eq .chezmoi.os "darwin" }}
-    { "key": "enter", "command": "-renameFile", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
+    // NOTE: Seems to make no difference as of 2023-11-08
+    //{ "key": "enter", "command": "-renameFile", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
+    { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus" },
     {{ end }}
 
     // TODO: Shortcut for renaming files in the Explorer (was a default when pressing Enter on MacOS)
