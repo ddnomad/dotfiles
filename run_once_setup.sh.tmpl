@@ -24,6 +24,7 @@ paru --needed -S \
     bash-completion \
     bumblebee-status \
     chezmoi \
+    dkms \
     dmenu \
     dnsutils \
     eslint \
@@ -38,6 +39,7 @@ paru --needed -S \
     inetutils \
     jq \
     kwallet-pam \
+    linux-headers \
     lua \
     luacheck \
     usbutils \
@@ -48,6 +50,7 @@ paru --needed -S \
     neovim \
     nerd-fonts-hack \
     nmap \
+    nvme-cli \
     openssh \
     pam_autologin \
     picom \
@@ -67,6 +70,8 @@ paru --needed -S \
     ruby-sqlint \
     rustup \
     shellcheck \
+    sg3_utils \
+    smartmontools \
     standard \
     tmux \
     tree \
@@ -81,7 +86,8 @@ paru --needed -S \
     xorg-xinit \
     xorg-xprop \
     yarn \
-    wget
+    wget \
+    zfs-dkms
 
 {{ if eq .host.chassis_type "vm" }}
 if ! command -v vmware-user-suid-wrapper &> /dev/null; then
@@ -163,6 +169,7 @@ killall Dock
     nmap \
     nodejs \
     openscad \
+    openzfs \
     pdm \
     python \
     pipenv \
