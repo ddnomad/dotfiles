@@ -110,7 +110,8 @@
   "python.analysis.diagnosticSeverityOverrides": {
 		"reportUnknownMemberType": "warning",
 		"reportUnknownVariableType": "warning",
-		"reportUnusedImport": "warning"
+		"reportUnusedImport": "warning",
+		"reportUnusedVariable": "warning"
 	},
 
 	"redhat.telemetry.enabled": false,
