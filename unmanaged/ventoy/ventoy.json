@@ -30,8 +30,16 @@
             "alias": "Lakka Generic x86_64"
         },
         {
+            "image": "/iso/os/linux/proxmox-ve_*.*-*.iso",
+            "alias": "ProxMox"
+        },
+        {
             "image": "/iso/os/linux/tails-amd64-*.**.*.img",
             "alias": "Tails OS x86_64"
+        },
+        {
+            "image": "/iso/os/linux/TrueNAS-SCALE-**.**.**.**.iso",
+            "alias": "TrueNAS Scale"
         },
         {
             "image": "/iso/os/unix/sol-**_*-text-x86.dms.iso",
@@ -48,10 +56,6 @@
         {
             "image": "/iso/utilities/pmagic_****_**_**.iso",
             "alias": "Parted Magic"
-        },
-        {
-            "image": "/iso/os/linux/TrueNAS-SCALE-**.**.**.**.iso",
-            "alias": "TrueNAS Scale"
         },
         {
             "image": "/iso/os/windows/Win10_****_English_x64.iso",
@@ -86,6 +90,10 @@
         {
             "key": "pmagic",
             "class": "pmagic"
+        },
+        {
+            "key": "proxmox",
+            "class": "proxmox"
         },
         {
             "key": "sol-",
