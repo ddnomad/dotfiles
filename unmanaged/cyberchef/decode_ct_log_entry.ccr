@@ -1,0 +1,3 @@
+From_Base64('A-Za-z0-9+/=',true,false)
+Drop_bytes(0,15,false)
+Parse_X.509_certificate('Raw')
