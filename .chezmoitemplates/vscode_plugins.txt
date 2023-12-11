@@ -1,5 +1,6 @@
 asvetliakov.vscode-neovim
 bungcip.better-toml
+bradlc.vscode-tailwindcss
 charliermarsh.ruff
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
