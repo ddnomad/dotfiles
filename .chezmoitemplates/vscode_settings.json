@@ -106,6 +106,8 @@
 
 	"git.decorations.enabled": false,
 
+	"notebook.navigation.allowNavigateToSurroundingCells": false,
+
 	"python.analysis.typeCheckingMode": "strict",
   "python.analysis.diagnosticSeverityOverrides": {
 		"reportUnknownMemberType": "warning",
