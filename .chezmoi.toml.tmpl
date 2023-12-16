@@ -14,7 +14,7 @@
 {{- end -}}
 
 {{- $userEmail := "" -}}
-{{- if (hasKey .user "email") -}}
+{{- if and (hasKey . "user") (hasKey .user "email") -}}
 {{-   $userEmail = .user.email -}}
 {{- else -}}
 {{-   $userEmail = promptString "email" -}}
