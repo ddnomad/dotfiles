@@ -143,16 +143,14 @@
 
 	"telemetry.telemetryLevel": "off",
 
-	// NOTE: Switched to VSCode Neovim plugin due to an undo bug.
-	// See https://github.com/VSCodeVim/Vim/issues/8157.
-	// "vim.cursorStylePerMode.insert": "underline",
-	// "vim.cursorStylePerMode.normal": "underline",
-	// "vim.cursorStylePerMode.replace": "underline",
-	// "vim.cursorStylePerMode.visual": "underline",
-	// "vim.cursorStylePerMode.visualblock": "underline",
-	// "vim.cursorStylePerMode.visualline": "underline",
-	// "vim.incsearch": true,
-	// "vim.useSystemClipboard": true,
+	"vim.cursorStylePerMode.insert": "underline",
+	"vim.cursorStylePerMode.normal": "underline",
+	"vim.cursorStylePerMode.replace": "underline",
+	"vim.cursorStylePerMode.visual": "underline",
+	"vim.cursorStylePerMode.visualblock": "underline",
+	"vim.cursorStylePerMode.visualline": "underline",
+	"vim.incsearch": true,
+	"vim.useSystemClipboard": true,
 
 	"vscode-neovim.neovimInitVimPaths.darwin": "~/Library/Application Support/Code/User/neovim_settings.lua",
 	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/Code/User/neovim_settings.lua",
