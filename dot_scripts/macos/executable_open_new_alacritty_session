@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-
 OSASCRIPT_GET_ALACRITTY_WINDOWS="$(cat <<EOF
 tell application "System Events" to set alacritty_windows to get the title of every window of process "Alacritty"
 
@@ -34,7 +33,7 @@ function main {
     # NOTE: May fail on the first run and ask for assistive access permission for a parent process (which would be Alacritty,
     # if used as part of ~/.config/alacritty/alacritty.yml configuration).
     local alacritty_windows
-    alacritty_windows="$(osascript -e "${OSASCRIPT_GET_ALACRITTY_WINDOWS}")"
+    alacritty_windows="$(osascript -e "${OSASCRIPT_GET_ALACRITTY_WINDOWS}" | grep -v "^$")"
 
     local alacritty_windows_number
     alacritty_windows_number="$(echo "${alacritty_windows}" | wc -l)"
