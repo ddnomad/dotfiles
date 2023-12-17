@@ -7,6 +7,7 @@ window:
 
   # Spread additional padding evenly around the terminal content
   dynamic_padding: false
+  dynamic_title: true
 
   {{ if eq .chezmoi.os "darwin" }}
   padding:
@@ -119,7 +120,7 @@ shell:
     - --login
     - -c
     {{ if eq .chezmoi.os "darwin" }}
-    - /opt/homebrew/bin/tmux -u attach || /opt/homebrew/bin/tmux -u -f ~/.config/tmux/tmux.conf
+    - ~/.scripts/macos/open_new_alacritty_session
     {{ else }}
     - tmux -u attach || tmux -u -f ~/.config/tmux/tmux.conf
     {{ end }}

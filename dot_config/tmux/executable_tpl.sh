@@ -3,7 +3,8 @@ set -euo pipefail
 
 TPL_SED=gsed
 if ! command -v gsed &> /dev/null; then
-TPL_SED=sed
+    # shellcheck disable=SC2209
+    TPL_SED=sed
 fi
 readonly TPL_SED
 
