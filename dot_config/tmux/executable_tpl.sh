@@ -11,7 +11,7 @@ readonly TPL_SED
 readonly TPL_DIR="${HOME}/.config/tmux/tpl"
 readonly TPL_ORIGIN=https://github.com/erikw/tmux-powerline.git
 # shellcheck disable=SC2016
-readonly TPL_OLD_CFG='$HOME/.tmux-powerlinerc'
+readonly TPL_OLD_CFG='${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/config.sh'
 # shellcheck disable=SC2016
 readonly TPL_NEW_CFG='$HOME/.config/tmux/tpl.conf'
 readonly TPL_PATHS_FILE="${TPL_DIR}/config/paths.sh"

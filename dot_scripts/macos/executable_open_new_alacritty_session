@@ -36,10 +36,10 @@ function main {
     alacritty_windows="$(osascript -e "${OSASCRIPT_GET_ALACRITTY_WINDOWS}" | grep -v "^$")"
 
     local alacritty_windows_number
-    alacritty_windows_number="$(echo "${alacritty_windows}" | wc -l)"
+    alacritty_windows_number="$(echo "${alacritty_windows}" | wc -l | xargs)"
 
     local tmux_session_name
-    tmux_session_name="${TMUX_SESSION_NAME_TPL/<I>/"${alacritty_windows_number}"}"
+    tmux_session_name="${TMUX_SESSION_NAME_TPL/<I>/${alacritty_windows_number}}"
 
     "${TMUX_EXEC_PATH}" -u attach -t "${tmux_session_name}" || \
         "${TMUX_EXEC_PATH}" -u -f "${TMUX_CONFIG_PATH}" new-session -s "${tmux_session_name}"
