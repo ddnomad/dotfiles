@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+""".
+
+Source: https://bbs.archlinux.org/viewtopic.php?pid=796376#p796376
+"""
+
+fg = "\033[38;5;"
+bg = "\033[48;5;"
+
+for i in range(0, 256):
+    n = str(i)
+    fgstr = fg + n + "m" + n
+    bgstr = bg + n + "m" "XXXXX"
+    print(fgstr, bgstr, "\033[0m")

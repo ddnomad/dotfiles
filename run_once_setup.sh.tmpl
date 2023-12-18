@@ -264,6 +264,9 @@ rustup default nightly
 # Install basic Rust dependencies
 cargo install cargo-make
 
+# Install TPM (Tmux Plugin Manager)
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm &> /dev/null || :
+
 # Generate missing completion scripts
 mkdir -p ~/.bash/completions
 
