@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Show which segment fails and its exit code
 export TMUX_POWERLINE_DEBUG_MODE_ENABLED="true"
 # Use patched font symbols
@@ -20,7 +22,7 @@ export TMUX_POWERLINE_STATUS_INTERVAL="1"
 export TMUX_POWERLINE_STATUS_JUSTIFICATION="absolute-centre"
 
 # The maximum length of the left status bar.
-export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
+export TMUX_POWERLINE_STATUS_LEFT_LENGTH="180"
 # The maximum length of the right status bar.
 export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
 
