@@ -2,7 +2,7 @@
 set -euo pipefail
 
 OSASCRIPT_GET_ALACRITTY_WINDOWS="$(cat <<EOF
-tell application "System Events" to set alacritty_windows to get the title of every window of process "Alacritty"
+tell application "System Events" to set alacritty_windows to get the title of every window of process "alacritty"
 
 set output to ""
 repeat with window_name in alacritty_windows
