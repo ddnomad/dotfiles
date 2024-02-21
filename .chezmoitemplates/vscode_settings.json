@@ -59,6 +59,8 @@
 	//	".monaco-icon-label:after": "opacity: 1.0 !important;"
 	//},
 
+  "data.preview.theme": "dense.dark",
+
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingDelete": "never",
 	"editor.autoClosingQuotes": "never",
