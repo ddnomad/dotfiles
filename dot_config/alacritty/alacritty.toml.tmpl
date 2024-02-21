@@ -1,0 +1,364 @@
+live_config_reload = true
+
+[bell]
+duration = 0
+
+[[colors.indexed_colors]]
+color = "0xdc9656"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xa16946"
+index = 17
+
+[[colors.indexed_colors]]
+color = "0x282828"
+index = 18
+
+[[colors.indexed_colors]]
+color = "0x383838"
+index = 19
+
+[[colors.indexed_colors]]
+color = "0xb8b8b8"
+index = 20
+
+[[colors.indexed_colors]]
+color = "0xe8e8e8"
+index = 21
+
+[colors.bright]
+black = "0x585858"
+blue = "0x7cafc2"
+cyan = "0x86c1b9"
+green = "0xa1b56c"
+magenta = "0xba8baf"
+red = "0xab4642"
+white = "0xf8f8f8"
+yellow = "0xf7ca88"
+
+[colors.cursor]
+cursor = "0xd8d8d8"
+text = "0x181818"
+
+[colors.normal]
+black = "0x181818"
+blue = "0x7cafc2"
+cyan = "0x86c1b9"
+green = "0xa1b56c"
+magenta = "0xba8baf"
+red = "0xab4642"
+white = "0xd8d8d8"
+yellow = "0xf7ca88"
+
+[colors.primary]
+background = "0x181818"
+foreground = "0xd8d8d8"
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "Always"
+shape = "Underline"
+
+[font]
+{{ if eq .chezmoi.os "darwin" }}
+size = 12.0
+{{ else if (and (eq .chezmoi.os "linux") (ne .host.desktop_environment "kde")) }}
+size = 5.0
+{{ else }}
+size = 5.5
+{{ end }}
+
+[font.normal]
+family = "Hack Nerd Font"
+
+# Full list of available key codes:
+# https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#
+# On MacOS: Run `showkey` outside of Tmux (e.g. in a default terminal app),
+# type in a key combination (e.g. Ctrl+L), receive output like <CTL-L=FF>,
+# look up hex code for the ASCII mnemonic on https://www.asciitable.com
+# (for <CTL-L=FF> it is \x0c), then use it as a value for `chars`.
+{{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+# <CTRL-A>l
+chars = "\f"
+key = "L"
+mods = "Control"
+
+# Tmux bridge bindings
+# Move between panes like in i3wm
+[[keyboard.bindings]]
+chars = "\u0001j"
+key = "J"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u0001k"
+key = "K"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u0001h"
+key = "H"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u0001l"
+key = "L"
+mods = "{{ .alacritty.mod1 }}"
+
+# Resize panes like similarly to i3wm
+[[keyboard.bindings]]
+chars = "\u0001J"
+key = "J"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0001K"
+key = "K"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0001H"
+key = "H"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0001L"
+key = "L"
+mods = "Command|Shift"
+
+# See: https://github.com/alacritty/alacritty/issues/1359
+[[keyboard.bindings]]
+chars = "\u0011"
+key = "Q"
+mods = "Control"
+
+# Jump to a window with a given number
+[[keyboard.bindings]]
+chars = "\u00010" # <CTRL-A>-0
+key = "Key0"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00011" # <CTRL-A>-1
+key = "Key1"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00012" # <CTRL-A>-2
+key = "Key2"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00013" # <CTRL-A>-3
+key = "Key3"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00014" # <CTRL-A>-4
+key = "Key4"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00015" # <CTRL-A>-5
+key = "Key5"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00016" # <CTRL-A>-6
+key = "Key6"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00017" # <CTRL-A>-7
+key = "Key7"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00018" # <CTRL-A>-8
+key = "Key8"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+chars = "\u00019" # <CTRL-A>-9
+key = "Key9"
+mods = "{{ .alacritty.mod1 }}"
+
+# Open a new tmux window
+[[keyboard.bindings]]
+chars = "\u0001t" # <CTRL-A>-t
+key = "T"
+mods = "{{ .alacritty.mod1 }}"
+
+# Close a current tmux window
+[[keyboard.bindings]]
+chars = "\u0001T" # <CTRL-A>-T
+key = "T"
+mods = "Command|Shift"
+
+# Close a current tmux pane
+# (will not ask for a confirmation due
+# to a custom tmux config)
+[[keyboard.bindings]]
+chars = "\u0001x" # <CTRL-A>-x
+key = "X"
+mods = "{{ .alacritty.mod1 }}"
+
+# Disabled bindings
+[[keyboard.bindings]]
+action = "None"
+key = "F"
+mods = "Command|Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "H"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "None"
+key = "K"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "None"
+key = "M"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "None"
+key = "W"
+mods = "{{ .alacritty.mod1 }}"
+
+[[keyboard.bindings]]
+action = "None"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+{{ end }}
+
+[mouse]
+{{ if eq .chezmoi.os "darwin" }}
+hide_when_typing = false
+{{ else }}
+hide_when_typing = true
+{{ end }}
+
+[scrolling]
+history = 40000
+
+[selection]
+save_to_clipboard = true
+
+{{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
+[shell]
+args = [
+  "--login",
+  "-c",
+  {{ if eq .chezmoi.os "darwin" }}
+  "~/.scripts/macos/open_new_alacritty_session"
+  {{ else }}
+  "tmux -u attach || tmux -u -f ~/.config/tmux/tmux.conf"
+  {{ end }}
+]
+{{ if eq .chezmoi.os "darwin" }}
+program = "/opt/homebrew/bin/bash"
+{{ else }}
+program = "/usr/bin/bash"
+{{ end }}
+{{ end }}
+
+[window]
+{{ if eq .chezmoi.os "darwin" }}
+decorations = "transparent"
+{{ end }}
+
+dynamic_padding = false
+dynamic_title = true
+
+{{ if (and (eq .chezmoi.os "linux") (ne .host.desktop_environment "kde")) }}
+opacity = 0.8
+{{ end }}
+
+[window.dimensions]
+columns = 150
+lines = 50
+
+[window.padding]
+{{ if eq .chezmoi.os "darwin" }}
+x = 12
+y = 25
+{{ else }}
+x = 10
+y = 10
+{{ end }}
