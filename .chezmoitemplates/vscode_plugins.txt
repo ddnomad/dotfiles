@@ -1,3 +1,4 @@
+bazelbuild.vscode-bazel
 bungcip.better-toml
 bradlc.vscode-tailwindcss
 charliermarsh.ruff

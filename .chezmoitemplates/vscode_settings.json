@@ -103,6 +103,11 @@
 		"asvetliakov.vscode-neovim": 1
 	},
 
+	"files.associations": {
+		"*.category": "xml",
+		"*.entity": "xml",
+		"*.transform": "xml"
+	},
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
 

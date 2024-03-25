@@ -149,6 +149,7 @@ killall Dock
 /opt/homebrew/bin/brew install \
     bash \
     bash-completion@2 \
+    buildifier \
     coreutils \
     exiftool \
     findutils \
@@ -263,7 +264,9 @@ rustup install stable
 rustup default nightly
 
 # Install basic Rust dependencies
-cargo install cargo-make
+cargo install \
+    cargo-make \
+    starlark_bin
 
 # Install TPM (Tmux Plugin Manager)
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm &> /dev/null || :
