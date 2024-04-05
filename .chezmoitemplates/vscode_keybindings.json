@@ -11,6 +11,7 @@
     // Opening things
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     { "key": "{{ .vscode.mod1 }}+d", "command": "workbench.action.showCommands"},
+    { "key": "{{ .vscode.mod1 }}+backspace", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "{{ .vscode.mod1 }}+enter", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "{{ .vscode.mod1 }}+enter", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
     { "key": "{{ .vscode.mod1 }}+shift+enter", "command": "workbench.action.terminal.new", "when": "terminalFocus" },
