@@ -106,7 +106,8 @@
 	"files.associations": {
 		"*.category": "xml",
 		"*.entity": "xml",
-		"*.transform": "xml"
+		"*.transform": "xml",
+		"*.transformsettings": "xml"
 	},
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
