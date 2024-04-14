@@ -29,9 +29,9 @@ The following sofware must be installed on a target platform before the integrat
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | Linux      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/)                                                                       |
 | MacOS      | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Homebrew](https://brew.sh)                                          |
-| Windows 10 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/), [Rust Up](https://rustup.rs/) |
+| Windows 11 | [Chezmoi](https://www.chezmoi.io/), [Git](https://git-scm.com/), [Chocolatey](https://chocolatey.org/), [Rust Up](https://rustup.rs/) |
 
-MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 10 development workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install them as well.
+MacOS development workflow is based around [Alacritty](https://github.com/alacritty/alacritty) and Windows 11 development workflow is based around [VS Code](https://code.visualstudio.com/), thus on these platforms it is a good idea to install them as well.
 
 For local development on Linux or MacOS, [Cargo Make](https://sagiegurari.github.io/cargo-make) will come in handy too, as the repository contains `Makefile.toml` with several somewhat useful targets which save time when iterating on new changes.
 

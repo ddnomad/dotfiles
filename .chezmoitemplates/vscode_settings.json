@@ -106,6 +106,7 @@
 	"files.associations": {
 		"*.category": "xml",
 		"*.entity": "xml",
+		"*.tas": "xml",
 		"*.transform": "xml",
 		"*.transformsettings": "xml"
 	},
