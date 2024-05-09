@@ -1,5 +1,5 @@
-# Obsidian vault configuration that does not contain sensitive information
-docs/.obsidian/*
+# Obsidian vault configuration
+docs/.obsidian/
 !docs/.obsidian/app.json
 !docs/.obsidian/appearance.json
 !docs/.obsidian/core-plugins.json
@@ -7,7 +7,10 @@ docs/.obsidian/*
 !docs/.obsidian/hotkeys.json
 !docs/.obsidian/templates.json
 
-# Temporary directory
+# Obsidian vault trash
+docs/.trash/
+
+# Temporary directories
 temp/
 
 # Temporary files

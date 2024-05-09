@@ -11,7 +11,7 @@ source "${UTILS_DIR}"/check_has_commands.sh
 # shellcheck source=/dev/null
 source "${UTILS_DIR}"/print.sh
 
-readonly OBSIDIAN_COMMUNITY_PLUGINS_INDEX_URL=https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json
+readonly OBSIDIAN_COMMUNITY_PLUGINS_INDEX_URL="https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json"
 
 
 function install_obsidian_community_plugin {

@@ -5,7 +5,7 @@ set -euo pipefail
 function print {
     if test "$#" -ne 2; then
         >&2 echo 'Usage: print error|info|plain|success|warning <message>'
-        exit 1
+        return 1
     fi
 
     local message_type
@@ -32,7 +32,7 @@ function print {
             ;;
         * )
             print error "Unsupported message type: ${message_type}"
-            exit 1
+            return 1
             ;;
     esac
 }

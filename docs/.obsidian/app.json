@@ -1,12 +1,13 @@
 {
-  "showLineNumber": true,
+  "attachmentFolderPath": "Attachments",
   "autoPairBrackets": false,
   "autoPairMarkdown": false,
-  "useTab": false,
-  "tabSize": 2,
-  "vimMode": true,
-  "trashOption": "local",
   "newFileLocation": "current",
+  "showInlineTitle": false,
+  "showLineNumber": true,
   "showUnsupportedFiles": false,
-  "attachmentFolderPath": "Attachments"
+  "tabSize": 2,
+  "trashOption": "local",
+  "useTab": false,
+  "vimMode": true
 }

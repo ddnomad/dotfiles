@@ -1,18 +1,86 @@
 [config]
+default_to_workspace = false
 skip_core_tasks = true
 unstable_features = ["CTRL_C_HANDLING"]
 
-[tasks.docs]
+
+[tasks.check_brew_installed.mac]
+script_runner = "@shell"
+script = """
+source ./scripts/utils/check_has_commands.sh
+
+check_has_commands brew || {
+  echo 'Error: Homebrew is required to use this task, see https://brew.sh';
+  exit 1;
+}
+"""
+
+
+[tasks.init]
+dependencies = ["install_deps", "setup_docs"]
+
+
+[tasks.install_deps.linux]
+script_runner = "@shell"
+script = """
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.install_deps.mac]
+dependencies = ["check_brew_installed"]
+script_runner = "@shell"
+script = """
+brew install ansible
+"""
+
+
+[tasks.install_deps.windows]
+script_runner = "@shell"
+script = """
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.install_dev_deps.linux]
+script_runner = "@shell"
+script = """
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.install_dev_deps.mac]
+dependencies = ["check_brew_installed"]
+script_runner = "@shell"
+script = """
+brew install tart
+"""
+
+
+[tasks.install_dev_deps.windows]
+script_runner = "@shell"
+script = """
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.setup_docs]
 dependencies = [
   "install_obsidian_community_plugins",
   "install_obsidian_themes"
 ]
+
 
 [tasks.install_obsidian_community_plugins]
 script_runner = "@shell"
 script = """
 ./scripts/install_obsidian_community_plugins.sh ./docs/.obsidian_community_plugins.txt ./docs/.obsidian/
 """
+
 
 [tasks.install_obsidian_themes]
 script_runner = "@shell"

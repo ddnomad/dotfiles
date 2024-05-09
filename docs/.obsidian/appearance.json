@@ -1,6 +1,6 @@
 {
   "accentColor": "#a1b56c",
+  "cssTheme": "Minimal",
   "theme": "system",
-  "translucency": false,
-  "cssTheme": "Minimal"
+  "translucency": false
 }
