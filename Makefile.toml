@@ -7,6 +7,8 @@ unstable_features = ["CTRL_C_HANDLING"]
 [tasks.check_brew_installed.mac]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
 source ./scripts/utils/check_has_commands.sh
 
 check_has_commands brew || {
@@ -20,9 +22,15 @@ check_has_commands brew || {
 dependencies = ["install_deps", "setup_docs"]
 
 
+[tasks.init_dev]
+dependencies = ["init", "install_dev_deps", "pull_vms"]
+
+
 [tasks.install_deps.linux]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
 echo Error: Not implemented yet
 exit 1
 """
@@ -32,6 +40,8 @@ exit 1
 dependencies = ["check_brew_installed"]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
 brew install ansible
 """
 
@@ -39,6 +49,8 @@ brew install ansible
 [tasks.install_deps.windows]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
 echo Error: Not implemented yet
 exit 1
 """
@@ -47,6 +59,8 @@ exit 1
 [tasks.install_dev_deps.linux]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
 echo Error: Not implemented yet
 exit 1
 """
@@ -56,34 +70,60 @@ exit 1
 dependencies = ["check_brew_installed"]
 script_runner = "@shell"
 script = """
-brew install tart
+#!/usr/bin/env bash -euo pipefail
+
+brew install tart vagrant
 """
 
 
 [tasks.install_dev_deps.windows]
 script_runner = "@shell"
 script = """
+#!/usr/bin/env bash -euo pipefail
+
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.install_obsidian_community_plugins]
+command = "./scripts/install_obsidian_community_plugins.sh"
+args = ["./docs/.obsidian_community_plugins.txt", "./docs/.obsidian/"]
+
+
+[tasks.install_obsidian_themes]
+command = "./scripts/install_obsidian_themes.sh"
+args = ["./docs/.obsidian_themes.txt", "./docs/.obsidian/"]
+
+
+[tasks.pull_vms.linux]
+script_runner = "@shell"
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+echo Error: Not implemented yet
+exit 1
+"""
+
+
+[tasks.pull_vms.mac]
+script_runner = "@shell"
+script = """
+#!/usr/bin/env bash -euo pipefail
+
+tart clone ghcr.io/cirruslabs/macos-sonoma-base:latest sonoma-base
+"""
+
+
+[tasks.pull_vms.windows]
+script_runner = "@shell"
+script = """
+#!/usr/bin/env bash -euo pipefail
+
 echo Error: Not implemented yet
 exit 1
 """
 
 
 [tasks.setup_docs]
-dependencies = [
-  "install_obsidian_community_plugins",
-  "install_obsidian_themes"
-]
-
-
-[tasks.install_obsidian_community_plugins]
-script_runner = "@shell"
-script = """
-./scripts/install_obsidian_community_plugins.sh ./docs/.obsidian_community_plugins.txt ./docs/.obsidian/
-"""
-
-
-[tasks.install_obsidian_themes]
-script_runner = "@shell"
-script = """
-./scripts/install_obsidian_themes.sh ./docs/.obsidian_themes.txt ./docs/.obsidian/
-"""
+dependencies = ["install_obsidian_community_plugins", "install_obsidian_themes"]

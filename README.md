@@ -17,6 +17,5 @@ makers init
 Make sure [Cargo Make](https://github.com/sagiegurari/cargo-make.git) is installed in the host, then run the following commands from the project root directory:
 
 ```shell
-makers init
-makers install_dev_deps
+makers init_dev
 ```
