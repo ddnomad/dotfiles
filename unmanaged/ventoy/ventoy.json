@@ -18,8 +18,8 @@
             "alias": "ChimeraOS x86_64"
         },
         {
-            "image": "/iso/os/linux/debian-live-11.*.*-amd64-kde.iso",
-            "alias": "Debian 11 x86_64 (Live, KDE)"
+            "image": "/iso/os/linux/debian-live-12.*.*-amd64-kde.iso",
+            "alias": "Debian 12 x86_64 (Live, KDE)"
         },
         {
             "image": "/iso/os/linux/HoloISO_*.*_OfflineInstaller-********_****-x86_64.iso",
@@ -31,7 +31,7 @@
         },
         {
             "image": "/iso/os/linux/proxmox-ve_*.*-*.iso",
-            "alias": "ProxMox"
+            "alias": "ProxMox x86_64"
         },
         {
             "image": "/iso/os/linux/tails-amd64-*.**.*.img",
@@ -39,15 +39,19 @@
         },
         {
             "image": "/iso/os/linux/TrueNAS-SCALE-**.**.**.**.iso",
-            "alias": "TrueNAS Scale"
+            "alias": "TrueNAS Scale x86_64"
         },
         {
             "image": "/iso/os/unix/sol-**_*-text-x86.dms.iso",
             "alias": "Solaris 11 x86_64"
         },
         {
-            "image": "/iso/support/dell/PET420_BOOTABLE_************.iso",
+            "image": "/iso/support/dell/PET420_BOOTABLE_**.**.**.***.iso",
             "alias": "Dell PSBI (PowerEdge T420)"
+        },
+        {
+            "image": "/iso/support/dell/R730XD_BOOTABLE_**.**.**.iso",
+            "alias": "Dell PSBI (PowerEdge R730xd)"
         },
         {
             "image": "/iso/utilities/memtest86-pro-usb.img",
