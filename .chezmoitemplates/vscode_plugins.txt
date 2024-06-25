@@ -1,5 +1,4 @@
 bazelbuild.vscode-bazel
-bungcip.better-toml
 bradlc.vscode-tailwindcss
 charliermarsh.ruff
 christian-kohler.npm-intellisense
@@ -46,10 +45,15 @@ redhat.vscode-yaml
 rust-lang.rust-analyzer
 simonsiefke.svg-preview
 slevesque.vscode-3dviewer
-streetsidesoftware.code-spell-checker
+
+# NOTE: This one is too eager to bitch about keywords and string literals
+#streetsidesoftware.code-spell-checker
+
 styled-components.vscode-styled-components
+tamasfe.even-better-toml
 timonwong.shellcheck
 tomoki1207.pdf
 trond-snekvik.simple-rst
 usernamehw.errorlens
 vscodevim.vim
+yzhang.markdown-all-in-one

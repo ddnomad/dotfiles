@@ -150,8 +150,9 @@
 		"workbench.panel.output.focus",
 		"workbench.panel.repl.view.focus"
 	],
-	"terminal.integrated.shell.osx": "/opt/homebrew/bin/bash",
-	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+	"terminal.integrated.defaultProfile.linux": "bash",
+	"terminal.integrated.defaultProfile.osx": "bash",
+	"terminal.integrated.defaultProfile.windows": "bash",
 	"terminal.integrated.shellIntegration.enabled": false,
 
 	"telemetry.telemetryLevel": "off",
