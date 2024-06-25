@@ -41,7 +41,7 @@ Fresh Host Setup
 For Windows 10, see [setup guide](./docs/setup/windows_setup_guide.md). Linux and MacOS setup guides are not provided as of right now, mostly due to the fact it should be fairly trivial to figure out as is.
 
 ### Integration
-> **WARNING**: On MacOS, `Command+H` hide shortcut should be disabled for Alacritty by setting it to a different (preferably, hard to accidentally trigger) key combination. This can be done from `System Preferences -> Keyboard -> Shortcuts -> App Shortcuts`.
+> **WARNING**: On MacOS, `Command+H` hide shortcut should be disabled for Alacritty by setting it to a different (preferably, hard to accidentally trigger) key combination. This can be done from `System Preferences -> Keyboard -> Shortcuts -> App Shortcuts` (menu title value should be set exactly to `Hide alacritty`).
 
 > **WARNING**: On MacOS, `Shell Command: Install 'code' command in PATH command` must be executed from within VS Code to make the CLI `code` command available from in `$PATH` before running initial `cargo make apply` or `chezmoi apply`.
 
