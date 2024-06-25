@@ -155,6 +155,12 @@
 	"terminal.integrated.defaultProfile.windows": "bash",
 	"terminal.integrated.shellIntegration.enabled": false,
 
+    "terminal.integrated.profiles.osx": {
+		"bash": {
+			"path": "/opt/homebrew/bin/bash",
+		}
+	},
+
 	"telemetry.telemetryLevel": "off",
 
 	"vim.cursorStylePerMode.insert": "underline",
