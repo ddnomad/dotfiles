@@ -193,7 +193,7 @@ killall Dock
     # openzfs \
 
 # Install pipx packages
-pipx install \
+/opt/homebrew/bin/pipx install \
     osxphotos
 
 # Initialise Rust
@@ -269,7 +269,7 @@ readonly PIP_COMMAND
 {{ end }}
 
 # Disable Yarn analytics
-yarn config set --home enableTelemetry 0
+PATH="/opt/homebrew/bin:${PATH}" yarn config set --home enableTelemetry 0
 
 # Configure Git
 git config --global user.email "{{ .user.email }}"
@@ -291,7 +291,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm &> /dev
 # Generate missing completion scripts
 mkdir -p ~/.bash/completions
 
-pdm completion bash > ~/.bash/completions/pdm.bash-completion
+/opt/homebrew/bin/pdm completion bash > ~/.bash/completions/pdm.bash-completion
 
 find ~/.cargo/registry/src/ -type d -name 'cargo-make-*' | \
     tail -n 1 | \

@@ -64,4 +64,9 @@ Apply all changes:
 chezmoi cd && cargo make apply
 ```
 
+When using `nvim` for the first time, it is necessary to install Dein plugins first. Once `nvim` is opened, execute `:call dein#install()` and wait for the process to finish.
+
+When using Alacritty + Tmux, it is necessary to install [Tmux Powerline](https://github.com/erikw/tmux-powerline) plugins first. For that, using `Ctrl+a, Shift+i` key chord and wait for the process to finish.
+
 Please note, that files in `"$(chezmoi cd)"/unmanaged/` directory won't be applied automatically. These should be copied manually as needed, as they fall outside of `"${HOME}"` directory of a current user or just tricky to apply automatically.
+
