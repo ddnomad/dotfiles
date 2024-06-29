@@ -27,6 +27,7 @@ mads-hartmann.bash-ide-vscode
 mechatroner.rainbow-csv
 ms-azuretools.vscode-docker
 ms-ossdata.vscode-postgresql
+ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
 ms-vscode.makefile-tools
@@ -40,6 +41,7 @@ mtxr.sqltools
 mtxr.sqltools-driver-pg
 njpwerner.autodocstring
 randomfractalsinc.vscode-data-preview
+redhat.ansible
 redhat.vscode-xml
 redhat.vscode-yaml
 rust-lang.rust-analyzer
