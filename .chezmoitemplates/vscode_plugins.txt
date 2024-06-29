@@ -58,4 +58,5 @@ tomoki1207.pdf
 trond-snekvik.simple-rst
 usernamehw.errorlens
 vscodevim.vim
+wholroyd.jinja
 yzhang.markdown-all-in-one
