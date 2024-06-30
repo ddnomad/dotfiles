@@ -237,6 +237,7 @@
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabSizing": "shrink",
+	"workbench.iconTheme": "file-icons",
 	"workbench.panel.defaultLocation": "right",
 	"workbench.tree.indent": 16,
 
