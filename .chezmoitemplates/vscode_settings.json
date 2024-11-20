@@ -1,7 +1,7 @@
 {
 	"autoDocstring.docstringFormat": "sphinx",
 	"breadcrumbs.enabled": false,
-
+	
 	"commands.commands": [
 		{
 			"command": "workbench.action.toggleActivityBarVisibility",
@@ -46,7 +46,7 @@
 			"tooltip": "Extensions"
 		}
 	],
-
+	
 	// NOTE: Customize UI is broken in the latest version of VS Code.
 	// See https://github.com/iocave/customize-ui/issues/156.
 	// "customizeUI.activityBar": "bottom",
@@ -58,9 +58,9 @@
 	//	".tabs-container .tab.active": "font-weight: bold;",
 	//	".monaco-icon-label:after": "opacity: 1.0 !important;"
 	//},
-
-  "data.preview.theme": "dense.dark",
-
+	
+	"data.preview.theme": "dense.dark",
+	
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingDelete": "never",
 	"editor.autoClosingQuotes": "never",
@@ -84,7 +84,7 @@
 		"?": true
 	},
 	"editor.wordWrap": "on",
-
+	
 	"errorLens.messageTemplate": "? $source: $message ($count)",
 	"errorLens.gutterIconsEnabled": true,
 	"errorLens.gutterIconSet": "circle",
@@ -94,15 +94,16 @@
 	"errorLens.fontSize": "12",
 	"errorLens.infoGutterIconColor": "#86C1B9",
 	"errorLens.warningGutterIconColor": "#F7CA88",
-
-  "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
-
-  "explorer.compactFolders": false,
-
+	
+	"eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
+	
+	"explorer.compactFolders": false,
+	
 	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1
+		"asvetliakov.vscode-neovim": 1,
+		"vscodevim.vim": 1
 	},
-
+	
 	"files.associations": {
 		"*.category": "xml",
 		"*.entity": "xml",
@@ -113,29 +114,31 @@
 	"files.autoSave": "afterDelay",
 	"files.exclude": { "*.pyc": true },
 
+	"fold.level": 3,
+	
 	"git.decorations.enabled": false,
-
+	
 	"notebook.navigation.allowNavigateToSurroundingCells": false,
-
+	
 	"python.analysis.typeCheckingMode": "strict",
-  "python.analysis.diagnosticSeverityOverrides": {
+	"python.analysis.diagnosticSeverityOverrides": {
 		"reportUnknownMemberType": "warning",
 		"reportUnknownVariableType": "warning",
 		"reportUnusedImport": "warning",
 		"reportUnusedVariable": "warning"
 	},
-
+	
 	"redhat.telemetry.enabled": false,
-
+	
 	"rust-analyzer.checkOnSave.command": "clippy",
 	"rust-analyzer.check.extraArgs": [
 		"--",
 		"-Wclippy::all"
 	],
 	"rust-analyzer.rustfmt.enableRangeFormatting": true,
-
+	
 	"svgPreview.autoOpen": false,
-
+	
 	"terminal.external.linuxExec": "alacritty",
 	"terminal.external.osxExec": "Alacritty.app",
 	"terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowershell\\v1.0\\powershell.exe",
@@ -154,15 +157,15 @@
 	"terminal.integrated.defaultProfile.osx": "bash",
 	"terminal.integrated.defaultProfile.windows": "bash",
 	"terminal.integrated.shellIntegration.enabled": false,
-
-    "terminal.integrated.profiles.osx": {
+	
+	"terminal.integrated.profiles.osx": {
 		"bash": {
-			"path": "/opt/homebrew/bin/bash",
+			"path": "/opt/homebrew/bin/bash"
 		}
 	},
-
+	
 	"telemetry.telemetryLevel": "off",
-
+	
 	"vim.cursorStylePerMode.insert": "underline",
 	"vim.cursorStylePerMode.normal": "underline",
 	"vim.cursorStylePerMode.replace": "underline",
@@ -171,35 +174,39 @@
 	"vim.cursorStylePerMode.visualline": "underline",
 	"vim.incsearch": true,
 	"vim.useSystemClipboard": true,
-
+	
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{ "before": ["z", "X"], "commands": ["fold.foldLevelDefault"] }
+	],
+	
 	"vscode-neovim.neovimInitVimPaths.darwin": "~/Library/Application Support/Code/User/neovim_settings.lua",
 	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/Code/User/neovim_settings.lua",
 	"vscode-neovim.neovimInitVimPaths.win32": "~/AppData/Roaming/Code/User/neovim_settings.lua",
-
+	
 	"window.commandCenter": false,
 	"window.customMenuBarAltFocus": false,
 	"window.titleBarStyle": "custom",
-
+	
 	"workbench.colorCustomizations": {
 		"editorGroupHeader.tabsBackground": "#181818",
-
+		
 		"editorIndentGuide.background": "#282828",
 		"editorIndentGuide.activeBackground": "#585858",
-
+		
 		"editorInlayHint.background": "#FFFFFF00",
 		"editorInlayHint.foreground": "#585858",
 		"editorInlayHint.parameterBackground": "#FFFFFF00",
 		"editorInlayHint.parameterForeground": "#585858",
 		"editorInlayHint.typeBackground": "#FFFFFF00",
 		"editorInlayHint.typeForeground": "#585858",
-
+		
 		"errorLens.errorBackground": "#AB464211",
 		"errorLens.errorForeground": "#AB4642",
 		"errorLens.infoBackground": "#86C1B911",
 		"errorLens.infoForeground": "#86C1B9",
 		"errorLens.warningBackground": "#F7CA8811",
 		"errorLens.warningForeground": "#F7CA88",
-
+		
 		"focusBorder":"#282828",
 		"list.activeSelectionBackground": "#282828",
 		"list.focusBackground": "#282828",
@@ -229,7 +236,7 @@
 		"tree.indentGuidesStroke": "#383838"
 	},
 	"workbench.colorTheme": "Base16 Default Dark",
-
+	
 	"workbench.editor.closeEmptyGroups": true,
 	"workbench.editor.decorations.colors": false,
 	"workbench.editor.decorations.badges": true,
@@ -237,14 +244,13 @@
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabSizing": "shrink",
-    "workbench.editor.labelFormat": "medium",
+	"workbench.editor.labelFormat": "medium",
 	"workbench.iconTheme": "file-icons",
 	"workbench.panel.defaultLocation": "right",
 	"workbench.tree.indent": 16,
-
+	
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer",
 		"editor.formatOnSave": true
 	}
 }
-
