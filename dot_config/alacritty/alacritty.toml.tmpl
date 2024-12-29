@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [bell]
@@ -321,7 +322,7 @@ history = 40000
 save_to_clipboard = true
 
 {{ if (or (eq .chezmoi.os "darwin") (eq .host.desktop_environment "kde")) }}
-[shell]
+[terminal.shell]
 args = [
   "--login",
   "-c",

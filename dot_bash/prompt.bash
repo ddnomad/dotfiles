@@ -40,7 +40,7 @@ function assemble_prompt {
 
         # Running inside an environment created by Pipenv or Poetry outside of the project directory
         else
-                loca virtualenv_name
+                local virtualenv_name
                 virtualenv_name="$(basename "${VIRTUAL_ENV}" | tr -d $'\n' | tr -d $'\r')"
                 virtualenv_name="${virtualenv_name::-9}"
         fi
