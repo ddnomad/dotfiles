@@ -283,9 +283,9 @@ git config --global user.email "{{ .user.email }}"
 git config --global user.name "{{ .user.name }}"
 
 # Install and set a default Rust toolchain
-rustup install nightly
-rustup install stable
-rustup default nightly
+/opt/homebrew/bin/rustup install nightly
+/opt/homebrew/bin/rustup install stable
+/opt/homebrew/bin/rustup default nightly
 
 # Install basic Rust dependencies
 cargo install \
