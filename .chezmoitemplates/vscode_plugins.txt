@@ -15,6 +15,7 @@ formulahendry.code-runner
 golf1052.base16-generator
 gruntfuggly.todo-tree
 GraphQL.vscode-graphql
+hashicorp.terraform
 
 # NOTE: Customize UI is broken in the latest version of VS Code.
 # See https://github.com/iocave/customize-ui/issues/156.
