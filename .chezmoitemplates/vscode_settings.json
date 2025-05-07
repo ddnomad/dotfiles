@@ -130,11 +130,15 @@
 	
 	"redhat.telemetry.enabled": false,
 	
-	"rust-analyzer.checkOnSave.command": "clippy",
-	"rust-analyzer.check.extraArgs": [
-		"--",
-		"-Wclippy::all"
-	],
+    "rust-analyzer.check.overrideCommand": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--message-format=json",
+        "--all-targets",
+        "--",
+        "-Wclippy::pedantic",
+    ],
 	"rust-analyzer.rustfmt.enableRangeFormatting": true,
 	
 	"svgPreview.autoOpen": false,
