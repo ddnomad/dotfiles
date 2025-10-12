@@ -8,7 +8,6 @@ davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 editorconfig.editorconfig
 exiasr.hadolint
-fabiospampinato.vscode-commands
 felicio.vscode-fold
 file-icons.file-icons
 formulahendry.code-runner
