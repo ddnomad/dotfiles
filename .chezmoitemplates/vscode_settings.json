@@ -60,7 +60,8 @@
 	//},
 	
 	"data.preview.theme": "dense.dark",
-	
+
+	"editor.acceptSuggestionOnCommitCharacter": false,
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingDelete": "never",
 	"editor.autoClosingQuotes": "never",
