@@ -32,7 +32,7 @@ fi
 
 if [ -z "${TMUX_POWERLINE_WINDOW_STATUS_FORMAT}" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
-        "#{?window_activity_flag,#[fg=colour3 bg=black],#[$(format regular)]}" \
+        "#{?window_activity_flag,#[fg=colour3 bg=black],#[$(format regular | tr ',' ' ')]}" \
 		"  #I#{?window_flags,#F, } " \
 		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
 		" #W "
