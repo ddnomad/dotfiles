@@ -1,176 +1,46 @@
 {
-	"autoDocstring.docstringFormat": "sphinx",
 	"breadcrumbs.enabled": false,
-	
-	"commands.commands": [
-		{
-			"command": "workbench.action.toggleActivityBarVisibility",
-			"priority": 1000,
-			"text": "$(three-bars)",
-			"tooltip": "Explorer"
-		},
-		{
-			"command": "workbench.view.explorer",
-			"priority": 1000,
-			"text": "$(file-directory)",
-			"tooltip": "Explorer"
-		},
-		{
-			"command": "workbench.view.search",
-			"priority": 1000,
-			"text": "$(search)",
-			"tooltip": "Search"
-		},
-		{
-			"command": "workbench.view.scm",
-			"priority": 1000,
-			"text": "$(git-merge)",
-			"tooltip": "Source Control"
-		},
-		{
-			"command": "workbench.view.debug",
-			"priority": 1000,
-			"text": "$(bug)",
-			"tooltip": "Debug"
-		},
-		{
-			"command": "todo-tree-view.focus",
-			"priority": 1000,
-			"text": "$(checklist)",
-			"tooltip": "TODOs"
-		},
-		{
-			"command": "workbench.view.extensions",
-			"priority": 1000,
-			"text": "$(package)",
-			"tooltip": "Extensions"
-		}
-	],
-	
-	// NOTE: Customize UI is broken in the latest version of VS Code.
-	// See https://github.com/iocave/customize-ui/issues/156.
-	// "customizeUI.activityBar": "bottom",
-	// "customizeUI.activityBarHideSettings": true,
-	// "customizeUI.listRowHeight": 20,
-	// "customizeUI.stylesheet": {
-	//	"#workbench\\.parts\\.titlebar > a": "display: none !important;",
-	//	".scrollbar": "height: 0 !important; width: 0 !important;",
-	//	".tabs-container .tab.active": "font-weight: bold;",
-	//	".monaco-icon-label:after": "opacity: 1.0 !important;"
-	//},
-	
-	"data.preview.theme": "dense.dark",
 
-	"editor.acceptSuggestionOnCommitCharacter": false,
-	"editor.autoClosingBrackets": "never",
-	"editor.autoClosingDelete": "never",
-	"editor.autoClosingQuotes": "never",
+	"chat.disableAIFeatures": true,
+	"chat.titleBar.openInAgentsWindow.enabled": false,
+
+	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.renderSideBySide": false,
+
+	"editor.bracketPairColorization.enabled": false,
 	"editor.cursorStyle": "underline",
-	"editor.fontSize": 12,
 	"editor.fontFamily": "Hack Nerd Font Mono",
-	"editor.formatOnSave": true,
-	"editor.formatOnType": true,
-	"editor.hideCursorInOverviewRuler": true,
+	"editor.fontSize": 12,
+	"editor.guides.bracketPairs": false,
+	"editor.inlayHints.enabled": "offUnlessPressed",
 	"editor.lineNumbers": "relative",
 	"editor.minimap.enabled": false,
-	"editor.overviewRulerBorder": false,
 	"editor.renderWhitespace": "boundary",
-	"editor.scrollBeyondLastLine": false,
-	"editor.scrollbar.horizontal": "hidden",
-	"editor.scrollbar.horizontalScrollbarSize": 0,
-	"editor.scrollbar.vertical": "hidden",
-	"editor.scrollbar.verticalScrollbarSize": 0,
-	"editor.tabCompletion": "on",
-	"editor.unicodeHighlight.allowedCharacters": {
-		"?": true
-	},
-	"editor.wordWrap": "on",
-	
-	"errorLens.messageTemplate": "? $source: $message ($count)",
-	"errorLens.gutterIconsEnabled": true,
-	"errorLens.gutterIconSet": "circle",
-	"errorLens.gutterIconSize": "81%",
-	"errorLens.errorGutterIconColor": "#AB4642",
-	"errorLens.fontStyleItalic": true,
-	"errorLens.fontSize": "12",
-	"errorLens.infoGutterIconColor": "#86C1B9",
-	"errorLens.warningGutterIconColor": "#F7CA88",
-	
-	"eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
-	
-	"explorer.compactFolders": false,
-	
-	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1,
-		"vscodevim.vim": 1
-	},
-	
-	"files.associations": {
-		"*.category": "xml",
-		"*.entity": "xml",
-		"*.tas": "xml",
-		"*.transform": "xml",
-		"*.transformsettings": "xml"
-	},
-	"files.autoSave": "afterDelay",
-	"files.exclude": { "*.pyc": true },
-
-	"fold.level": 3,
-	
-	"git.decorations.enabled": false,
-	
-	"notebook.navigation.allowNavigateToSurroundingCells": false,
-	
-	"python.analysis.typeCheckingMode": "strict",
-	"python.analysis.diagnosticSeverityOverrides": {
-		"reportUnknownMemberType": "warning",
-		"reportUnknownVariableType": "warning",
-		"reportUnusedImport": "warning",
-		"reportUnusedVariable": "warning"
-	},
-	
-	"redhat.telemetry.enabled": false,
-	
-    "rust-analyzer.check.overrideCommand": [
-        "cargo",
-        "clippy",
-        "--workspace",
-        "--message-format=json",
-        "--all-targets",
-        "--",
-        "-Wclippy::pedantic",
-    ],
-	"rust-analyzer.rustfmt.enableRangeFormatting": true,
-	
-	"svgPreview.autoOpen": false,
-	
-	"terminal.external.linuxExec": "alacritty",
-	"terminal.external.osxExec": "Alacritty.app",
-	"terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowershell\\v1.0\\powershell.exe",
-	"terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.cursorStyle": "underline",
-	"terminal.integrated.localEchoExcludePrograms": [ "vim", "vi", "nano", "tmux", "nvim" ],
-	"terminal.integrated.commandsToSkipShell": [
-		"~remote.forwardedPorts.focus",
-		"workbench.action.problems.focus",
-		"workbench.panel.output.focus",
-		"workbench.panel.repl.view.focus"
+	"editor.rulers": [
+		150
 	],
-	"terminal.integrated.defaultProfile.linux": "bash",
-	"terminal.integrated.defaultProfile.osx": "bash",
-	"terminal.integrated.defaultProfile.windows": "bash",
-	"terminal.integrated.shellIntegration.enabled": false,
-	
-	"terminal.integrated.profiles.osx": {
-		"bash": {
-			"path": "/opt/homebrew/bin/bash"
-		}
-	},
-	
-	"telemetry.telemetryLevel": "off",
-	
+	"editor.scrollBeyondLastLine": false,
+	"editor.wordWrap": "on",
+
+	"files.autoSave": "afterDelay",
+	"fold.level": 3,
+	"git.autofetch": true,
+
+	"gitlab.duo.enabledWithoutGitlabProject": false,
+	"gitlab.duoAgentPlatform.enabled": false,
+	"gitlab.duoChat.enabled": false,
+	"gitlab.duoCodeSuggestions.enabled": false,
+	"gitlab.duoCodeSuggestions.openTabsContext": false,
+	"gitlab.keybindingHints.enabled": false,
+
+	"intellij.dataSharing": "none",
+	"intellij.region": "europe",
+
+	"python.analysis.typeCheckingMode": "strict",
+
+	"terminal.integrated.initialHint": false,
+	"terminal.integrated.cursorStyle": "underline",
+
 	"vim.cursorStylePerMode.insert": "underline",
 	"vim.cursorStylePerMode.normal": "underline",
 	"vim.cursorStylePerMode.replace": "underline",
@@ -179,83 +49,20 @@
 	"vim.cursorStylePerMode.visualline": "underline",
 	"vim.incsearch": true,
 	"vim.useSystemClipboard": true,
-	
-	"vim.normalModeKeyBindingsNonRecursive": [
-		{ "before": ["z", "X"], "commands": ["fold.foldLevelDefault"] }
-	],
-	
-	"vscode-neovim.neovimInitVimPaths.darwin": "~/Library/Application Support/Code/User/neovim_settings.lua",
-	"vscode-neovim.neovimInitVimPaths.linux": "~/.config/Code/User/neovim_settings.lua",
-	"vscode-neovim.neovimInitVimPaths.win32": "~/AppData/Roaming/Code/User/neovim_settings.lua",
-	
-	"window.commandCenter": false,
-	"window.customMenuBarAltFocus": false,
-	"window.titleBarStyle": "custom",
-	
-	"workbench.colorCustomizations": {
-		"editorGroupHeader.tabsBackground": "#181818",
-		
-		"editorIndentGuide.background": "#282828",
-		"editorIndentGuide.activeBackground": "#585858",
-		
-		"editorInlayHint.background": "#FFFFFF00",
-		"editorInlayHint.foreground": "#585858",
-		"editorInlayHint.parameterBackground": "#FFFFFF00",
-		"editorInlayHint.parameterForeground": "#585858",
-		"editorInlayHint.typeBackground": "#FFFFFF00",
-		"editorInlayHint.typeForeground": "#585858",
-		
-		"errorLens.errorBackground": "#AB464211",
-		"errorLens.errorForeground": "#AB4642",
-		"errorLens.infoBackground": "#86C1B911",
-		"errorLens.infoForeground": "#86C1B9",
-		"errorLens.warningBackground": "#F7CA8811",
-		"errorLens.warningForeground": "#F7CA88",
-		
-		"focusBorder":"#282828",
-		"list.activeSelectionBackground": "#282828",
-		"list.focusBackground": "#282828",
-		"list.hoverBackground": "#282828",
-		"list.inactiveFocusBackground": "#FF000000",
-		"list.inactiveSelectionBackground": "#282828",
-		"pickerGroup.border": "#3D3D3D",
-		"quickInput.background": "#282828",
-		"quickInputList.focusBackground": "#383838",
-		"selection.background": "#585858",
-		"sideBar.background": "#181818",
-		"sideBar.border": "#3D3D3D",
-		"sideBarSectionHeader.background": "#181818",
-		"sideBarSectionHeader.border": "#3D3D3D",
-		"statusBar.background": "#282828",
-		"statusBarItem.remoteBackground": "#282828",
-		"symbolIcon.objectForeground": "#BA8BAF",
-		"tab.activeBackground": "#282828",
-		"tab.activeForeground": "#D8D8D8",
-		"tab.border": "#FF000000",
-		"tab.hoverBackground": "#282828",
-		"tab.hoverForeground": "#D8D8D8",
-		"tab.inactiveBackground": "#181818",
-		"tab.inactiveForeground": "#D8D8D8",
-		"tab.unfocusedHoverBackground": "#282828",
-		"tab.unfocusedHoverForeground": "#D8D8D8",
-		"tree.indentGuidesStroke": "#383838"
-	},
+
+	"workbench.activityBar.compact": true,
+	"workbench.activityBar.location": "top",
 	"workbench.colorTheme": "Base16 Default Dark",
-	
-	"workbench.editor.closeEmptyGroups": true,
-	"workbench.editor.decorations.colors": false,
-	"workbench.editor.decorations.badges": true,
-	"workbench.editor.enablePreview": true,
-	"workbench.editor.enablePreviewFromQuickOpen": true,
-	"workbench.editor.showIcons": false,
-	"workbench.editor.tabSizing": "shrink",
-	"workbench.editor.labelFormat": "medium",
+	"workbench.experimental.modernUI": false,
 	"workbench.iconTheme": "file-icons",
-	"workbench.panel.defaultLocation": "right",
-	"workbench.tree.indent": 16,
-	
-	"[rust]": {
-		"editor.defaultFormatter": "rust-lang.rust-analyzer",
-		"editor.formatOnSave": true
-	}
+	"workbench.tree.renderIndentGuides": "onHover",
+
+	"yaml.disableSchemaDetection": [
+		"**/.github/workflows/*.yml",
+		"**/.github/workflows/*.yaml",
+		"**/.gitea/workflows/*.yml",
+		"**/.gitea/workflows/*.yaml",
+		"**/.forgejo/workflows/*.yml",
+		"**/.forgejo/workflows/*.yaml"
+	]
 }

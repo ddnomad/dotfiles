@@ -12,7 +12,6 @@ felicio.vscode-fold
 file-icons.file-icons
 formulahendry.code-runner
 golf1052.base16-generator
-gruntfuggly.todo-tree
 GraphQL.vscode-graphql
 hashicorp.terraform
 
