@@ -208,9 +208,6 @@ killall Dock
     archivebox \
     osxphotos
 
-# Initialise Rust
-/opt/homebrew/bin/rustup-init
-
 # NOTE: Deprecated as of 2024-06-15
 #/opt/homebrew/bin/brew tap homebrew/cask-fonts
 
@@ -293,7 +290,7 @@ git config --global user.name "{{ .user.name }}"
 /opt/homebrew/bin/rustup default nightly
 
 # Install basic Rust dependencies
-cargo install \
+cargo +stable install --locked \
     cargo-make \
     starlark_bin
 
